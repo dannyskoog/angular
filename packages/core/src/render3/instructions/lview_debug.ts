@@ -330,8 +330,8 @@ export class LViewDebug {
   /**
    * Normalized view of child views (and containers) attached at this location.
    */
-  get childViews(): Array<LViewDebug|LContainerDebug> {
-    const childViews: Array<LViewDebug|LContainerDebug> = [];
+  get childViews(): (LViewDebug|LContainerDebug)[] {
+    const childViews: (LViewDebug|LContainerDebug)[] = [];
     let child = this.childHead;
     while (child) {
       childViews.push(child);

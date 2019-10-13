@@ -44,7 +44,7 @@ export const PENDING = 'PENDING';
  */
 export const DISABLED = 'DISABLED';
 
-function _find(control: AbstractControl, path: Array<string|number>| string, delimiter: string) {
+function _find(control: AbstractControl, path: (string|number)[]| string, delimiter: string) {
   if (path == null) return null;
 
   if (!Array.isArray(path)) {
@@ -706,7 +706,7 @@ export abstract class AbstractControl {
    *
    * * `this.form.get(['person', 'name']);`
    */
-  get(path: Array<string|number>|string): AbstractControl|null { return _find(this, path, '.'); }
+  get(path: (string|number)[]|string): AbstractControl|null { return _find(this, path, '.'); }
 
   /**
    * @description
@@ -735,7 +735,7 @@ export abstract class AbstractControl {
    * @returns error data for that particular error. If the control or error is not present,
    * null is returned.
    */
-  getError(errorCode: string, path?: Array<string|number>|string): any {
+  getError(errorCode: string, path?: (string|number)[]|string): any {
     const control = path ? this.get(path) : this;
     return control && control.errors ? control.errors[errorCode] : null;
   }
@@ -770,7 +770,7 @@ export abstract class AbstractControl {
    *
    * If the control is not present, false is returned.
    */
-  hasError(errorCode: string, path?: Array<string|number>|string): boolean {
+  hasError(errorCode: string, path?: (string|number)[]|string): boolean {
     return !!this.getError(errorCode, path);
   }
 

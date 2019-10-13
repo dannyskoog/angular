@@ -1193,7 +1193,7 @@ export class CompileMetadataResolver {
   }
 }
 
-function flattenArray(tree: any[], out: Array<any> = []): Array<any> {
+function flattenArray(tree: any[], out: any[] = []): any[] {
   if (tree) {
     for (let i = 0; i < tree.length; i++) {
       const item = resolveForwardRef(tree[i]);
@@ -1207,14 +1207,14 @@ function flattenArray(tree: any[], out: Array<any> = []): Array<any> {
   return out;
 }
 
-function dedupeArray(array: any[]): Array<any> {
+function dedupeArray(array: any[]): any[] {
   if (array) {
     return Array.from(new Set(array));
   }
   return [];
 }
 
-function flattenAndDedupeArray(tree: any[]): Array<any> {
+function flattenAndDedupeArray(tree: any[]): any[] {
   return dedupeArray(flattenArray(tree));
 }
 

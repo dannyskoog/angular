@@ -101,7 +101,7 @@ export class ChromeDriverExtension extends WebDriverExtension {
   }
 
   private _convertPerfRecordsToEvents(
-      chromeEvents: Array<{[key: string]: any}>, normalizedEvents: PerfLogEvent[]|null = null) {
+      chromeEvents: {[key: string]: any}[], normalizedEvents: PerfLogEvent[]|null = null) {
     if (!normalizedEvents) {
       normalizedEvents = [];
     }

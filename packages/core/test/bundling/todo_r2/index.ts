@@ -28,7 +28,7 @@ class Todo {
 
 @Injectable({providedIn: 'root'})
 class TodoStore {
-  todos: Array<Todo> = [
+  todos: Todo[] = [
     new Todo('Demonstrate Components'),
     new Todo('Demonstrate Structural Directives', true),
     new Todo('Demonstrate NgModules'),

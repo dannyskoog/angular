@@ -50,7 +50,7 @@ describe('symbol query', () => {
   });
 
   it('should return correct built-in types', () => {
-    const tests: Array<[BuiltinType, boolean, ts.TypeFlags?]> = [
+    const tests: [BuiltinType, boolean, ts.TypeFlags?][] = [
       // builtinType, throws, want
       [BuiltinType.Any, false, ts.TypeFlags.Any],
       [BuiltinType.Boolean, false, ts.TypeFlags.BooleanLiteral],

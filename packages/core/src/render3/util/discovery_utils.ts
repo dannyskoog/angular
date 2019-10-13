@@ -182,7 +182,7 @@ export function getInjectionTokens(element: Element): any[] {
  *
  * @publicApi
  */
-export function getDirectives(target: {}): Array<{}> {
+export function getDirectives(target: {}): {}[] {
   const context = loadLContext(target) !;
 
   if (context.directives === undefined) {

@@ -50,7 +50,7 @@ export abstract class NgControl extends AbstractControlDirective {
    *
    * @internal
    */
-  _rawValidators: Array<Validator|ValidatorFn> = [];
+  _rawValidators: (Validator|ValidatorFn)[] = [];
 
   /**
    * @description
@@ -58,7 +58,7 @@ export abstract class NgControl extends AbstractControlDirective {
    *
    * @internal
    */
-  _rawAsyncValidators: Array<AsyncValidator|AsyncValidatorFn> = [];
+  _rawAsyncValidators: (AsyncValidator|AsyncValidatorFn)[] = [];
 
   /**
    * @description

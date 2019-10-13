@@ -40,7 +40,7 @@ export function getComponentDeclaration(componentStr: string, className: string)
  */
 export function getBoundTemplate(
     template: string, options: ParseTemplateOptions = {},
-    components: Array<{selector: string, declaration: ClassDeclaration}> =
+    components: {selector: string, declaration: ClassDeclaration}[] =
         []): BoundTarget<ComponentMeta> {
   const matcher = new SelectorMatcher<ComponentMeta>();
   components.forEach(({selector, declaration}) => {

@@ -4046,7 +4046,7 @@ describe('Integration', () => {
              class LoadedModule {
              }
 
-             const events: Array<RouteConfigLoadStart|RouteConfigLoadEnd> = [];
+             const events: (RouteConfigLoadStart|RouteConfigLoadEnd)[] = [];
 
              router.events.subscribe(e => {
                if (e instanceof RouteConfigLoadStart || e instanceof RouteConfigLoadEnd) {

@@ -159,7 +159,7 @@ export interface CompileTypeMetadata extends CompileIdentifierMetadata {
 }
 
 export interface CompileQueryMetadata {
-  selectors: Array<CompileTokenMetadata>;
+  selectors: CompileTokenMetadata[];
   descendants: boolean;
   first: boolean;
   propertyName: string;
@@ -697,7 +697,7 @@ export class ProviderMeta {
   }
 }
 
-export function flatten<T>(list: Array<T|T[]>): T[] {
+export function flatten<T>(list: (T|T[])[]): T[] {
   return list.reduce((flat: any[], item: T | T[]): T[] => {
     const flatItem = Array.isArray(item) ? flatten(item) : item;
     return (<T[]>flat).concat(flatItem);

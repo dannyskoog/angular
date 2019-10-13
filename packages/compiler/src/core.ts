@@ -70,7 +70,7 @@ export interface Component extends Directive {
   animations?: any[];
   encapsulation?: ViewEncapsulation;
   interpolation?: [string, string];
-  entryComponents?: Array<Type|any[]>;
+  entryComponents?: (Type|any[])[];
   preserveWhitespaces?: boolean;
 }
 export enum ViewEncapsulation {
@@ -115,12 +115,12 @@ export const createHostListener = makeMetadataFactory<HostListener>(
 
 export interface NgModule {
   providers?: Provider[];
-  declarations?: Array<Type|any[]>;
-  imports?: Array<Type|ModuleWithProviders|any[]>;
-  exports?: Array<Type|any[]>;
-  entryComponents?: Array<Type|any[]>;
-  bootstrap?: Array<Type|any[]>;
-  schemas?: Array<SchemaMetadata|any[]>;
+  declarations?: (Type|any[])[];
+  imports?: (Type|ModuleWithProviders|any[])[];
+  exports?: (Type|any[])[];
+  entryComponents?: (Type|any[])[];
+  bootstrap?: (Type|any[])[];
+  schemas?: (SchemaMetadata|any[])[];
   id?: string;
 }
 export const createNgModule =
@@ -136,7 +136,7 @@ export interface Injectable {
   useExisting?: Type|any;
   useValue?: any;
   useFactory?: Type|any;
-  deps?: Array<Type|any[]>;
+  deps?: (Type|any[])[];
 }
 export const createInjectable =
     makeMetadataFactory('Injectable', (injectable: Injectable = {}) => injectable);

@@ -6,6 +6,17 @@
     "node_modules/tslint-no-toplevel-property-access/rules"
   ],
   "rules": {
+    "array-type": [
+      true,
+      "array"
+    ],
+    "ban-types": [
+      true,
+      [
+        "ReadonlyArray<.+>",
+        "Use 'readonly T[]' instead."
+      ]
+    ],
     "file-header": [
       true,
       "Copyright Google Inc\\."

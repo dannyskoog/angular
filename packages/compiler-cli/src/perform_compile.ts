@@ -239,7 +239,7 @@ export function performCompilation(
     }): PerformCompilationResult {
   let program: api.Program|undefined;
   let emitResult: ts.EmitResult|undefined;
-  let allDiagnostics: Array<ts.Diagnostic|api.Diagnostic> = [];
+  let allDiagnostics: (ts.Diagnostic|api.Diagnostic)[] = [];
   try {
     if (!host) {
       host = ng.createCompilerHost({options});
@@ -284,7 +284,7 @@ export function performCompilation(
   }
 }
 export function defaultGatherDiagnostics(program: api.Program): Diagnostics {
-  const allDiagnostics: Array<ts.Diagnostic|api.Diagnostic> = [];
+  const allDiagnostics: (ts.Diagnostic|api.Diagnostic)[] = [];
 
   function checkDiagnostics(diags: Diagnostics | undefined) {
     if (diags) {

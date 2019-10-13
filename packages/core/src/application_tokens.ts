@@ -44,7 +44,7 @@ function _randomChar(): string {
  * A function that will be executed when a platform is initialized.
  * @publicApi
  */
-export const PLATFORM_INITIALIZER = new InjectionToken<Array<() => void>>('Platform Initializer');
+export const PLATFORM_INITIALIZER = new InjectionToken<(() => void)[]>('Platform Initializer');
 
 /**
  * A token that indicates an opaque platform id.
@@ -61,7 +61,7 @@ export const PLATFORM_ID = new InjectionToken<Object>('Platform ID');
  * @publicApi
  */
 export const APP_BOOTSTRAP_LISTENER =
-    new InjectionToken<Array<(compRef: ComponentRef<any>) => void>>('appBootstrapListener');
+    new InjectionToken<((compRef: ComponentRef<any>) => void)[]>('appBootstrapListener');
 
 /**
  * A token which indicates the root directory of the application

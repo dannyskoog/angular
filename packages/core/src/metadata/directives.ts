@@ -543,7 +543,7 @@ export interface Component extends Directive {
    * Angular creates a {@link ComponentFactory} and stores it in the
    * {@link ComponentFactoryResolver}.
    */
-  entryComponents?: Array<Type<any>|any[]>;
+  entryComponents?: (Type<any>|any[])[];
 
   /**
    * True to preserve or false to remove potentially superfluous whitespace characters

@@ -13,7 +13,7 @@ import {flatten} from '../util/array_utils';
 import {getSymbolIterator} from '../util/symbol';
 
 function symbolIterator<T>(this: QueryList<T>): Iterator<T> {
-  return ((this as any as{_results: Array<T>})._results as any)[getSymbolIterator()]();
+  return ((this as any as{_results: T[]})._results as any)[getSymbolIterator()]();
 }
 
 /**
@@ -44,7 +44,7 @@ function symbolIterator<T>(this: QueryList<T>): Iterator<T> {
  */
 export class QueryList<T>/* implements Iterable<T> */ {
   public readonly dirty = true;
-  private _results: Array<T> = [];
+  private _results: T[] = [];
   public readonly changes: Observable<any> = new EventEmitter();
 
   readonly length: number = 0;
@@ -121,7 +121,7 @@ export class QueryList<T>/* implements Iterable<T> */ {
    *
    * @param resultsTree The query results to store
    */
-  reset(resultsTree: Array<T|any[]>): void {
+  reset(resultsTree: (T|any[])[]): void {
     this._results = flatten(resultsTree);
     (this as{dirty: boolean}).dirty = false;
     (this as{length: number}).length = this._results.length;

@@ -148,7 +148,7 @@ export class NodeInjectorFactory {
   /**
    * An array of factories to use in case of `multi` provider.
    */
-  multi?: Array<() => any>;
+  multi?: (() => any)[];
 
   /**
    * Number of `multi`-providers which belong to the component.

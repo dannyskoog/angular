@@ -528,7 +528,7 @@ import {BaseRequestOptions, ConnectionBackend, Http, HttpModule, JSONPBackend, J
                http.get(
                    'https://www.google.com',
                    new RequestOptions({responseType: ResponseContentType.ArrayBuffer})))
-               .subscribe((res: Array<any>) => {
+               .subscribe((res: any[]) => {
                  expect(res[0].text()).toEqual(res[1].text());
                  expect(res[1].text()).toEqual(res[2].text());
                  async.done();

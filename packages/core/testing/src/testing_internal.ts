@@ -47,7 +47,7 @@ export type TestFn = ((done: DoneFn) => any) | (() => any);
  * Note: Jasmine own `beforeEach` is used by this library to handle DI providers.
  */
 class BeforeEachRunner {
-  private _fns: Array<Function> = [];
+  private _fns: Function[] = [];
 
   constructor(private _parent: BeforeEachRunner) {}
 

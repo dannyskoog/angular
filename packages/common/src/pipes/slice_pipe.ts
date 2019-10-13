@@ -61,7 +61,7 @@ export class SlicePipe implements PipeTransform {
    *   - **if positive**: return all items before `end` index of the list or string.
    *   - **if negative**: return all items before `end` index from the end of the list or string.
    */
-  transform<T>(value: ReadonlyArray<T>, start: number, end?: number): Array<T>;
+  transform<T>(value: ReadonlyArray<T>, start: number, end?: number): T[];
   transform(value: string, start: number, end?: number): string;
   transform(value: null, start: number, end?: number): null;
   transform(value: undefined, start: number, end?: number): undefined;

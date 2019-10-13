@@ -64,7 +64,7 @@ export class NgTscPlugin implements TscPlugin {
   }
 
   createTransformers(host: PluginCompilerHost) {
-    const afterDeclarations: Array<ts.TransformerFactory<ts.SourceFile|ts.Bundle>> =
+    const afterDeclarations: ts.TransformerFactory<ts.SourceFile|ts.Bundle>[] =
         [(context: ts.TransformationContext) => (sf: ts.SourceFile | ts.Bundle) => {
           const visitor = (node: ts.Node): ts.Node => {
             if (ts.isClassDeclaration(node)) {

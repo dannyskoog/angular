@@ -369,7 +369,7 @@ class AngularCompilerProgram implements Program {
       };
     }
     this.emittedGeneratedFiles = genFiles;
-    const outSrcMapping: Array<{sourceFile: ts.SourceFile, outFileName: string}> = [];
+    const outSrcMapping: {sourceFile: ts.SourceFile, outFileName: string}[] = [];
     const genFileByFileName = new Map<string, GeneratedFile>();
     genFiles.forEach(genFile => genFileByFileName.set(genFile.genFileUrl, genFile));
     this.emittedLibrarySummaries = [];
@@ -568,7 +568,7 @@ class AngularCompilerProgram implements Program {
       genFiles: Map<string, GeneratedFile>|undefined, partialModules: PartialModule[]|undefined,
       stripDecorators: Set<StaticSymbol>|undefined,
       customTransformers?: CustomTransformers): ts.CustomTransformers {
-    const beforeTs: Array<ts.TransformerFactory<ts.SourceFile>> = [];
+    const beforeTs: ts.TransformerFactory<ts.SourceFile>[] = [];
     const metadataTransforms: MetadataTransformer[] = [];
     const flatModuleMetadataTransforms: MetadataTransformer[] = [];
     if (this.options.enableResourceInlining) {

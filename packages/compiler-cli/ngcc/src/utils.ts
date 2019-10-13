@@ -27,7 +27,7 @@ export interface PartiallyOrderedList<T> extends Array<T> {
 
   map<U>(callbackfn: (value: T, index: number, array: PartiallyOrderedList<T>) => U, thisArg?: any):
       PartiallyOrderedList<U>;
-  slice(...args: Parameters<Array<T>['slice']>): PartiallyOrderedList<T>;
+  slice(...args: Parameters<T[]['slice']>): PartiallyOrderedList<T>;
 }
 
 export function getOriginalSymbol(checker: ts.TypeChecker): (symbol: ts.Symbol) => ts.Symbol {

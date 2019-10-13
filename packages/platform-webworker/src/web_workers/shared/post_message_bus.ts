@@ -21,7 +21,7 @@ export class PostMessageBusSink implements MessageBusSink {
   // TODO(issue/24571): remove '!'.
   private _zone !: NgZone;
   private _channels: {[key: string]: _Channel} = {};
-  private _messageBuffer: Array<Object> = [];
+  private _messageBuffer: Object[] = [];
 
   constructor(private _postMessageTarget: PostMessageTarget) {}
 
@@ -64,7 +64,7 @@ export class PostMessageBusSink implements MessageBusSink {
     }
   }
 
-  private _sendMessages(messages: Array<Object>) { this._postMessageTarget.postMessage(messages); }
+  private _sendMessages(messages: Object[]) { this._postMessageTarget.postMessage(messages); }
 }
 
 export class PostMessageBusSource implements MessageBusSource {

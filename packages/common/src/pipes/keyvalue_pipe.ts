@@ -48,23 +48,23 @@ export class KeyValuePipe implements PipeTransform {
   constructor(private readonly differs: KeyValueDiffers) {}
 
   private differ !: KeyValueDiffer<any, any>;
-  private keyValues: Array<KeyValue<any, any>> = [];
+  private keyValues: KeyValue<any, any>[] = [];
 
   transform<K, V>(input: null, compareFn?: (a: KeyValue<K, V>, b: KeyValue<K, V>) => number): null;
   transform<V>(
       input: {[key: string]: V}|Map<string, V>,
       compareFn?: (a: KeyValue<string, V>, b: KeyValue<string, V>) => number):
-      Array<KeyValue<string, V>>;
+      KeyValue<string, V>[];
   transform<V>(
       input: {[key: number]: V}|Map<number, V>,
       compareFn?: (a: KeyValue<number, V>, b: KeyValue<number, V>) => number):
-      Array<KeyValue<number, V>>;
+      KeyValue<number, V>[];
   transform<K, V>(input: Map<K, V>, compareFn?: (a: KeyValue<K, V>, b: KeyValue<K, V>) => number):
-      Array<KeyValue<K, V>>;
+      KeyValue<K, V>[];
   transform<K, V>(
       input: null|{[key: string]: V, [key: number]: V}|Map<K, V>,
       compareFn: (a: KeyValue<K, V>, b: KeyValue<K, V>) => number = defaultComparator):
-      Array<KeyValue<K, V>>|null {
+      KeyValue<K, V>[]|null {
     if (!input || (!(input instanceof Map) && typeof input !== 'object')) {
       return null;
     }

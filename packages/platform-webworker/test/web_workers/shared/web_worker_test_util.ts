@@ -39,7 +39,7 @@ export function createPairedMessageBuses(): PairedMessageBuses {
  * Only intended to be called on a given broker instance once.
  */
 export function expectBrokerCall(
-    broker: SpyMessageBroker, methodName: string, vals?: Array<any>,
+    broker: SpyMessageBroker, methodName: string, vals?: any[],
     handler?: (..._: any[]) => Promise<any>| void): void {
   broker.spy('runOnService').and.callFake((args: UiArguments, returnType: Type<any>) => {
     expect(args.method).toEqual(methodName);

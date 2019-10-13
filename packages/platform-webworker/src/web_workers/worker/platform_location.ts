@@ -16,8 +16,8 @@ import {LocationType, Serializer, SerializerTypes} from '../shared/serializer';
 @Injectable()
 export class WebWorkerPlatformLocation extends PlatformLocation {
   private _broker: ClientMessageBroker;
-  private _popStateListeners: Array<Function> = [];
-  private _hashChangeListeners: Array<Function> = [];
+  private _popStateListeners: Function[] = [];
+  private _hashChangeListeners: Function[] = [];
   private _location: LocationType = null !;
   private _channelSource: EventEmitter<Object>;
   public initialized: Promise<any>;
@@ -32,7 +32,7 @@ export class WebWorkerPlatformLocation extends PlatformLocation {
 
     this._channelSource.subscribe({
       next: (msg: {[key: string]: any}) => {
-        let listeners: Array<Function>|null = null;
+        let listeners: Function[]|null = null;
         if (msg.hasOwnProperty('event')) {
           const type: string = msg['event']['type'];
           if (type === 'popstate') {

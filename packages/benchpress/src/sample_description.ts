@@ -37,7 +37,7 @@ export class SampleDescription {
   description: {[key: string]: any};
 
   constructor(
-      public id: string, descriptions: Array<{[key: string]: any}>,
+      public id: string, descriptions: {[key: string]: any}[],
       public metrics: {[key: string]: any}) {
     this.description = {};
     descriptions.forEach(description => {

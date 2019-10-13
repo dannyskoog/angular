@@ -163,8 +163,8 @@ export class FormControlDirective extends NgControl implements OnChanges {
    */
   _ngModelWarningSent = false;
 
-  constructor(@Optional() @Self() @Inject(NG_VALIDATORS) validators: Array<Validator|ValidatorFn>,
-              @Optional() @Self() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<AsyncValidator|AsyncValidatorFn>,
+  constructor(@Optional() @Self() @Inject(NG_VALIDATORS) validators: (Validator|ValidatorFn)[],
+              @Optional() @Self() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: (AsyncValidator|AsyncValidatorFn)[],
               @Optional() @Self() @Inject(NG_VALUE_ACCESSOR)
               valueAccessors: ControlValueAccessor[],
               @Optional() @Inject(NG_MODEL_WITH_FORM_CONTROL_WARNING) private _ngModelWarningConfig: string|null) {

@@ -23,7 +23,7 @@ export interface TestSupport {
   }: {
     srcTargetPath: string,
     depPaths?: string[],
-    pathMapping?: Array<{moduleName: string; path: string;}>,
+    pathMapping?: {moduleName: string; path: string;}[],
   }): {compilerOptions: ts.CompilerOptions};
   read(fileName: string): string;
   write(fileName: string, content: string): void;
@@ -102,7 +102,7 @@ export function setup(
   }: {
     srcTargetPath: string,
     depPaths?: string[],
-    pathMapping?: Array<{moduleName: string; path: string;}>,
+    pathMapping?: {moduleName: string; path: string;}[],
   }) {
     srcTargetPath = path.resolve(basePath, srcTargetPath);
     const compilationTargetSrc = listFilesRecursive(srcTargetPath);

@@ -12,8 +12,8 @@ export class MockSchemaRegistry implements ElementSchemaRegistry {
   constructor(
       public existingProperties: {[key: string]: boolean},
       public attrPropMapping: {[key: string]: string},
-      public existingElements: {[key: string]: boolean}, public invalidProperties: Array<string>,
-      public invalidAttributes: Array<string>) {}
+      public existingElements: {[key: string]: boolean}, public invalidProperties: string[],
+      public invalidAttributes: string[]) {}
 
   hasProperty(tagName: string, property: string, schemas: core.SchemaMetadata[]): boolean {
     const value = this.existingProperties[property];

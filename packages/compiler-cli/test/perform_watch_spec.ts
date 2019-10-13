@@ -207,7 +207,7 @@ function createModuleAndCompSource(prefix: string, template: string = prefix + '
 class MockWatchHost {
   nextTimeoutListenerId = 1;
   timeoutListeners: {[id: string]: (() => void)} = {};
-  fileChangeListeners: Array<((event: FileChangeEvent, fileName: string) => void)|null> = [];
+  fileChangeListeners: (((event: FileChangeEvent, fileName: string) => void)|null)[] = [];
   diagnostics: ng.Diagnostic[] = [];
   constructor(public config: ng.ParsedConfiguration) {}
 

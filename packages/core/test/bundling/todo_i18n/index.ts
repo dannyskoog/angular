@@ -21,7 +21,7 @@ class Todo {
 
 @Injectable({providedIn: 'root'})
 class TodoStore {
-  todos: Array<Todo> = [
+  todos: Todo[] = [
     new Todo($localize `Demonstrate Components`),
     new Todo($localize `Demonstrate Structural Directives`, true),
     // Using a placeholder

@@ -319,7 +319,7 @@ export class PlatformRef {
    */
   bootstrapModule<M>(
       moduleType: Type<M>, compilerOptions: (CompilerOptions&BootstrapOptions)|
-      Array<CompilerOptions&BootstrapOptions> = []): Promise<NgModuleRef<M>> {
+      (CompilerOptions&BootstrapOptions)[] = []): Promise<NgModuleRef<M>> {
     const options = optionsReducer({}, compilerOptions);
     return compileNgModuleFactory(this.injector, options, moduleType)
         .then(moduleFactory => this.bootstrapModuleFactory(moduleFactory, options));

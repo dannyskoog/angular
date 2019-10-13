@@ -18,7 +18,7 @@ const reflection = new ReflectionCapabilities();
  */
 export interface Resolver<T> {
   addOverride(type: Type<any>, override: MetadataOverride<T>): void;
-  setOverrides(overrides: Array<[Type<any>, MetadataOverride<T>]>): void;
+  setOverrides(overrides: [Type<any>, MetadataOverride<T>][]): void;
   resolve(type: Type<any>): T|null;
 }
 
@@ -38,7 +38,7 @@ abstract class OverrideResolver<T> implements Resolver<T> {
     this.resolved.delete(type);
   }
 
-  setOverrides(overrides: Array<[Type<any>, MetadataOverride<T>]>) {
+  setOverrides(overrides: [Type<any>, MetadataOverride<T>][]) {
     this.overrides.clear();
     overrides.forEach(([type, override]) => { this.addOverride(type, override); });
   }

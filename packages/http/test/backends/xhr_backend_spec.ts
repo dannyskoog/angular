@@ -324,7 +324,7 @@ class MockBrowserXHR extends BrowserXhr {
       if ((global as any /** TODO #9100 */)['Blob']) {
         // `new Blob(...)` throws an 'Illegal constructor' exception in Android browser <= 4.3,
         // but a BlobBuilder can be used instead
-        const createBlob = (data: Array<string>, datatype: string) => {
+        const createBlob = (data: string[], datatype: string) => {
           let newBlob: Blob;
           try {
             newBlob = new Blob(data || [], datatype ? {type: datatype} : {});

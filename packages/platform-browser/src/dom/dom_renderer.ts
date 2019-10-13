@@ -35,7 +35,7 @@ export function shimHostAttribute(componentShortId: string): string {
 }
 
 export function flattenStyles(
-    compId: string, styles: Array<any|any[]>, target: string[]): string[] {
+    compId: string, styles: (any|any[])[], target: string[]): string[] {
   for (let i = 0; i < styles.length; i++) {
     let style = styles[i];
 

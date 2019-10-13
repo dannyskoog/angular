@@ -16,7 +16,7 @@ import {Inject, Injectable, InjectionToken, Optional} from './di';
  *
  * @publicApi
  */
-export const APP_INITIALIZER = new InjectionToken<Array<() => void>>('Application Initializer');
+export const APP_INITIALIZER = new InjectionToken<(() => void)[]>('Application Initializer');
 
 /**
  * A class that reflects the state of running {@link APP_INITIALIZER}s.

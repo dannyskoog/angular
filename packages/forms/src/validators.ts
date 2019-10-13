@@ -44,7 +44,7 @@ function isEmptyInputValue(value: any): boolean {
  *
  * @publicApi
  */
-export const NG_VALIDATORS = new InjectionToken<Array<Validator|Function>>('NgValidators');
+export const NG_VALIDATORS = new InjectionToken<(Validator|Function)[]>('NgValidators');
 
 /**
  * @description
@@ -55,7 +55,7 @@ export const NG_VALIDATORS = new InjectionToken<Array<Validator|Function>>('NgVa
  * @publicApi
  */
 export const NG_ASYNC_VALIDATORS =
-    new InjectionToken<Array<Validator|Function>>('NgAsyncValidators');
+    new InjectionToken<(Validator|Function)[]>('NgAsyncValidators');
 
 /**
  * A regular expression that matches valid e-mail addresses.

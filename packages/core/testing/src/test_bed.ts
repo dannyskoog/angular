@@ -258,14 +258,14 @@ export class TestBedViewEngine implements TestBed {
   private _pipeOverrides: [Type<any>, MetadataOverride<Pipe>][] = [];
 
   private _providers: Provider[] = [];
-  private _declarations: Array<Type<any>|any[]|any> = [];
-  private _imports: Array<Type<any>|any[]|any> = [];
-  private _schemas: Array<SchemaMetadata|any[]> = [];
+  private _declarations: (Type<any>|any[]|any)[] = [];
+  private _imports: (Type<any>|any[]|any)[] = [];
+  private _schemas: (SchemaMetadata|any[])[] = [];
   private _activeFixtures: ComponentFixture<any>[] = [];
 
   private _testEnvAotSummaries: () => any[] = () => [];
-  private _aotSummaries: Array<() => any[]> = [];
-  private _templateOverrides: Array<{component: Type<any>, templateOf: Type<any>}> = [];
+  private _aotSummaries: (() => any[])[] = [];
+  private _templateOverrides: {component: Type<any>, templateOf: Type<any>}[] = [];
 
   private _isRoot: boolean = true;
   private _rootProviderOverrides: Provider[] = [];

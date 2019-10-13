@@ -64,7 +64,7 @@ describe('RouterPreloader', () => {
            [NgModuleFactoryLoader, RouterPreloader, Router, NgModuleRef],
            (loader: SpyNgModuleFactoryLoader, preloader: RouterPreloader, router: Router,
             testModule: NgModuleRef<any>) => {
-             const events: Array<RouteConfigLoadStart|RouteConfigLoadEnd> = [];
+             const events: (RouteConfigLoadStart|RouteConfigLoadEnd)[] = [];
              @NgModule({
                declarations: [LazyLoadedCmp],
                imports:

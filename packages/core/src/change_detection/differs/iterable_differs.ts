@@ -18,7 +18,7 @@ import {DefaultIterableDifferFactory} from '../differs/default_iterable_differ';
  *
  * @publicApi
  */
-export type NgIterable<T> = Array<T>| Iterable<T>;
+export type NgIterable<T> = T[]| Iterable<T>;
 
 /**
  * A strategy for tracking changes over time to an iterable. Used by {@link NgForOf} to

@@ -39,7 +39,7 @@ export type TestModuleMetadata = {
   providers?: any[],
   declarations?: any[],
   imports?: any[],
-  schemas?: Array<SchemaMetadata|any[]>,
+  schemas?: (SchemaMetadata|any[])[],
   aotSummaries?: () => any[],
 };
 

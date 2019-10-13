@@ -55,7 +55,7 @@ export class ServiceMessageBroker {
   }
 
   registerMethod(
-      methodName: string, signature: Array<Type<any>|SerializerTypes>|null,
+      methodName: string, signature: (Type<any>|SerializerTypes)[]|null,
       method: (..._: any[]) => Promise<any>| void, returnType?: Type<any>|SerializerTypes): void {
     this._methods.set(methodName, (message: ReceivedMessage) => {
       const serializedArgs = message.args;

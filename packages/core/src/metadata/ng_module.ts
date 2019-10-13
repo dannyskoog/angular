@@ -189,7 +189,7 @@ export interface NgModule {
    * }
    * ```
    */
-  declarations?: Array<Type<any>|any[]>;
+  declarations?: (Type<any>|any[])[];
 
   /**
    * The set of NgModules whose exported [declarables](guide/glossary#declarable)
@@ -218,7 +218,7 @@ export interface NgModule {
    * ```
    *
    */
-  imports?: Array<Type<any>|ModuleWithProviders<{}>|any[]>;
+  imports?: (Type<any>|ModuleWithProviders<{}>|any[])[];
 
   /**
    * The set of components, directives, and pipes declared in this
@@ -250,7 +250,7 @@ export interface NgModule {
    * }
    * ```
    */
-  exports?: Array<Type<any>|any[]>;
+  exports?: (Type<any>|any[])[];
 
   /**
    * The set of components to compile when this NgModule is defined,
@@ -266,14 +266,14 @@ export interface NgModule {
    *
    * @see [Entry Components](guide/entry-components)
    */
-  entryComponents?: Array<Type<any>|any[]>;
+  entryComponents?: (Type<any>|any[])[];
 
   /**
    * The set of components that are bootstrapped when
    * this module is bootstrapped. The components listed here
    * are automatically added to `entryComponents`.
    */
-  bootstrap?: Array<Type<any>|any[]>;
+  bootstrap?: (Type<any>|any[])[];
 
   /**
    * The set of schemas that declare elements to be allowed in the NgModule.
@@ -285,7 +285,7 @@ export interface NgModule {
    * @security When using one of `NO_ERRORS_SCHEMA` or `CUSTOM_ELEMENTS_SCHEMA`
    * you must ensure that allowed elements and properties securely escape inputs.
    */
-  schemas?: Array<SchemaMetadata|any[]>;
+  schemas?: (SchemaMetadata|any[])[];
 
   /**
    * A name or path that uniquely identifies this NgModule in `getModuleFactory`.

@@ -231,7 +231,7 @@ let angular: {
     (e: string | Element | Document | IAugmentedJQuery): IAugmentedJQuery;
     cleanData: (nodes: Node[] | NodeList) => void;
   },
-  injector: (modules: Array<string|IInjectable>, strictDi?: boolean) => IInjectorService,
+  injector: (modules: (string|IInjectable)[], strictDi?: boolean) => IInjectorService,
   version: {major: number},
   resumeBootstrap: () => void,
   getTestability: (e: Element) => ITestabilityService
@@ -304,7 +304,7 @@ export const element: typeof angular.element = (e => angular.element(e)) as type
 element.cleanData = nodes => angular.element.cleanData(nodes);
 
 export const injector: typeof angular.injector =
-    (modules: Array<string|IInjectable>, strictDi?: boolean) => angular.injector(modules, strictDi);
+    (modules: (string|IInjectable)[], strictDi?: boolean) => angular.injector(modules, strictDi);
 
 export const resumeBootstrap: typeof angular.resumeBootstrap = () => angular.resumeBootstrap();
 

@@ -241,7 +241,7 @@ function multiViewProvidersFactoryResolver(
 /**
  * Maps an array of factories into an array of values.
  */
-function multiResolve(factories: Array<() => any>, result: any[]): any[] {
+function multiResolve(factories: (() => any)[], result: any[]): any[] {
   for (let i = 0; i < factories.length; i++) {
     const factory = factories[i] !as() => null;
     result.push(factory());

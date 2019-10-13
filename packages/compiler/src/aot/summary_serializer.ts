@@ -312,12 +312,12 @@ class ToJsonSerializer extends ValueTransformer {
 }
 
 class ForJitSerializer {
-  private data: Array<{
+  private data: {
     summary: CompileTypeSummary,
     metadata: CompileNgModuleMetadata|CompileDirectiveMetadata|CompilePipeMetadata|
     CompileTypeMetadata|null,
     isLibrary: boolean
-  }> = [];
+  }[] = [];
 
   constructor(
       private outputCtx: OutputContext, private symbolResolver: StaticSymbolResolver,

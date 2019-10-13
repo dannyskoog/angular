@@ -26,7 +26,7 @@ export class NgccSourcesCompilerHost extends NgtscCompilerHost {
 
   resolveModuleNames(
       moduleNames: string[], containingFile: string, reusedNames?: string[],
-      redirectedReference?: ts.ResolvedProjectReference): Array<ts.ResolvedModule|undefined> {
+      redirectedReference?: ts.ResolvedProjectReference): (ts.ResolvedModule|undefined)[] {
     return moduleNames.map(moduleName => {
       const {resolvedModule} = ts.resolveModuleName(
           moduleName, containingFile, this.options, this, this.cache, redirectedReference);

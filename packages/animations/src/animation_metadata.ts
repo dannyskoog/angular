@@ -308,7 +308,7 @@ export interface AnimationStyleMetadata extends AnimationMetadata {
   /**
    * A set of CSS style properties.
    */
-  styles: '*'|{[key: string]: string | number}|Array<{[key: string]: string | number}|'*'>;
+  styles: '*'|{[key: string]: string | number}|({[key: string]: string | number}|'*')[];
   /**
    * A percentage of the total animate time at which the style is to be applied.
    */
@@ -775,7 +775,7 @@ export function sequence(steps: AnimationMetadata[], options: AnimationOptions |
  **/
 export function style(
     tokens: '*' | {[key: string]: string | number} |
-    Array<'*'|{[key: string]: string | number}>): AnimationStyleMetadata {
+    ('*'|{[key: string]: string | number})[]): AnimationStyleMetadata {
   return {type: AnimationMetadataType.Style, styles: tokens, offset: null};
 }
 

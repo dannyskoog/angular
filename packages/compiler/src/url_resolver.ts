@@ -241,7 +241,7 @@ enum _ComponentIndex {
  *     on the browser's regular expression implementation.  Never null, since
  *     arbitrary strings may still look like path names.
  */
-function _split(uri: string): Array<string|any> {
+function _split(uri: string): (string|any)[] {
   return uri.match(_splitRe) !;
 }
 
