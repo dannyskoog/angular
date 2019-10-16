@@ -284,7 +284,7 @@ class DirectiveBinder<DirectiveT extends DirectiveMeta> implements Visitor {
 
     // Associate attributes/bindings on the node with directives or with the node itself.
     const processAttribute = (attribute: BoundAttribute | BoundEvent | TextAttribute) => {
-      let dir = directives.find(dir => dir.inputs.hasOwnProperty(attribute.name));
+      const dir = directives.find(dir => dir.inputs.hasOwnProperty(attribute.name));
       if (dir !== undefined) {
         this.bindings.set(attribute, dir);
       } else {
@@ -481,7 +481,7 @@ class TemplateBinder extends RecursiveAstVisitor implements Visitor {
 
     // Check whether the name exists in the current scope. If so, map it. Otherwise, the name is
     // probably a property on the top-level component context.
-    let target = this.scope.lookup(name);
+    const target = this.scope.lookup(name);
     if (target !== null) {
       this.bindings.set(ast, target);
     }

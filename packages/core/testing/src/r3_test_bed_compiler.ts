@@ -203,12 +203,12 @@ export class R3TestBedCompiler {
   async compileComponents(): Promise<void> {
     this.clearComponentResolutionQueue();
     // Run compilers for all queued types.
-    let needsAsyncResources = this.compileTypesSync();
+    const needsAsyncResources = this.compileTypesSync();
 
     // compileComponents() should not be async unless it needs to be.
     if (needsAsyncResources) {
       let resourceLoader: ResourceLoader;
-      let resolver = (url: string): Promise<string> => {
+      const resolver = (url: string): Promise<string> => {
         if (!resourceLoader) {
           resourceLoader = this.injector.get(ResourceLoader);
         }

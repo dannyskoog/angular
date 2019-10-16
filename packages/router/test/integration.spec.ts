@@ -1816,7 +1816,7 @@ describe('Integration', () => {
          TestBed.configureTestingModule({declarations: [CmpWithLink]});
          const router: Router = TestBed.inject(Router);
 
-         let fixture: ComponentFixture<CmpWithLink> = createRoot(router, CmpWithLink);
+         const fixture: ComponentFixture<CmpWithLink> = createRoot(router, CmpWithLink);
          router.resetConfig([{path: 'home', component: SimpleCmp}]);
          const anchor = fixture.nativeElement.querySelector('a');
          const button = fixture.nativeElement.querySelector('button');

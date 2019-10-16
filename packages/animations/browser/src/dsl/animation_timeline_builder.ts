@@ -407,7 +407,7 @@ export class AnimationTimelineBuilderVisitor implements AstVisitor {
     const maxTime = duration * (context.currentQueryTotal - 1);
     let delay = duration * context.currentQueryIndex;
 
-    let staggerTransformer = timings.duration < 0 ? 'reverse' : timings.easing;
+    const staggerTransformer = timings.duration < 0 ? 'reverse' : timings.easing;
     switch (staggerTransformer) {
       case 'reverse':
         delay = maxTime - delay;
@@ -466,7 +466,7 @@ export class AnimationTimelineContext {
     if (!options) return;
 
     const newOptions = options as any;
-    let optionsToUpdate = this.options;
+    const optionsToUpdate = this.options;
 
     // NOTE: this will get patched up when other animation methods support duration overrides
     if (newOptions.duration != null) {
@@ -559,7 +559,7 @@ export class AnimationTimelineContext {
   invokeQuery(
       selector: string, originalSelector: string, limit: number, includeSelf: boolean,
       optional: boolean, errors: any[]): any[] {
-    let results: any[] = [];
+    const results: any[] = [];
     if (includeSelf) {
       results.push(this.element);
     }
@@ -752,7 +752,7 @@ export class TimelineBuilder {
 
   get properties() {
     const properties: string[] = [];
-    for (let prop in this._currentKeyframe) {
+    for (const prop in this._currentKeyframe) {
       properties.push(prop);
     }
     return properties;
@@ -857,7 +857,7 @@ class SubTimelineBuilder extends TimelineBuilder {
       // offsets between 1 ... n -1 are all warped by the keyframe stretch
       const limit = keyframes.length - 1;
       for (let i = 1; i <= limit; i++) {
-        let kf = copyStyles(keyframes[i], false);
+        const kf = copyStyles(keyframes[i], false);
         const oldOffset = kf['offset'] as number;
         const timeAtKeyframe = delay + oldOffset * duration;
         kf['offset'] = roundOffset(timeAtKeyframe / totalTime);

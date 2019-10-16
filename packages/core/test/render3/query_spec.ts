@@ -1384,7 +1384,7 @@ describe('query', () => {
         ɵɵcontainerRefreshStart(0);
         {
           if (condition) {
-            let rf1 = ɵɵembeddedViewStart(1, 1, 0);
+            const rf1 = ɵɵembeddedViewStart(1, 1, 0);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelement(0, 'some-component-with-query');
@@ -1548,7 +1548,7 @@ describe('query', () => {
               ɵɵcontainerRefreshStart(0);
               {
                 for (let i = 0; i < 3; i++) {
-                  let rf = ɵɵembeddedViewStart(1, 3, 0);
+                  const rf = ɵɵembeddedViewStart(1, 3, 0);
                   if (rf & RenderFlags.Create) {
                     ɵɵelementStart(0, 'div', 0);
                     { ɵɵelement(1, 'span', null, ['foo', '']); }

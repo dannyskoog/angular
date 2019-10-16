@@ -26,16 +26,16 @@ describe('testability example', () => {
       browser.ignoreSynchronization = true;
 
       // Script that runs in the browser and calls whenStable with a timeout.
-      let waitWithResultScript = function(done: any) {
-        let rootEl = document.querySelector('example-app');
-        let testability = window.getAngularTestability(rootEl);
+      const waitWithResultScript = function(done: any) {
+        const rootEl = document.querySelector('example-app');
+        const testability = window.getAngularTestability(rootEl);
         testability.whenStable((didWork: boolean, tasks: any) => { done(tasks); }, 1000);
       };
 
       element(by.css('.start-button')).click();
 
       browser.driver.executeAsyncScript(waitWithResultScript).then((result: any[]) => {
-        let pendingTask = result[0];
+        const pendingTask = result[0];
         expect(pendingTask.data.delay).toEqual(5000);
         expect(pendingTask.source).toEqual('setTimeout');
         expect(element(by.css('.status')).getText()).not.toContain('done');

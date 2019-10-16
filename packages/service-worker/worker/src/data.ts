@@ -461,7 +461,7 @@ export class DataGroup {
       Promise<{res: Response, age: number}|null> {
     // Look for a response in the cache. If one exists, return it.
     const cache = await this.cache;
-    let res = await cache.match(req);
+    const res = await cache.match(req);
     if (res !== undefined) {
       // A response was found in the cache, but its age is not yet known. Look it up.
       try {

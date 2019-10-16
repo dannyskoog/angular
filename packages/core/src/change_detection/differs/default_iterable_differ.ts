@@ -335,7 +335,7 @@ export class DefaultIterableDiffer<V> implements IterableDiffer<V>, IterableChan
    */
   _verifyReinsertion(record: IterableChangeRecord_<V>, item: V, itemTrackBy: any, index: number):
       IterableChangeRecord_<V> {
-    let reinsertRecord: IterableChangeRecord_<V>|null =
+    const reinsertRecord: IterableChangeRecord_<V>|null =
         this._unlinkedRecords === null ? null : this._unlinkedRecords.get(itemTrackBy, null);
     if (reinsertRecord !== null) {
       record = this._reinsertAfter(reinsertRecord, record._prev !, index);

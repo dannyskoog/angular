@@ -132,7 +132,7 @@ export class StylingBuilder {
     // with style="", [style]="" and [style.prop]="", class="",
     // [class.prop]="". [class]="" assignments
     let binding: BoundStylingEntry|null = null;
-    let name = input.name;
+    const name = input.name;
     switch (input.type) {
       case BindingType.Property:
         binding = this.registerInputBasedOnName(name, input.value, input.sourceSpan);
@@ -353,7 +353,6 @@ export class StylingBuilder {
       allowUnits: boolean, valueConverter: ValueConverter,
       getInterpolationExpressionFn?: (value: Interpolation) => o.ExternalReference):
       StylingInstruction[] {
-    let totalBindingSlotsRequired = 0;
     return inputs.map(input => {
       const value = input.value.visit(valueConverter);
 

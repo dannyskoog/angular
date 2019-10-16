@@ -393,7 +393,7 @@ export class DeclarationUsageVisitor {
 
   /** Gets the symbol of the given property access expression. */
   private _getPropertyAccessSymbol(node: ts.PropertyAccessExpression): ts.Symbol|null {
-    let propertySymbol = this._getDeclarationSymbolOfNode(node.name);
+    const propertySymbol = this._getDeclarationSymbolOfNode(node.name);
 
     if (!propertySymbol || !propertySymbol.valueDeclaration) {
       return null;

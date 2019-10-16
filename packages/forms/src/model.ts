@@ -1517,9 +1517,10 @@ export class FormGroup extends AbstractControl {
 
   /** @internal */
   _syncPendingControls(): boolean {
-    let subtreeUpdated = this._reduceChildren(false, (updated: boolean, child: AbstractControl) => {
-      return child._syncPendingControls() ? true : updated;
-    });
+    const subtreeUpdated =
+        this._reduceChildren(false, (updated: boolean, child: AbstractControl) => {
+          return child._syncPendingControls() ? true : updated;
+        });
     if (subtreeUpdated) this.updateValueAndValidity({onlySelf: true});
     return subtreeUpdated;
   }
@@ -1952,7 +1953,7 @@ export class FormArray extends AbstractControl {
 
   /** @internal */
   _syncPendingControls(): boolean {
-    let subtreeUpdated = this.controls.reduce((updated: boolean, child: AbstractControl) => {
+    const subtreeUpdated = this.controls.reduce((updated: boolean, child: AbstractControl) => {
       return child._syncPendingControls() ? true : updated;
     }, false);
     if (subtreeUpdated) this.updateValueAndValidity({onlySelf: true});

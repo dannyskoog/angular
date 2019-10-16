@@ -720,7 +720,7 @@ describe('host bindings', () => {
   });
 
   it('should support directives with and without allocHostVars on the same component', () => {
-    let events: string[] = [];
+    const events: string[] = [];
 
     @Directive({selector: '[hostDir]', host: {'[title]': `[title, 'other title']`}})
     class HostBindingDir {

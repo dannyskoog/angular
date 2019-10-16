@@ -20,7 +20,6 @@ const someGenFilePath = 'somePackage/someGenFile';
 {
   describe('JavaScriptEmitter', () => {
     let emitter: JavaScriptEmitter;
-    let someVar: o.ReadVarExpr;
 
     beforeEach(() => { emitter = new JavaScriptEmitter(); });
 

@@ -73,9 +73,9 @@ export class MockLanguageServiceHost implements ts.LanguageServiceHost {
   }
 
   private internalReadFile(fileName: string): string|undefined {
-    let basename = path.basename(fileName);
+    const basename = path.basename(fileName);
     if (/^lib.*\.d\.ts$/.test(basename)) {
-      let libPath = path.posix.dirname(ts.getDefaultLibFilePath(this.getCompilationSettings()));
+      const libPath = path.posix.dirname(ts.getDefaultLibFilePath(this.getCompilationSettings()));
       fileName = path.posix.join(libPath, basename);
     }
     if (fileName.startsWith('app/')) {
@@ -205,7 +205,7 @@ function compileTemplate(context: DiagnosticContext, type: StaticSymbol, templat
     const htmlResult = htmlParser.parse(template, '', {tokenizeExpansionForms: true});
     const analyzedModules = context.analyzedModules;
     // let errors: Diagnostic[]|undefined = undefined;
-    let ngModule = analyzedModules.ngModuleByPipeOrDirective.get(type);
+    const ngModule = analyzedModules.ngModuleByPipeOrDirective.get(type);
     if (ngModule) {
       const resolvedDirectives = ngModule.transitiveModule.directives.map(
           d => context.resolver.getNonNormalizedDirectiveMetadata(d.reference));

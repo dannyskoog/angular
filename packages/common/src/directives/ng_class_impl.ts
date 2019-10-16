@@ -182,7 +182,7 @@ export class NgClassR3Impl implements NgClassImpl {
     if (classChanged || ngClassChanged) {
       let value = this._ngClassDiffer.value;
       if (this._classStringDiffer) {
-        let classValue = this._classStringDiffer.value;
+        const classValue = this._classStringDiffer.value;
         if (classValue) {
           value = value ? {...classValue, ...value} : classValue;
         }

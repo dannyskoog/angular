@@ -2283,7 +2283,7 @@ describe('ngc transformer command-line', () => {
           static bar: string;
         }
     `);
-    let exitCode = main(['-p', path.join(basePath, 'tsconfig.json')], errorSpy);
+    const exitCode = main(['-p', path.join(basePath, 'tsconfig.json')], errorSpy);
     expect(exitCode).toEqual(0);
   });
 
@@ -2306,7 +2306,7 @@ describe('ngc transformer command-line', () => {
           @Directive()
           export abstract class EmptyDir {}
       `);
-      let exitCode = main(['-p', path.join(basePath, 'tsconfig.json')], errorSpy);
+      const exitCode = main(['-p', path.join(basePath, 'tsconfig.json')], errorSpy);
       expect(exitCode).toEqual(0);
     });
   });

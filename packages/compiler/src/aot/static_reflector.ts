@@ -354,7 +354,7 @@ export class StaticReflector implements CompileReflector {
     }
     const staticMembers = this._staticMembers(type);
     const result: {[key: string]: StaticSymbol} = {};
-    for (let name of staticMembers) {
+    for (const name of staticMembers) {
       if (name.endsWith(TYPEGUARD_POSTFIX)) {
         let property = name.substr(0, name.length - TYPEGUARD_POSTFIX.length);
         let value: any;
@@ -619,9 +619,9 @@ export class StaticReflector implements CompileReflector {
             let staticSymbol: StaticSymbol;
             switch (expression['__symbolic']) {
               case 'binop':
-                let left = simplify(expression['left']);
+                const left = simplify(expression['left']);
                 if (shouldIgnore(left)) return left;
-                let right = simplify(expression['right']);
+                const right = simplify(expression['right']);
                 if (shouldIgnore(right)) return right;
                 switch (expression['operator']) {
                   case '&&':
@@ -667,11 +667,11 @@ export class StaticReflector implements CompileReflector {
                 }
                 return null;
               case 'if':
-                let condition = simplify(expression['condition']);
+                const condition = simplify(expression['condition']);
                 return condition ? simplify(expression['thenExpression']) :
                                    simplify(expression['elseExpression']);
               case 'pre':
-                let operand = simplify(expression['operand']);
+                const operand = simplify(expression['operand']);
                 if (shouldIgnore(operand)) return operand;
                 switch (expression['operator']) {
                   case '+':
@@ -685,14 +685,14 @@ export class StaticReflector implements CompileReflector {
                 }
                 return null;
               case 'index':
-                let indexTarget = simplifyEagerly(expression['expression']);
-                let index = simplifyEagerly(expression['index']);
+                const indexTarget = simplifyEagerly(expression['expression']);
+                const index = simplifyEagerly(expression['index']);
                 if (indexTarget && isPrimitive(index)) return indexTarget[index];
                 return null;
               case 'select':
                 const member = expression['member'];
                 let selectContext = context;
-                let selectTarget = simplify(expression['expression']);
+                const selectTarget = simplify(expression['expression']);
                 if (selectTarget instanceof StaticSymbol) {
                   const members = selectTarget.members.concat(member);
                   selectContext =
@@ -753,7 +753,7 @@ export class StaticReflector implements CompileReflector {
                     return context;
                   }
                   const argExpressions: any[] = expression['arguments'] || [];
-                  let converter = self.conversionMap.get(staticSymbol);
+                  const converter = self.conversionMap.get(staticSymbol);
                   if (converter) {
                     const args = argExpressions.map(arg => simplifyNested(context, arg))
                                      .map(arg => shouldIgnore(arg) ? undefined : arg);
@@ -767,7 +767,7 @@ export class StaticReflector implements CompileReflector {
                 }
                 return IGNORE;
               case 'error':
-                let message = expression.message;
+                const message = expression.message;
                 if (expression['line'] != null) {
                   self.error(
                       {

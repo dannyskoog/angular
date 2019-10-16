@@ -17,9 +17,9 @@ describe('scenarios', () => {
       require.resolve('angular/tools/symbol-extractor/symbol_extractor_spec/empty.json'));
   const scenarioFiles = fs.readdirSync(symbolExtractorSpecDir);
   for (let i = 0; i < scenarioFiles.length; i = i + 2) {
-    let jsFile = scenarioFiles[i];
-    let jsonFile = scenarioFiles[i + 1];
-    let testName = jsFile.substring(0, jsFile.lastIndexOf('.'));
+    const jsFile = scenarioFiles[i];
+    const jsonFile = scenarioFiles[i + 1];
+    const testName = jsFile.substring(0, jsFile.lastIndexOf('.'));
     if (!jsFile.endsWith('.js')) throw new Error('Expected: .js file found: ' + jsFile);
     if (!jsonFile.endsWith('.json')) throw new Error('Expected: .json file found: ' + jsonFile);
 

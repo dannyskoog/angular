@@ -125,7 +125,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       doc.body.appendChild(element);
       const dispatchedEvent = createMouseEvent('click');
       let receivedEvents: any[] /** TODO #9100 */ = [];
-      let receivedZones: any[] = [];
+      const receivedZones: any[] = [];
       const handler1 = (e: any /** TODO #9100 */) => {
         receivedEvents.push(e);
         receivedZones.push(Zone.current.name);
@@ -160,7 +160,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       doc.body.appendChild(element);
       const dispatchedEvent = createMouseEvent('click');
       let receivedEvents: any[] /** TODO #9100 */ = [];
-      let receivedZones: any[] = [];
+      const receivedZones: any[] = [];
       const handler1 = (e: any /** TODO #9100 */) => {
         receivedEvents.push(e);
         receivedZones.push(Zone.current.name);
@@ -196,7 +196,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       doc.body.appendChild(element);
       const dispatchedEvent = createMouseEvent('click');
       let receivedEvents: any[] /** TODO #9100 */ = [];
-      let receivedZones: any[] = [];
+      const receivedZones: any[] = [];
       let remover1: any = null;
       let remover2: any = null;
       const handler1 = (e: any /** TODO #9100 */) => {
@@ -232,7 +232,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       doc.body.appendChild(element);
       const dispatchedEvent = createMouseEvent('click');
       let receivedEvents: any[] /** TODO #9100 */ = [];
-      let receivedZones: any[] = [];
+      const receivedZones: any[] = [];
       const handler = (e: any /** TODO #9100 */) => {
         receivedEvents.push(e);
         receivedZones.push(Zone.current.name);
@@ -263,7 +263,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       doc.body.appendChild(element);
       const dispatchedEvent = createMouseEvent('click');
       let receivedEvents: any[] /** TODO #9100 */ = [];
-      let receivedZones: any[] = [];
+      const receivedZones: any[] = [];
       const handler1 = (e: any /** TODO #9100 */) => {
         receivedEvents.push(e);
         receivedZones.push(Zone.current.name);
@@ -309,7 +309,7 @@ import {createMouseEvent, el} from '../../../testing/src/browser_util';
       };
       const manager = new EventManager([domEventPlugin], new FakeNgZone());
 
-      let remover = manager.addEventListener(element, 'scroll', handler);
+      const remover = manager.addEventListener(element, 'scroll', handler);
       getDOM().dispatchEvent(element, dispatchedEvent);
       expect(receivedEvent).toBe(dispatchedEvent);
       expect(receivedZone.name).toBe(Zone.root.name);

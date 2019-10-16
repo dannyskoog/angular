@@ -69,7 +69,7 @@ describe('outputs', () => {
         ɵɵcontainerRefreshStart(2);
         {
           if (ctx.condition) {
-            let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+            const rf1 = ɵɵembeddedViewStart(0, 1, 0);
             if (rf1 & RenderFlags.Create) {
               ɵɵelementStart(0, 'button-toggle');
               {

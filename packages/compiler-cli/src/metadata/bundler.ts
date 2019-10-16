@@ -163,7 +163,7 @@ export class MetadataBundler {
 
     // Export all the symbols defined in this module.
     if (module && module.metadata) {
-      for (let key in module.metadata) {
+      for (const key in module.metadata) {
         const data = module.metadata[key];
         if (isMetadataImportedSymbolReferenceExpression(data)) {
           // This is a re-export of an imported symbol. Record this as a re-export.
@@ -258,9 +258,9 @@ export class MetadataBundler {
 
     function newPrivateName(prefix: string): string {
       while (true) {
-        let digits: string[] = [];
+        const digits: string[] = [];
         let index = privateName++;
-        let base = PRIVATE_NAME_CHARS;
+        const base = PRIVATE_NAME_CHARS;
         while (!digits.length || index > 0) {
           digits.unshift(base[index % base.length]);
           index = Math.floor(index / base.length);
@@ -415,7 +415,7 @@ export class MetadataBundler {
   }
 
   private convertStatics(moduleName: string, statics: StaticsMetadata): StaticsMetadata {
-    let result: StaticsMetadata = {};
+    const result: StaticsMetadata = {};
     for (const key in statics) {
       const value = statics[key];
 

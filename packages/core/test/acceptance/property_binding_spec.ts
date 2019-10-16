@@ -40,7 +40,7 @@ describe('property bindings', () => {
     TestBed.configureTestingModule({declarations: [Comp]});
     const fixture = TestBed.createComponent(Comp);
     fixture.detectChanges();
-    let a = fixture.debugElement.query(By.css('a')).nativeElement;
+    const a = fixture.debugElement.query(By.css('a')).nativeElement;
     expect(a.title).toBe('Hello');
 
     fixture.componentInstance.title = 'World';
@@ -59,7 +59,7 @@ describe('property bindings', () => {
     TestBed.configureTestingModule({declarations: [Comp]});
     const fixture = TestBed.createComponent(Comp);
     fixture.detectChanges();
-    let a = fixture.debugElement.query(By.css('a')).nativeElement;
+    const a = fixture.debugElement.query(By.css('a')).nativeElement;
     expect(a.title).toBe('Hello');
 
     fixture.detectChanges();

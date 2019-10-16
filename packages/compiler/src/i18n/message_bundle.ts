@@ -68,7 +68,7 @@ export class MessageBundle {
       const mapper = serializer.createNameMapper(messages[id]);
       const src = messages[id];
       const nodes = mapper ? mapperVisitor.convert(src.nodes, mapper) : src.nodes;
-      let transformedMessage = new i18n.Message(nodes, {}, {}, src.meaning, src.description, id);
+      const transformedMessage = new i18n.Message(nodes, {}, {}, src.meaning, src.description, id);
       transformedMessage.sources = src.sources;
       if (filterSources) {
         transformedMessage.sources.forEach(

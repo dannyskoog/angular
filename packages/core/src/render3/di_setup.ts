@@ -73,8 +73,8 @@ function resolveProvider(
   } else {
     const lView = getLView();
     const tView = lView[TVIEW];
-    let token: any = isTypeProvider(provider) ? provider : resolveForwardRef(provider.provide);
-    let providerFactory: () => any = providerToFactory(provider);
+    const token: any = isTypeProvider(provider) ? provider : resolveForwardRef(provider.provide);
+    const providerFactory: () => any = providerToFactory(provider);
 
     const tNode = getPreviousOrParentTNode();
     const beginIndex = tNode.providerIndexes & TNodeProviderIndexes.ProvidersStartIndexMask;

@@ -111,7 +111,7 @@ describe('pipe', () => {
   });
 
   it('should do nothing when no change', () => {
-    let calls: any[] = [];
+    const calls: any[] = [];
 
     @Pipe({name: 'identityPipe'})
     class IdentityPipe implements PipeTransform {

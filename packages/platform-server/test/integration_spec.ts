@@ -576,7 +576,7 @@ class HiddenModule {
     describe('render', () => {
       let doc: string;
       let called: boolean;
-      let expectedOutput =
+      const expectedOutput =
           '<html><head></head><body><app ng-version="0.0.0-PLACEHOLDER">Works!<h1 textcontent="fine">fine</h1></app></body></html>';
 
       beforeEach(() => {

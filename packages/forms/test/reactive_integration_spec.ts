@@ -338,7 +338,7 @@ import {MyInput, MyInputForm} from './value_accessor_integration_spec';
           newArr.removeAt(0);
           fixture.detectChanges();
 
-          let inputs = fixture.debugElement.queryAll(By.css('input'));
+          const inputs = fixture.debugElement.queryAll(By.css('input'));
           expect(inputs[0].nativeElement.value).toEqual('NY');
           expect(inputs[1].nativeElement.value).toEqual('LA');
 
@@ -404,7 +404,7 @@ import {MyInput, MyInputForm} from './value_accessor_integration_spec';
           newArr.insert(1, new FormControl('LA'));
           fixture.detectChanges();
 
-          let inputs = fixture.debugElement.queryAll(By.css('input'));
+          const inputs = fixture.debugElement.queryAll(By.css('input'));
           expect(inputs[0].nativeElement.value).toEqual('SF');
           expect(inputs[1].nativeElement.value).toEqual('LA');
           expect(inputs[2].nativeElement.value).toEqual('NY');

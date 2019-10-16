@@ -391,7 +391,7 @@ const DEFAULT_COMPONENT_ID = '1';
 
         let players = getLog();
         expect(players.length).toEqual(1);
-        let [p1] = players;
+        const [p1] = players;
         expect(p1.totalTime).toEqual(1234);
         expect(capturedElement).toEqual(element);
         resetLog();
@@ -434,7 +434,7 @@ const DEFAULT_COMPONENT_ID = '1';
 
            let players = getLog();
            expect(players.length).toEqual(1);
-           let [p1] = players;
+           const [p1] = players;
            expect(p1.totalTime).toEqual(3333);
            resetLog();
 
@@ -775,9 +775,9 @@ const DEFAULT_COMPONENT_ID = '1';
         cmp.exp = false;
         fixture.detectChanges();
 
-        let players = getLog();
+        const players = getLog();
         expect(players.length).toEqual(1);
-        let [player] = players;
+        const [player] = players;
 
         expect(player.duration).toEqual(1234);
       });
@@ -820,9 +820,9 @@ const DEFAULT_COMPONENT_ID = '1';
            cmp.exp = true;
            fixture.detectChanges();
 
-           let players = getLog();
+           const players = getLog();
            expect(players.length).toEqual(1);
-           let [player] = players;
+           const [player] = players;
 
            expect(player.keyframes).toEqual([
              {color: 'blue', offset: 0},
@@ -1768,7 +1768,7 @@ const DEFAULT_COMPONENT_ID = '1';
            fixture.detectChanges();
            engine.flush();
 
-           let players = getLog();
+           const players = getLog();
            expect(players.length).toEqual(2);
            const [p1, p2] = players;
 

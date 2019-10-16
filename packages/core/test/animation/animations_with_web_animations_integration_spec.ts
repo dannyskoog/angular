@@ -117,7 +117,7 @@ import {browserDetection} from '@angular/platform-browser/testing/src/browser_ut
       engine.flush();
 
       expect(engine.players.length).toEqual(1);
-      let webPlayer =
+      const webPlayer =
           (engine.players[0] as TransitionAnimationPlayer).getRealPlayer() as ɵWebAnimationsPlayer;
 
       expect(webPlayer.keyframes).toEqual([
@@ -318,7 +318,7 @@ import {browserDetection} from '@angular/platform-browser/testing/src/browser_ut
 
          let i = 0;
          for (i = 0; i < queriedPlayers.length; i++) {
-           let player = queriedPlayers[i] as ɵWebAnimationsPlayer;
+           const player = queriedPlayers[i] as ɵWebAnimationsPlayer;
            expect(player.keyframes).toEqual([
              {height: '0px', offset: 0},
              {height: '50px', offset: 1},
@@ -336,7 +336,7 @@ import {browserDetection} from '@angular/platform-browser/testing/src/browser_ut
          expect(queriedPlayers.length).toEqual(5);
 
          for (i = 0; i < queriedPlayers.length; i++) {
-           let player = queriedPlayers[i] as ɵWebAnimationsPlayer;
+           const player = queriedPlayers[i] as ɵWebAnimationsPlayer;
            expect(player.keyframes).toEqual([
              {height: '50px', offset: 0},
              {height: '0px', offset: 1},

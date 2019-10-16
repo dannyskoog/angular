@@ -239,7 +239,7 @@ export function performCompilation(
     }): PerformCompilationResult {
   let program: api.Program|undefined;
   let emitResult: ts.EmitResult|undefined;
-  let allDiagnostics: Array<ts.Diagnostic|api.Diagnostic> = [];
+  const allDiagnostics: Array<ts.Diagnostic|api.Diagnostic> = [];
   try {
     if (!host) {
       host = ng.createCompilerHost({options});

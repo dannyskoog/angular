@@ -50,7 +50,7 @@ export class ComponentFactoryResolver extends viewEngine_ComponentFactoryResolve
 
 function toRefArray(map: {[key: string]: string}): {propName: string; templateName: string;}[] {
   const array: {propName: string; templateName: string;}[] = [];
-  for (let nonMinified in map) {
+  for (const nonMinified in map) {
     if (map.hasOwnProperty(nonMinified)) {
       const minified = map[nonMinified];
       array.push({propName: minified, templateName: nonMinified});

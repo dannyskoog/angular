@@ -79,7 +79,7 @@ import {obsoleteInIvy} from '@angular/private/testing';
               {providers: [{provide: ResourceLoader, useValue: resourceLoader}]});
           TestBed.configureTestingModule({imports: [SomeModule], providers: [SomeDep]});
 
-          let summariesPromise = TestBed.compileComponents().then(() => {
+          const summariesPromise = TestBed.compileComponents().then(() => {
             const metadataResolver = TestBed.inject(CompileMetadataResolver);
             const summaries = [
               metadataResolver.getNgModuleSummary(SomeModule),

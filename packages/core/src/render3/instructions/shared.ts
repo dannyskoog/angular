@@ -758,7 +758,7 @@ export function createTNode(
     tView: TView, tParent: TElementNode | TContainerNode | null, type: TNodeType,
     adjustedIndex: number, tagName: string | null, attrs: TAttributes | null): TNode {
   ngDevMode && ngDevMode.tNode++;
-  let injectorIndex = tParent ? tParent.injectorIndex : -1;
+  const injectorIndex = tParent ? tParent.injectorIndex : -1;
   return ngDevMode ? new TNodeConstructor(
                          tView,          // tView_: TView
                          type,           // type: TNodeType
@@ -814,7 +814,7 @@ export function createTNode(
 function generatePropertyAliases(
     inputAliasMap: {[publicName: string]: string}, directiveDefIdx: number,
     propStore: PropertyAliases | null): PropertyAliases|null {
-  for (let publicName in inputAliasMap) {
+  for (const publicName in inputAliasMap) {
     if (inputAliasMap.hasOwnProperty(publicName)) {
       propStore = propStore === null ? {} : propStore;
       const internalName = inputAliasMap[publicName];
@@ -888,7 +888,7 @@ export function elementPropertyInternal<T>(
   ngDevMode && assertNotSame(value, NO_CHANGE as any, 'Incoming value should never be NO_CHANGE.');
   const element = getNativeByIndex(index, lView) as RElement | RComment;
   const tNode = getTNode(index, lView);
-  let inputData = tNode.inputs;
+  const inputData = tNode.inputs;
   let dataValue: PropertyAliasValue|undefined;
   if (!nativeOnly && inputData != null && (dataValue = inputData[propName])) {
     setInputsForProperty(lView, dataValue, value);

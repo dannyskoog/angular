@@ -460,7 +460,7 @@ function getUndecoratedInjectableFactory(token: Function) {
 
 function providerToRecord(
     provider: SingleProvider, ngModuleType: InjectorType<any>, providers: any[]): Record<any> {
-  let factory: (() => any)|undefined = providerToFactory(provider, ngModuleType, providers);
+  const factory: (() => any)|undefined = providerToFactory(provider, ngModuleType, providers);
   if (isValueProvider(provider)) {
     return makeRecord(undefined, provider.useValue);
   } else {

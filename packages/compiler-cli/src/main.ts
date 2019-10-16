@@ -27,7 +27,7 @@ export function main(
       program: api.Program | undefined,
     },
     modifiedResourceFiles?: Set<string>| null): number {
-  let {project, rootNames, options, errors: configErrors, watch, emitFlags} =
+  const {project, rootNames, options, errors: configErrors, watch, emitFlags} =
       config || readNgcCommandLineAndConfiguration(args);
   if (configErrors.length) {
     return reportErrorsAndExit(configErrors, /*options*/ undefined, consoleError);
@@ -57,7 +57,7 @@ export function main(
 
 export function mainDiagnosticsForTest(
     args: string[], config?: NgcParsedConfiguration): ReadonlyArray<ts.Diagnostic|api.Diagnostic> {
-  let {project, rootNames, options, errors: configErrors, watch, emitFlags} =
+  const {rootNames, options, errors: configErrors, emitFlags} =
       config || readNgcCommandLineAndConfiguration(args);
   if (configErrors.length) {
     return configErrors;
@@ -148,7 +148,7 @@ export function readNgcCommandLineAndConfiguration(args: string[]): NgcParsedCon
 export function readCommandLineAndConfiguration(
     args: string[], existingOptions: api.CompilerOptions = {},
     ngCmdLineOptions: string[] = []): ParsedConfiguration {
-  let cmdConfig = ts.parseCommandLine(args);
+  const cmdConfig = ts.parseCommandLine(args);
   const project = cmdConfig.options.project || '.';
   const cmdErrors = cmdConfig.errors.filter(e => {
     if (typeof e.messageText === 'string') {

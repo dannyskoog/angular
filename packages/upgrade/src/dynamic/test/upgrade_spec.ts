@@ -620,7 +620,7 @@ withEachNg1Version(() => {
            }
 
            adapter.bootstrap(element, ['ng1']).ready((ref) => {
-             let $rootScope: any = ref.ng1RootScope;
+             const $rootScope: any = ref.ng1RootScope;
 
              expect(multiTrim(document.body.textContent)).toEqual('A | A');
 
@@ -2669,7 +2669,7 @@ withEachNg1Version(() => {
 
         it('should support single-slot transclusion with fallback content', async(() => {
              const adapter: UpgradeAdapter = new UpgradeAdapter(forwardRef(() => Ng2Module));
-             let ng1ControllerInstances: any[] = [];
+             const ng1ControllerInstances: any[] = [];
              let ng2ComponentInstance: Ng2Component;
 
              // Define `ng1Component`
@@ -2790,7 +2790,7 @@ withEachNg1Version(() => {
 
         it('should support default slot (with fallback content)', async(() => {
              const adapter: UpgradeAdapter = new UpgradeAdapter(forwardRef(() => Ng2Module));
-             let ng1ControllerInstances: any[] = [];
+             const ng1ControllerInstances: any[] = [];
              let ng2ComponentInstance: Ng2Component;
 
              // Define `ng1Component`
@@ -2867,7 +2867,7 @@ withEachNg1Version(() => {
 
         it('should support optional transclusion slots (with fallback content)', async(() => {
              const adapter: UpgradeAdapter = new UpgradeAdapter(forwardRef(() => Ng2Module));
-             let ng1ControllerInstances: any[] = [];
+             const ng1ControllerInstances: any[] = [];
              let ng2ComponentInstance: Ng2Component;
 
              // Define `ng1Component`

@@ -116,7 +116,7 @@ class ResolvedDeclarationEmitter {
       throw new Error(`Source file "${this.fileName}" not found`);
     }
 
-    let output: string[] = [];
+    const output: string[] = [];
 
     const resolvedSymbols = this.getResolvedSymbols(sourceFile);
     // Sort all symbols so that the output is more deterministic

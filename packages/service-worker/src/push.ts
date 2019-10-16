@@ -156,8 +156,8 @@ export class SwPush {
       return Promise.reject(new Error(ERR_SW_NOT_SUPPORTED));
     }
     const pushOptions: PushSubscriptionOptionsInit = {userVisibleOnly: true};
-    let key = this.decodeBase64(options.serverPublicKey.replace(/_/g, '/').replace(/-/g, '+'));
-    let applicationServerKey = new Uint8Array(new ArrayBuffer(key.length));
+    const key = this.decodeBase64(options.serverPublicKey.replace(/_/g, '/').replace(/-/g, '+'));
+    const applicationServerKey = new Uint8Array(new ArrayBuffer(key.length));
     for (let i = 0; i < key.length; i++) {
       applicationServerKey[i] = key.charCodeAt(i);
     }

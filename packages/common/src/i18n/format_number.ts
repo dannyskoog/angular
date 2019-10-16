@@ -391,13 +391,13 @@ function roundNumber(parsedNumber: ParsedNumber, minFrac: number, maxFrac: numbe
         `The minimum number of digits after fraction (${minFrac}) is higher than the maximum (${maxFrac}).`);
   }
 
-  let digits = parsedNumber.digits;
+  const digits = parsedNumber.digits;
   let fractionLen = digits.length - parsedNumber.integerLen;
   const fractionSize = Math.min(Math.max(minFrac, fractionLen), maxFrac);
 
   // The index of the digit to where rounding is to occur
   let roundAt = fractionSize + parsedNumber.integerLen;
-  let digit = digits[roundAt];
+  const digit = digits[roundAt];
 
   if (roundAt > 0) {
     // Drop fractional digits beyond `roundAt`

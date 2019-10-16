@@ -51,7 +51,7 @@ export const locale_af = [
 ];
 
 function plural_am(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -455,7 +455,7 @@ export const locale_bg = [
 ];
 
 function plural_bn(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -557,7 +557,7 @@ export const locale_br = [
 ];
 
 function plural_bs(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11) || f % 10 === 1 && !(f % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
@@ -615,7 +615,7 @@ export const locale_bs = [
 ];
 
 function plural_ca(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -696,7 +696,7 @@ export const locale_chr = [
 ];
 
 function plural_cs(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (i === Math.floor(i) && i >= 2 && i <= 4 && v === 0) return 3;
   if (!(v === 0)) return 4;
@@ -810,7 +810,7 @@ export const locale_cy = [
 ];
 
 function plural_da(n: number): number {
-  let i = Math.floor(Math.abs(n)),
+  const i = Math.floor(Math.abs(n)),
       t = parseInt(n.toString().replace(/^[^.]*\.?|0+$/g, ''), 10) || 0;
   if (n === 1 || !(t === 0) && (i === 0 || i === 1)) return 1;
   return 5;
@@ -855,7 +855,7 @@ export const locale_da = [
 ];
 
 function plural_de(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -913,7 +913,7 @@ export const locale_de = [
 ];
 
 function plural_de_AT(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -971,7 +971,7 @@ export const locale_de_AT = [
 ];
 
 function plural_de_CH(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1067,7 +1067,7 @@ export const locale_el = [
 ];
 
 function plural_en_AU(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1128,7 +1128,7 @@ export const locale_en_AU = [
 ];
 
 function plural_en_CA(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1166,7 +1166,7 @@ export const locale_en_CA = [
 ];
 
 function plural_en_GB(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1196,7 +1196,7 @@ export const locale_en_GB = [
 ];
 
 function plural_en_IE(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1226,7 +1226,7 @@ export const locale_en_IE = [
 ];
 
 function plural_en_IN(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1256,7 +1256,7 @@ export const locale_en_IN = [
 ];
 
 function plural_en_SG(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1286,7 +1286,7 @@ export const locale_en_SG = [
 ];
 
 function plural_en_ZA(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1547,7 +1547,7 @@ export const locale_es_US = [
 ];
 
 function plural_et(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1625,7 +1625,7 @@ export const locale_eu = [
 ];
 
 function plural_fa(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -1674,7 +1674,7 @@ export const locale_fa = [
 ];
 
 function plural_fi(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -1821,7 +1821,7 @@ export const locale_fi = [
 ];
 
 function plural_fr(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || i === 1) return 1;
   return 5;
 }
@@ -1899,7 +1899,7 @@ export const locale_fr = [
 ];
 
 function plural_fr_CA(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || i === 1) return 1;
   return 5;
 }
@@ -2005,7 +2005,7 @@ export const locale_ga = [
 ];
 
 function plural_gl(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -2090,7 +2090,7 @@ export const locale_gsw = [
 ];
 
 function plural_gu(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -2148,7 +2148,7 @@ export const locale_haw = [
 ];
 
 function plural_hi(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -2178,7 +2178,7 @@ export const locale_hi = [
 ];
 
 function plural_hr(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11) || f % 10 === 1 && !(f % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
@@ -2295,7 +2295,7 @@ export const locale_hu = [
 ];
 
 function plural_hy(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || i === 1) return 1;
   return 5;
 }
@@ -2369,7 +2369,7 @@ export const locale_in = [
 ];
 
 function plural_is(n: number): number {
-  let i = Math.floor(Math.abs(n)),
+  const i = Math.floor(Math.abs(n)),
       t = parseInt(n.toString().replace(/^[^.]*\.?|0+$/g, ''), 10) || 0;
   if (t === 0 && i % 10 === 1 && !(i % 100 === 11) || !(t === 0)) return 1;
   return 5;
@@ -2417,7 +2417,7 @@ export const locale_is = [
 ];
 
 function plural_it(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -2459,7 +2459,7 @@ export const locale_it = [
 ];
 
 function plural_iw(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (i === 2 && v === 0) return 2;
   if (v === 0 && !(n >= 0 && n <= 10) && n % 10 === 0) return 4;
@@ -2626,7 +2626,7 @@ export const locale_km = [
 ];
 
 function plural_kn(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -2820,7 +2820,7 @@ export const locale_lo = [
 ];
 
 function plural_lt(n: number): number {
-  let f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
+  const f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (n % 10 === 1 && !(n % 100 >= 11 && n % 100 <= 19)) return 1;
   if (n % 10 === Math.floor(n % 10) && n % 10 >= 2 && n % 10 <= 9 &&
       !(n % 100 >= 11 && n % 100 <= 19))
@@ -2899,7 +2899,7 @@ export const locale_lt = [
 ];
 
 function plural_lv(n: number): number {
-  let v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (n % 10 === 0 || n % 100 === Math.floor(n % 100) && n % 100 >= 11 && n % 100 <= 19 ||
       v === 2 && f % 100 === Math.floor(f % 100) && f % 100 >= 11 && f % 100 <= 19)
@@ -2945,7 +2945,7 @@ export const locale_lv = [
 ];
 
 function plural_mk(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11) || f % 10 === 1 && !(f % 100 === 11)) return 1;
   return 5;
@@ -3070,7 +3070,7 @@ export const locale_mn = [
 ];
 
 function plural_mo(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (!(v === 0) || n === 0 ||
       !(n === 1) && n % 100 === Math.floor(n % 100) && n % 100 >= 1 && n % 100 <= 19)
@@ -3124,7 +3124,7 @@ export const locale_mo = [
 ];
 
 function plural_mr(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }
@@ -3306,7 +3306,7 @@ export const locale_ne = [
 ];
 
 function plural_nl(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -3460,7 +3460,7 @@ export const locale_pa = [
 ];
 
 function plural_pl(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
       !(i % 100 >= 12 && i % 100 <= 14))
@@ -3526,7 +3526,7 @@ export const locale_pl = [
 ];
 
 function plural_pt(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === Math.floor(i) && i >= 0 && i <= 1) return 1;
   return 5;
 }
@@ -3567,7 +3567,7 @@ export const locale_pt = [
 ];
 
 function plural_pt_PT(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === Math.floor(i) && i >= 0 && i <= 1) return 1;
   return 5;
 }
@@ -3610,7 +3610,7 @@ export const locale_pt_PT = [
 ];
 
 function plural_ro(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (!(v === 0) || n === 0 ||
       !(n === 1) && n % 100 === Math.floor(n % 100) && n % 100 >= 1 && n % 100 <= 19)
@@ -3663,7 +3663,7 @@ export const locale_ro = [
 ];
 
 function plural_ru(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
       !(i % 100 >= 12 && i % 100 <= 14))
@@ -3766,7 +3766,7 @@ export const locale_sh = [
 ];
 
 function plural_si(n: number): number {
-  let i = Math.floor(Math.abs(n)), f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
+  const i = Math.floor(Math.abs(n)), f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (n === 0 || n === 1 || i === 0 && f === 1) return 1;
   return 5;
 }
@@ -3812,7 +3812,7 @@ export const locale_si = [
 ];
 
 function plural_sk(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   if (i === Math.floor(i) && i >= 2 && i <= 4 && v === 0) return 3;
   if (!(v === 0)) return 4;
@@ -3866,7 +3866,7 @@ export const locale_sk = [
 ];
 
 function plural_sl(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (v === 0 && i % 100 === 1) return 1;
   if (v === 0 && i % 100 === 2) return 2;
   if (v === 0 && i % 100 === Math.floor(i % 100) && i % 100 >= 3 && i % 100 <= 4 || !(v === 0))
@@ -3949,7 +3949,7 @@ export const locale_sq = [
 ];
 
 function plural_sr(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11) || f % 10 === 1 && !(f % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
@@ -3994,7 +3994,7 @@ export const locale_sr = [
 ];
 
 function plural_sv(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -4052,7 +4052,7 @@ export const locale_sv = [
 ];
 
 function plural_sw(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -4178,7 +4178,7 @@ export const locale_th = [
 ];
 
 function plural_tl(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length,
       f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (v === 0 && (i === 1 || i === 2 || i === 3) ||
       v === 0 && !(i % 10 === 4 || i % 10 === 6 || i % 10 === 9) ||
@@ -4248,7 +4248,7 @@ export const locale_tr = [
 ];
 
 function plural_uk(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
       !(i % 100 >= 12 && i % 100 <= 14))
@@ -4315,7 +4315,7 @@ export const locale_uk = [
 ];
 
 function plural_ur(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (i === 1 && v === 0) return 1;
   return 5;
 }
@@ -4547,7 +4547,7 @@ export const locale_zh_TW = [
 ];
 
 function plural_zu(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (i === 0 || n === 1) return 1;
   return 5;
 }

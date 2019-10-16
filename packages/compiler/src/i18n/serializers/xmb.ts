@@ -42,7 +42,7 @@ export class Xmb extends Serializer {
   write(messages: i18n.Message[], locale: string|null): string {
     const exampleVisitor = new ExampleVisitor();
     const visitor = new _Visitor();
-    let rootNode = new xml.Tag(_MESSAGES_TAG);
+    const rootNode = new xml.Tag(_MESSAGES_TAG);
 
     messages.forEach(message => {
       const attrs: {[k: string]: string} = {id: message.id};
@@ -55,7 +55,7 @@ export class Xmb extends Serializer {
         attrs['meaning'] = message.meaning;
       }
 
-      let sourceTags: xml.Tag[] = [];
+      const sourceTags: xml.Tag[] = [];
       message.sources.forEach((source: i18n.MessageSpan) => {
         sourceTags.push(new xml.Tag(_SOURCE_TAG, {}, [
           new xml.Text(

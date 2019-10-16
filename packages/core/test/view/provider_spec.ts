@@ -337,7 +337,7 @@ import {ARG_TYPE_VALUES, checkNodeInlineOrDynamic, createRootView, createAndGetR
 
     describe('outputs', () => {
       it('should listen to provider events', () => {
-        let emitter = new EventEmitter<any>();
+        const emitter = new EventEmitter<any>();
         let unsubscribeSpy: any;
 
         class SomeService {
@@ -367,7 +367,7 @@ import {ARG_TYPE_VALUES, checkNodeInlineOrDynamic, createRootView, createAndGetR
 
       it('should report debug info on event errors', () => {
         const handleErrorSpy = spyOn(TestBed.inject(ErrorHandler), 'handleError');
-        let emitter = new EventEmitter<any>();
+        const emitter = new EventEmitter<any>();
 
         class SomeService {
           emitter = emitter;

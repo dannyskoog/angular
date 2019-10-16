@@ -19,14 +19,14 @@ describe('plugin', () => {
 
   it('should not report errors on tour of heroes', () => {
     expectNoDiagnostics(service.getCompilerOptionsDiagnostics());
-    for (let source of program !.getSourceFiles()) {
+    for (const source of program !.getSourceFiles()) {
       expectNoDiagnostics(service.getSyntacticDiagnostics(source.fileName));
       expectNoDiagnostics(service.getSemanticDiagnostics(source.fileName));
     }
   });
 
   it('should not report template errors on tour of heroes', () => {
-    for (let source of program !.getSourceFiles()) {
+    for (const source of program !.getSourceFiles()) {
       // Ignore all 'cases.ts' files as they intentionally contain errors.
       if (!source.fileName.endsWith('cases.ts')) {
         expectNoDiagnostics(plugin.getSemanticDiagnostics(source.fileName));
@@ -38,9 +38,9 @@ describe('plugin', () => {
      () => { contains('/app/app.component.ts', 'entity-amp', '&amp;', '&gt;', '&lt;', '&iota;'); });
 
   it('should be able to return html elements', () => {
-    let htmlTags = ['h1', 'h2', 'div', 'span'];
-    let locations = ['empty', 'start-tag-h1', 'h1-content', 'start-tag', 'start-tag-after-h'];
-    for (let location of locations) {
+    const htmlTags = ['h1', 'h2', 'div', 'span'];
+    const locations = ['empty', 'start-tag-h1', 'h1-content', 'start-tag', 'start-tag-after-h'];
+    for (const location of locations) {
       contains('/app/app.component.ts', location, ...htmlTags);
     }
   });
@@ -195,18 +195,18 @@ describe('plugin', () => {
 
 
 function expectEntries(locationMarker: string, info: ts.CompletionInfo, ...names: string[]) {
-  let entries: {[name: string]: boolean} = {};
+  const entries: {[name: string]: boolean} = {};
   if (!info) {
     throw new Error(`Expected result from ${locationMarker} to include ${names.join(
         ', ')} but no result provided`);
   } else {
-    for (let entry of info.entries) {
+    for (const entry of info.entries) {
       entries[entry.name] = true;
     }
-    let shouldContains = names.filter(name => !name.startsWith('-'));
-    let shouldNotContain = names.filter(name => name.startsWith('-'));
-    let missing = shouldContains.filter(name => !entries[name]);
-    let present = shouldNotContain.map(name => name.substr(1)).filter(name => entries[name]);
+    const shouldContains = names.filter(name => !name.startsWith('-'));
+    const shouldNotContain = names.filter(name => name.startsWith('-'));
+    const missing = shouldContains.filter(name => !entries[name]);
+    const present = shouldNotContain.map(name => name.substr(1)).filter(name => entries[name]);
     if (missing.length) {
       throw new Error(`Expected result from ${locationMarker
           } to include at least one of the following, ${missing
@@ -223,9 +223,9 @@ function expectEntries(locationMarker: string, info: ts.CompletionInfo, ...names
 
 function expectNoDiagnostics(diagnostics: ts.Diagnostic[]) {
   for (const diagnostic of diagnostics) {
-    let message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
+    const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
     if (diagnostic.file && diagnostic.start) {
-      let {line, character} = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+      const {line, character} = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
       console.error(`${diagnostic.file.fileName} (${line + 1},${character + 1}): ${message}`);
     } else {
       console.error(`${message}`);

@@ -76,7 +76,7 @@ import {toArray} from 'rxjs/operators';
       it('that returns a stream of events', done => {
         client.get('/test', {observe: 'events'}).pipe(toArray()).toPromise().then(events => {
           expect(events.length).toBe(2);
-          let x = HttpResponse;
+          const x = HttpResponse;
           expect(events[0].type).toBe(HttpEventType.Sent);
           expect(events[1].type).toBe(HttpEventType.Response);
           expect(events[1] instanceof HttpResponse).toBeTruthy();

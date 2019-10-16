@@ -162,7 +162,7 @@ export class StaticInjector implements Injector {
         records.set(token, null);
       }
     }
-    let lastInjector = setCurrentInjector(this);
+    const lastInjector = setCurrentInjector(this);
     try {
       return tryResolveToken(token, record, records, this.parent, notFoundValue, flags);
     } catch (e) {
@@ -199,7 +199,7 @@ function resolveProvider(provider: SupportedProvider): Record {
   let fn: Function = IDENT;
   let value: any = EMPTY;
   let useNew: boolean = false;
-  let provide = resolveForwardRef(provider.provide);
+  const provide = resolveForwardRef(provider.provide);
   if (USE_VALUE in provider) {
     // We need to use USE_VALUE in provider since provider.useValue could be defined as undefined.
     value = (provider as ValueProvider).useValue;
@@ -311,10 +311,10 @@ function resolveToken(
       throw Error(NO_NEW_LINE + 'Circular dependency');
     } else if (value === EMPTY) {
       record.value = CIRCULAR;
-      let obj = undefined;
-      let useNew = record.useNew;
-      let fn = record.fn;
-      let depRecords = record.deps;
+      const obj = undefined;
+      const useNew = record.useNew;
+      const fn = record.fn;
+      const depRecords = record.deps;
       let deps = EMPTY;
       if (depRecords.length) {
         deps = [];

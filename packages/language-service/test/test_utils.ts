@@ -194,9 +194,9 @@ export class MockTypescriptHost implements ts.LanguageServiceHost {
     if (this.overrides.has(fileName)) {
       return this.overrides.get(fileName);
     }
-    let basename = path.basename(fileName);
+    const basename = path.basename(fileName);
     if (/^lib.*\.d\.ts$/.test(basename)) {
-      let libPath = ts.getDefaultLibFilePath(this.getCompilationSettings());
+      const libPath = ts.getDefaultLibFilePath(this.getCompilationSettings());
       return fs.readFileSync(this.myPath.join(path.dirname(libPath), basename), 'utf8');
     }
     if (missingCache.has(fileName)) {
@@ -364,7 +364,7 @@ function removeLocationMarkers(value: string): string {
 
 function getLocationMarkers(value: string): {[name: string]: number} {
   value = removeReferenceMarkers(value);
-  let result: {[name: string]: number} = {};
+  const result: {[name: string]: number} = {};
   let adjustment = 0;
   value.replace(locationMarker, (match: string, name: string, _: any, index: number): string => {
     result[name] = index - adjustment;

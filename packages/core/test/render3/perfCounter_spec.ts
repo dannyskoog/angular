@@ -18,8 +18,8 @@ beforeEach(() => {
 });
 function toHavePropertiesCompare(actual: any, expected: any) {
   let pass = true;
-  let errors = [];
-  for (let key of Object.keys(actual)) {
+  const errors = [];
+  for (const key of Object.keys(actual)) {
     if (expected.hasOwnProperty(key)) {
       if (actual[key] !== expected[key]) {
         pass = false;

@@ -261,7 +261,7 @@ export class HttpXhrBackend implements HttpBackend {
 
         // Start building the download progress event to deliver on the response
         // event stream.
-        let progressEvent: HttpDownloadProgressEvent = {
+        const progressEvent: HttpDownloadProgressEvent = {
           type: HttpEventType.DownloadProgress,
           loaded: event.loaded,
         };
@@ -287,7 +287,7 @@ export class HttpXhrBackend implements HttpBackend {
       const onUpProgress = (event: ProgressEvent) => {
         // Upload progress events are simpler. Begin building the progress
         // event.
-        let progress: HttpUploadProgressEvent = {
+        const progress: HttpUploadProgressEvent = {
           type: HttpEventType.UploadProgress,
           loaded: event.loaded,
         };

@@ -234,7 +234,7 @@ class ToJsonSerializer extends ValueTransformer {
 
   visitOther(value: any, context: any): any {
     if (value instanceof StaticSymbol) {
-      let baseSymbol = this.symbolResolver.getStaticSymbol(value.filePath, value.name);
+      const baseSymbol = this.symbolResolver.getStaticSymbol(value.filePath, value.name);
       const index = this.visitStaticSymbol(baseSymbol, context);
       return {__symbol: index, members: value.members};
     }
@@ -362,7 +362,7 @@ class ForJitSerializer {
 
     ngModuleSymbols.forEach((ngModuleSymbol) => {
       if (this.summaryResolver.isLibraryFile(ngModuleSymbol.filePath)) {
-        let exportAs = exportAsBySymbol.get(ngModuleSymbol) || ngModuleSymbol.name;
+        const exportAs = exportAsBySymbol.get(ngModuleSymbol) || ngModuleSymbol.name;
         const jitExportAsName = summaryForJitName(exportAs);
         this.outputCtx.statements.push(o.variable(jitExportAsName)
                                            .set(this.serializeSummaryRef(ngModuleSymbol))

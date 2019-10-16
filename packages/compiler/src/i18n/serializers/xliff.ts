@@ -38,9 +38,9 @@ export class Xliff extends Serializer {
     const transUnits: xml.Node[] = [];
 
     messages.forEach(message => {
-      let contextTags: xml.Node[] = [];
+      const contextTags: xml.Node[] = [];
       message.sources.forEach((source: i18n.MessageSpan) => {
-        let contextGroupTag = new xml.Tag(_CONTEXT_GROUP_TAG, {purpose: 'location'});
+        const contextGroupTag = new xml.Tag(_CONTEXT_GROUP_TAG, {purpose: 'location'});
         contextGroupTag.children.push(
             new xml.CR(10),
             new xml.Tag(

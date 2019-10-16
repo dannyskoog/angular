@@ -64,7 +64,7 @@ describe('render3 integration test', () => {
         ɵɵcontainerRefreshStart(0);
         {
           if (ctx.label != null) {
-            let rf1 = ɵɵembeddedViewStart(0, 1, 1);
+            const rf1 = ɵɵembeddedViewStart(0, 1, 1);
             if (rf1 & RenderFlags.Create) {
               ɵɵtext(0);
             }
@@ -94,7 +94,7 @@ describe('render3 integration test', () => {
         ɵɵcontainerRefreshEnd();
         ɵɵcontainerRefreshStart(1);
         {
-          for (let subTree of ctx.tree.subTrees || []) {
+          for (const subTree of ctx.tree.subTrees || []) {
             const rf0 = ɵɵembeddedViewStart(0, 3, 0);
             { showTree(rf0, {tree: subTree}); }
             ɵɵembeddedViewEnd();

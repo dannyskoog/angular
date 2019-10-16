@@ -11,7 +11,7 @@ import {AotCompiler, AotCompilerHost, AotCompilerOptions, CompileSummaryKind, Ge
 import {MockDirectory, compile, setup} from './test_util';
 
 describe('aot summaries for jit', () => {
-  let angularFiles = setup();
+  const angularFiles = setup();
   let angularSummaryFiles: MockDirectory;
 
   beforeEach(() => {

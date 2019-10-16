@@ -209,7 +209,7 @@ class AngularCompilerProgram implements Program {
   getTsSemanticDiagnostics(sourceFile?: ts.SourceFile, cancellationToken?: ts.CancellationToken):
       ReadonlyArray<ts.Diagnostic> {
     const sourceFiles = sourceFile ? [sourceFile] : this.tsProgram.getSourceFiles();
-    let diags: ts.Diagnostic[] = [];
+    const diags: ts.Diagnostic[] = [];
     sourceFiles.forEach(sf => {
       if (!GENERATED_FILES.test(sf.fileName)) {
         diags.push(...this.tsProgram.getSemanticDiagnostics(sf, cancellationToken));
@@ -220,7 +220,7 @@ class AngularCompilerProgram implements Program {
 
   getNgSemanticDiagnostics(fileName?: string, cancellationToken?: ts.CancellationToken):
       ReadonlyArray<Diagnostic> {
-    let diags: ts.Diagnostic[] = [];
+    const diags: ts.Diagnostic[] = [];
     this.tsProgram.getSourceFiles().forEach(sf => {
       if (GENERATED_FILES.test(sf.fileName) && !sf.isDeclarationFile) {
         diags.push(...this.tsProgram.getSemanticDiagnostics(sf, cancellationToken));
@@ -293,7 +293,7 @@ class AngularCompilerProgram implements Program {
     const writeTsFile: ts.WriteFileCallback =
         (outFileName, outData, writeByteOrderMark, onError?, sourceFiles?) => {
           const sourceFile = sourceFiles && sourceFiles.length == 1 ? sourceFiles[0] : null;
-          let genFile: GeneratedFile|undefined;
+
           if (this.options.annotateForClosureCompiler && sourceFile &&
               TS.test(sourceFile.fileName)) {
             outData = nocollapseHack(outData);
@@ -360,7 +360,7 @@ class AngularCompilerProgram implements Program {
         0) {
       return {emitSkipped: true, diagnostics: [], emittedFiles: []};
     }
-    let {genFiles, genDiags} = this.generateFilesForEmit(emitFlags);
+    const {genFiles, genDiags} = this.generateFilesForEmit(emitFlags);
     if (genDiags.length) {
       return {
         diagnostics: genDiags,
@@ -984,7 +984,6 @@ export function createSrcToOutPathMapper(
       relative: typeof path.relative
     } = path): (srcFileName: string) => string {
   if (outDir) {
-    let path: {} = {};  // Ensure we error if we use `path` instead of `host`.
     if (sampleSrcFileName == null || sampleOutFileName == null) {
       throw new Error(`Can't calculate the rootDir without a sample srcFileName / outFileName. `);
     }

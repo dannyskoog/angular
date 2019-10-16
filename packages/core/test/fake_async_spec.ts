@@ -276,7 +276,7 @@ const ProxyZoneSpec: {assertPresent: () => void} = (Zone as any)['ProxyZoneSpec'
            setTimeout(() => { ran = true; }, 10);
            setTimeout(() => { ran2 = true; }, 30);
 
-           let elapsed = flush();
+           const elapsed = flush();
 
            expect(ran).toEqual(true);
            expect(ran2).toEqual(true);
@@ -289,7 +289,7 @@ const ProxyZoneSpec: {assertPresent: () => void} = (Zone as any)['ProxyZoneSpec'
            setInterval(() => { count++; }, 10);
            setTimeout(() => { ran = true; }, 35);
 
-           let elapsed = flush();
+           const elapsed = flush();
 
            expect(count).toEqual(3);
            expect(ran).toEqual(true);

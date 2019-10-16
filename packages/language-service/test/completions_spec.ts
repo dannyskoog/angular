@@ -14,10 +14,10 @@ import {TypeScriptServiceHost} from '../src/typescript_host';
 import {MockTypescriptHost} from './test_utils';
 
 describe('completions', () => {
-  let mockHost = new MockTypescriptHost(['/app/main.ts', '/app/parsing-cases.ts']);
-  let service = ts.createLanguageService(mockHost);
-  let ngHost = new TypeScriptServiceHost(mockHost, service);
-  let ngService = createLanguageService(ngHost);
+  const mockHost = new MockTypescriptHost(['/app/main.ts', '/app/parsing-cases.ts']);
+  const service = ts.createLanguageService(mockHost);
+  const ngHost = new TypeScriptServiceHost(mockHost, service);
+  const ngService = createLanguageService(ngHost);
 
   beforeEach(() => { mockHost.reset(); });
 
@@ -25,9 +25,9 @@ describe('completions', () => {
      () => { expectContains('/app/test.ng', 'entity-amp', '&amp;', '&gt;', '&lt;', '&iota;'); });
 
   it('should be able to return html elements', () => {
-    let htmlTags = ['h1', 'h2', 'div', 'span'];
-    let locations = ['empty', 'start-tag-h1', 'h1-content', 'start-tag', 'start-tag-after-h'];
-    for (let location of locations) {
+    const htmlTags = ['h1', 'h2', 'div', 'span'];
+    const locations = ['empty', 'start-tag-h1', 'h1-content', 'start-tag', 'start-tag-after-h'];
+    for (const location of locations) {
       expectContains('/app/test.ng', location, ...htmlTags);
     }
   });
@@ -160,7 +160,7 @@ describe('completions', () => {
 
 function expectEntries(
     locationMarker: string, completion: ts.CompletionInfo | undefined, ...names: string[]) {
-  let entries: {[name: string]: boolean} = {};
+  const entries: {[name: string]: boolean} = {};
   if (!completion) {
     throw new Error(
         `Expected result from ${locationMarker} to include ${names.join(', ')} but no result provided`);
@@ -172,7 +172,7 @@ function expectEntries(
   for (const entry of completion.entries) {
     entries[entry.name] = true;
   }
-  let missing = names.filter(name => !entries[name]);
+  const missing = names.filter(name => !entries[name]);
   if (missing.length) {
     throw new Error(
         `Expected result from ${locationMarker} to include at least one of the following, ${missing.join(', ')}, in the list of entries ${completion.entries.map(entry => entry.name).join(', ')}`);

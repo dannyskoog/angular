@@ -71,10 +71,10 @@ function createDiv() {
       });
 
       it('should throw an error if a smaller offset shows up after a bigger one', () => {
-        let steps = animate(1000, keyframes([
-                              style({opacity: 0, offset: 1}),
-                              style({opacity: 1, offset: 0}),
-                            ]));
+        const steps = animate(1000, keyframes([
+                                style({opacity: 0, offset: 1}),
+                                style({opacity: 1, offset: 0}),
+                              ]));
 
         expect(() => {
           validateAndThrowAnimationSequence(steps);

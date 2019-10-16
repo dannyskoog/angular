@@ -340,7 +340,7 @@ export class NgModuleDecoratorHandler implements DecoratorHandler<NgModuleAnalys
       return toR3Reference(valueRef, valueRef, valueContext, valueContext, this.refEmitter);
     } else {
       let typeRef = valueRef;
-      let typeNode = this.reflector.getDtsDeclaration(typeRef.node);
+      const typeNode = this.reflector.getDtsDeclaration(typeRef.node);
       if (typeNode !== null && ts.isClassDeclaration(typeNode)) {
         typeRef = new Reference(typeNode);
       }

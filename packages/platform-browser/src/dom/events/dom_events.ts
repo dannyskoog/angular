@@ -155,7 +155,7 @@ export class DomEventsPlugin extends EventManagerPlugin {
      */
     const self = this;
     const zoneJsLoaded = element[ADD_EVENT_LISTENER];
-    let callback: EventListener = handler as EventListener;
+    const callback: EventListener = handler as EventListener;
     // if zonejs is loaded and current zone is not ngZone
     // we keep Zone.current on target for later restoration.
     if (zoneJsLoaded && (!NgZone.isInAngularZone() || isUnpatchedEvent(eventName))) {
@@ -195,13 +195,13 @@ export class DomEventsPlugin extends EventManagerPlugin {
   }
 
   removeEventListener(target: any, eventName: string, callback: Function): void {
-    let underlyingRemove = target[REMOVE_EVENT_LISTENER];
+    const underlyingRemove = target[REMOVE_EVENT_LISTENER];
     // zone.js not loaded, use native removeEventListener
     if (!underlyingRemove) {
       return target[NATIVE_REMOVE_LISTENER].apply(target, [eventName, callback, false]);
     }
-    let symbolName = symbolNames[eventName];
-    let taskDatas: TaskData[] = symbolName && target[symbolName];
+    const symbolName = symbolNames[eventName];
+    const taskDatas: TaskData[] = symbolName && target[symbolName];
     if (!taskDatas) {
       // addEventListener not using patched version
       // just call native removeEventListener

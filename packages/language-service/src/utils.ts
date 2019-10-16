@@ -58,7 +58,7 @@ export function isNarrower(spanA: Span, spanB: Span): boolean {
 
 export function hasTemplateReference(type: CompileTypeMetadata): boolean {
   if (type.diDeps) {
-    for (let diDep of type.diDeps) {
+    for (const diDep of type.diDeps) {
       if (diDep.token && diDep.token.identifier &&
           identifierName(diDep.token !.identifier !) == 'TemplateRef')
         return true;
@@ -112,7 +112,7 @@ export function findTemplateAstAt(
   const path: TemplateAst[] = [];
   const visitor = new class extends RecursiveTemplateAstVisitor {
     visit(ast: TemplateAst, context: any): any {
-      let span = spanOf(ast);
+      const span = spanOf(ast);
       if (inSpan(position, span)) {
         const len = path.length;
         if (!len || allowWidening || isNarrower(span, spanOf(path[len - 1]))) {

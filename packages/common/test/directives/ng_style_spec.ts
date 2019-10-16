@@ -41,7 +41,7 @@ import {ComponentFixture, TestBed, async} from '@angular/core/testing';
          fixture.detectChanges();
          expectNativeEl(fixture).toHaveCssStyle({'max-width': '40px'});
 
-         let expr = getComponent().expr;
+         const expr = getComponent().expr;
          expr['max-width'] = '30%';
          fixture.detectChanges();
          expectNativeEl(fixture).toHaveCssStyle({'max-width': '30%'});

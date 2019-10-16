@@ -488,7 +488,7 @@ type StringMap<T> = {
 export function extractHostBindings(
     members: ClassMember[], evaluator: PartialEvaluator, coreModule: string | undefined,
     metadata?: Map<string, ts.Expression>): ParsedHostBindings {
-  let hostMetadata: StringMap<string|Expression> = {};
+  const hostMetadata: StringMap<string|Expression> = {};
   if (metadata && metadata.has('host')) {
     const expr = metadata.get('host') !;
     const hostMetaMap = evaluator.evaluate(expr);

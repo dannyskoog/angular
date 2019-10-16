@@ -46,7 +46,7 @@ export class SizeTracker {
       const lineText = lines[lineIdx];
       for (let colIdx = 0; colIdx < lineText.length; colIdx++) {
         // Note that the "originalPositionFor" line number is one-based.
-        let {source} = this.consumer.originalPositionFor({line: lineIdx + 1, column: colIdx});
+        const {source} = this.consumer.originalPositionFor({line: lineIdx + 1, column: colIdx});
 
         // Increase the amount of total bytes.
         result.files.size += 1;

@@ -239,7 +239,7 @@ export function ɵɵpureFunction7(
   // TODO(kara): use bindingRoot instead of bindingStartIndex when implementing host bindings
   const bindingIndex = getBindingRoot() + slotOffset;
   const lView = getLView();
-  let different = bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4);
+  const different = bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4);
   return bindingUpdated3(lView, bindingIndex + 4, exp5, exp6, exp7) || different ?
       updateBinding(
           lView, bindingIndex + 7, thisArg ?

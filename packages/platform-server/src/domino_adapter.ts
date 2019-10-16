@@ -24,8 +24,8 @@ function setDomTypes() {
  * Parses a document string to a Document object.
  */
 export function parseDocument(html: string, url = '/') {
-  let window = domino.createWindow(html, url);
-  let doc = window.document;
+  const window = domino.createWindow(html, url);
+  const doc = window.document;
   return doc;
 }
 

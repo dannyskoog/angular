@@ -22,7 +22,7 @@ export class ServerStylesHost extends SharedStylesHost {
   }
 
   private _addStyle(style: string): void {
-    let adapter = getDOM();
+    const adapter = getDOM();
     const el = adapter.createElement('style');
     el.textContent = style;
     if (!!this.transitionId) {

@@ -19,7 +19,7 @@ describe('insert/remove', () => {
   it('should do nothing if component is null', async(() => {
        const template = `<ng-template *ngComponentOutlet="currentComponent"></ng-template>`;
        TestBed.overrideComponent(TestComponent, {set: {template: template}});
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.componentInstance.currentComponent = null;
        fixture.detectChanges();
@@ -28,7 +28,7 @@ describe('insert/remove', () => {
      }));
 
   it('should insert content specified by a component', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -40,7 +40,7 @@ describe('insert/remove', () => {
      }));
 
   it('should emit a ComponentRef once a component was created', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -56,7 +56,7 @@ describe('insert/remove', () => {
 
 
   it('should clear view if component becomes null', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -74,7 +74,7 @@ describe('insert/remove', () => {
 
 
   it('should swap content if component changes', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -91,7 +91,7 @@ describe('insert/remove', () => {
      }));
 
   it('should use the injector, if one supplied', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        const uniqueValue = {};
        fixture.componentInstance.currentComponent = InjectedComponent;
@@ -99,7 +99,7 @@ describe('insert/remove', () => {
            [{provide: TEST_TOKEN, useValue: uniqueValue}], fixture.componentRef.injector);
 
        fixture.detectChanges();
-       let cmpRef: ComponentRef<InjectedComponent> = fixture.componentInstance.cmpRef !;
+       const cmpRef: ComponentRef<InjectedComponent> = fixture.componentInstance.cmpRef !;
        expect(cmpRef).toBeAnInstanceOf(ComponentRef);
        expect(cmpRef.instance).toBeAnInstanceOf(InjectedComponent);
        expect(cmpRef.instance.testToken).toBe(uniqueValue);
@@ -108,13 +108,13 @@ describe('insert/remove', () => {
 
 
   it('should resolve with an injector', async(() => {
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        // We are accessing a ViewChild (ngComponentOutlet) before change detection has run
        fixture.componentInstance.cmpRef = null;
        fixture.componentInstance.currentComponent = InjectedComponent;
        fixture.detectChanges();
-       let cmpRef: ComponentRef<InjectedComponent> = fixture.componentInstance.cmpRef !;
+       const cmpRef: ComponentRef<InjectedComponent> = fixture.componentInstance.cmpRef !;
        expect(cmpRef).toBeAnInstanceOf(ComponentRef);
        expect(cmpRef.instance).toBeAnInstanceOf(InjectedComponent);
        expect(cmpRef.instance.testToken).toBeNull();
@@ -128,7 +128,7 @@ describe('insert/remove', () => {
        TestBed.overrideComponent(InjectedComponent, {set: {template: `<ng-content></ng-content>`}})
            .configureTestingModule({schemas: [NO_ERRORS_SCHEMA]});
 
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -146,7 +146,7 @@ describe('insert/remove', () => {
 
   it('should resolve components from other modules, if supplied', async(() => {
        const compiler = TestBed.inject(Compiler);
-       let fixture = TestBed.createComponent(TestComponent);
+       const fixture = TestBed.createComponent(TestComponent);
 
        fixture.detectChanges();
        expect(fixture.nativeElement).toHaveText('');
@@ -159,7 +159,6 @@ describe('insert/remove', () => {
      }));
 
   it('should clean up moduleRef, if supplied', async(() => {
-       let destroyed = false;
        const compiler = TestBed.inject(Compiler);
        const fixture = TestBed.createComponent(TestComponent);
        fixture.componentInstance.module = compiler.compileModuleSync(TestModule2);

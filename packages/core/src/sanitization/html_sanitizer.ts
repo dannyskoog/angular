@@ -135,7 +135,7 @@ class SanitizingHtmlSerializer {
           this.endElement(current as Element);
         }
 
-        let next = this.checkClobberedElement(current, current.nextSibling !);
+        const next = this.checkClobberedElement(current, current.nextSibling !);
 
         if (next) {
           current = next;

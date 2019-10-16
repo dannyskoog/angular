@@ -30,7 +30,7 @@ describe('lifecycles', () => {
 
     beforeEach(() => { events = []; });
 
-    let Comp = createOnInitComponent('comp', (rf: RenderFlags) => {
+    const Comp = createOnInitComponent('comp', (rf: RenderFlags) => {
       if (rf & RenderFlags.Create) {
         ɵɵprojectionDef();
         ɵɵelementStart(0, 'div');
@@ -38,8 +38,8 @@ describe('lifecycles', () => {
         ɵɵelementEnd();
       }
     }, 2);
-    let Parent = createOnInitComponent('parent', getParentTemplate('comp'), 1, 1, [Comp]);
-    let ProjectedComp = createOnInitComponent('projected', (rf: RenderFlags) => {
+    const Parent = createOnInitComponent('parent', getParentTemplate('comp'), 1, 1, [Comp]);
+    const ProjectedComp = createOnInitComponent('projected', (rf: RenderFlags) => {
       if (rf & RenderFlags.Create) {
         ɵɵtext(0, 'content');
       }
@@ -90,7 +90,7 @@ describe('lifecycles', () => {
           ɵɵcontainerRefreshStart(0);
           {
             if (!ctx.skip) {
-              let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+              const rf1 = ɵɵembeddedViewStart(0, 1, 0);
               if (rf1 & RenderFlags.Create) {
                 ɵɵelement(0, 'comp');
               }

@@ -238,7 +238,7 @@ export class DowngradeComponentAdapter {
   }
 
   groupProjectableNodes() {
-    let ngContentSelectors = this.componentFactory.ngContentSelectors;
+    const ngContentSelectors = this.componentFactory.ngContentSelectors;
     return groupNodesBySelector(ngContentSelectors, this.element.contents !());
   }
 }
@@ -248,7 +248,6 @@ export class DowngradeComponentAdapter {
  */
 export function groupNodesBySelector(ngContentSelectors: string[], nodes: Node[]): Node[][] {
   const projectableNodes: Node[][] = [];
-  let wildcardNgContentIndex: number;
 
   for (let i = 0, ii = ngContentSelectors.length; i < ii; ++i) {
     projectableNodes[i] = [];

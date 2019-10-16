@@ -15,7 +15,7 @@ import {onlyInIvy} from '@angular/private/testing';
 
 describe('onChanges', () => {
   it('should correctly support updating one Input among many', () => {
-    let log: string[] = [];
+    const log: string[] = [];
 
     @Component({selector: 'child-comp', template: 'child'})
     class ChildComp implements OnChanges {
@@ -24,7 +24,7 @@ describe('onChanges', () => {
       @Input() c: number = 0;
 
       ngOnChanges(changes: SimpleChanges) {
-        for (let key in changes) {
+        for (const key in changes) {
           const simpleChange = changes[key];
           log.push(key + ': ' + simpleChange.previousValue + ' -> ' + simpleChange.currentValue);
         }
@@ -987,7 +987,7 @@ describe('onChanges', () => {
 });
 
 it('should call all hooks in correct order when several directives on same node', () => {
-  let log: string[] = [];
+  const log: string[] = [];
 
   class AllHooks {
     id: number = -1;

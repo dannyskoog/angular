@@ -269,7 +269,7 @@ function entityCompletions(value: string, position: number): ts.CompletionEntry[
   let found: RegExpExecArray|null;
   let result: ts.CompletionEntry[] = [];
   while (found = re.exec(value)) {
-    let len = found[0].length;
+    const len = found[0].length;
     if (position >= found.index && position < (found.index + len)) {
       result = Object.keys(NAMED_ENTITIES).map(name => {
         return {

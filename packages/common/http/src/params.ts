@@ -254,7 +254,7 @@ export class HttpParams {
             break;
           case 'd':
             if (update.value !== undefined) {
-              let base = this.map !.get(update.param) || [];
+              const base = this.map !.get(update.param) || [];
               const idx = base.indexOf(update.value);
               if (idx !== -1) {
                 base.splice(idx, 1);

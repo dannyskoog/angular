@@ -16,8 +16,6 @@ import {expect} from '@angular/platform-browser/testing/src/matchers';
 if (browserDetection.supportsShadowDom) {
   describe('ShadowDOM Support', () => {
 
-    let testContainer: HTMLDivElement;
-
     beforeEach(() => { TestBed.configureTestingModule({imports: [TestModule]}); });
 
     it('should attach and use a shadowRoot when ViewEncapsulation.Native is set', () => {

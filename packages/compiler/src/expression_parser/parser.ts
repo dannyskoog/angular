@@ -457,7 +457,7 @@ export class _ParseAST {
         case '+':
         case '-':
           this.advance();
-          let right = this.parseMultiplicative();
+          const right = this.parseMultiplicative();
           const {start} = result.span;
           result = new Binary(this.span(start), this.sourceSpan(start), operator, result, right);
           continue;
@@ -477,7 +477,7 @@ export class _ParseAST {
         case '%':
         case '/':
           this.advance();
-          let right = this.parsePrefix();
+          const right = this.parsePrefix();
           const {start} = result.span;
           result = new Binary(this.span(start), this.sourceSpan(start), operator, result, right);
           continue;

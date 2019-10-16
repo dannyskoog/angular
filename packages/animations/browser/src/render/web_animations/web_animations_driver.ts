@@ -60,7 +60,7 @@ export class WebAnimationsDriver implements AnimationDriver {
 
     if (allowPreviousPlayerStylesMerge(duration, delay)) {
       previousWebAnimationPlayers.forEach(player => {
-        let styles = player.currentSnapshot;
+        const styles = player.currentSnapshot;
         Object.keys(styles).forEach(prop => previousStyles[prop] = styles[prop]);
       });
     }

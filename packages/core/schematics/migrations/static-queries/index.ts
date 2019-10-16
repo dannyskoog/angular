@@ -82,7 +82,7 @@ async function runMigration(tree: Tree, context: SchematicContext) {
   }
 
   if (buildProjects.size) {
-    for (let project of Array.from(buildProjects.values())) {
+    for (const project of Array.from(buildProjects.values())) {
       failures.push(...await runStaticQueryMigration(tree, project, strategy, logger));
     }
   }

@@ -42,7 +42,7 @@ export function privateEntriesToIndex(index: string, privates: BundlePrivateEntr
           .sort(compareModules);
 
   for (const [module, entries] of orderedExports) {
-    let symbols = entries.map(e => `${e.name} as ${e.privateName}`);
+    const symbols = entries.map(e => `${e.name} as ${e.privateName}`);
     results.push(`export {${symbols}} from '${module}';`);
   }
 

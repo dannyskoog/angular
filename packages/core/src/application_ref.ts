@@ -41,7 +41,7 @@ import {NgZone, NoopNgZone} from './zone/ng_zone';
 
 let _platform: PlatformRef;
 
-let compileNgModuleFactory:
+const compileNgModuleFactory:
     <M>(injector: Injector, options: CompilerOptions, moduleType: Type<M>) =>
         Promise<NgModuleFactory<M>> = compileNgModuleFactory__PRE_R3__;
 
@@ -91,9 +91,9 @@ export function publishDefaultGlobalUtils__POST_R3__() {
   ngDevMode && _publishDefaultGlobalUtils();
 }
 
-let publishDefaultGlobalUtils: () => any = publishDefaultGlobalUtils__PRE_R3__;
+const publishDefaultGlobalUtils: () => any = publishDefaultGlobalUtils__PRE_R3__;
 
-let isBoundToModule: <C>(cf: ComponentFactory<C>) => boolean = isBoundToModule__PRE_R3__;
+const isBoundToModule: <C>(cf: ComponentFactory<C>) => boolean = isBoundToModule__PRE_R3__;
 
 export function isBoundToModule__PRE_R3__<C>(cf: ComponentFactory<C>): boolean {
   return cf instanceof ComponentFactoryBoundToModule;
@@ -147,7 +147,7 @@ export function createPlatformFactory(
   const desc = `Platform: ${name}`;
   const marker = new InjectionToken(desc);
   return (extraProviders: StaticProvider[] = []) => {
-    let platform = getPlatform();
+    const platform = getPlatform();
     if (!platform || platform.injector.get(ALLOW_MULTIPLE_PLATFORMS, false)) {
       if (parentPlatformFactory) {
         parentPlatformFactory(
@@ -656,11 +656,11 @@ export class ApplicationRef {
     const scope = ApplicationRef._tickScope();
     try {
       this._runningTick = true;
-      for (let view of this._views) {
+      for (const view of this._views) {
         view.detectChanges();
       }
       if (this._enforceNoNewChanges) {
-        for (let view of this._views) {
+        for (const view of this._views) {
           view.checkNoChanges();
         }
       }

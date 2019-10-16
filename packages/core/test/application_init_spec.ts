@@ -31,7 +31,7 @@ import {TestBed, async, inject} from '../testing';
       let promise: Promise<any>;
       let completerResolver = false;
       beforeEach(() => {
-        let initializerFactory = (injector: Injector) => {
+        const initializerFactory = (injector: Injector) => {
           return () => {
             const initStatus = injector.get(ApplicationInitStatus);
             initStatus.donePromise.then(() => { expect(completerResolver).toBe(true); });

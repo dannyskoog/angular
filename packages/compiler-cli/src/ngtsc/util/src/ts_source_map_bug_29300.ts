@@ -25,7 +25,7 @@ let _tsSourceMapBug29300Fixed: boolean|undefined;
  */
 export function tsSourceMapBug29300Fixed() {
   if (_tsSourceMapBug29300Fixed === undefined) {
-    let writtenFiles: {[filename: string]: string} = {};
+    const writtenFiles: {[filename: string]: string} = {};
     const sourceFile =
         ts.createSourceFile('test.ts', 'a;', ts.ScriptTarget.ES2015, true, ts.ScriptKind.TS);
     const host = {

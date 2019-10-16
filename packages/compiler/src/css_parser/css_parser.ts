@@ -245,7 +245,7 @@ export class CssParser {
       case BlockType.Charset:
       case BlockType.Namespace:
       case BlockType.Import:
-        let value = this._parseValue(delimiters);
+        const value = this._parseValue(delimiters);
         this._scanner.setMode(CssLexerMode.BLOCK);
         this._scanner.consumeEmptyStatements();
         span = this._generateSourceSpan(startToken, value);
@@ -260,7 +260,7 @@ export class CssParser {
       case BlockType.Keyframes:
         tokens = this._collectUntilDelim(delimiters | RBRACE_DELIM_FLAG | LBRACE_DELIM_FLAG);
         // keyframes only have one identifier name
-        let name = tokens[0];
+        const name = tokens[0];
         block = this._parseKeyframeBlock(delimiters);
         span = this._generateSourceSpan(startToken, block);
         return new CssKeyframeRuleAst(span, name, block);
@@ -299,8 +299,8 @@ export class CssParser {
 
       // if a custom @rule { ... } is used it should still tokenize the insides
       default:
-        let listOfTokens: CssToken[] = [];
-        let tokenName = token.strValue;
+        const listOfTokens: CssToken[] = [];
+        const tokenName = token.strValue;
         this._scanner.setMode(CssLexerMode.ALL);
         this._error(
             generateErrorMessage(
@@ -534,7 +534,7 @@ export class CssParser {
 
       switch (peek) {
         case chars.$COLON:
-          let innerPseudo = this._parsePseudoSelector(delimiters);
+          const innerPseudo = this._parsePseudoSelector(delimiters);
           pseudoSelectors.push(innerPseudo);
           this._scanner.setMode(CssLexerMode.SELECTOR);
           break;
@@ -563,7 +563,7 @@ export class CssParser {
             continue;
           }
 
-          let token = this._scan();
+          const token = this._scan();
           previousToken = token;
           selectorCssTokens.push(token);
           break;
@@ -598,11 +598,11 @@ export class CssParser {
           switch (tokenOperator) {
             case SLASH_CHARACTER:
               // /deep/ operator
-              let deepToken = this._consume(CssTokenType.Identifier);
-              let deepSlash = this._consume(CssTokenType.Character);
-              let index = lastOperatorToken.index;
-              let line = lastOperatorToken.line;
-              let column = lastOperatorToken.column;
+              const deepToken = this._consume(CssTokenType.Identifier);
+              const deepSlash = this._consume(CssTokenType.Character);
+              const index = lastOperatorToken.index;
+              const line = lastOperatorToken.line;
+              const column = lastOperatorToken.column;
               if (deepToken != null && deepToken.strValue.toLowerCase() == 'deep' &&
                   deepSlash.strValue == SLASH_CHARACTER) {
                 token = new CssToken(
@@ -832,7 +832,7 @@ export class CssParser {
         break;
 
       default:
-        let propStr = [prop.strValue];
+        const propStr = [prop.strValue];
         if (this._scanner.peek != chars.$COLON) {
           // this will throw the error
           const nextValue = this._consume(CssTokenType.Character, ':');

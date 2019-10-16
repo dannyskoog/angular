@@ -196,9 +196,9 @@ export function elementNames(): string[] {
 function compose(indexes: number[] | undefined): hash<attrType> {
   const result: hash<attrType> = {};
   if (indexes) {
-    for (let index of indexes) {
+    for (const index of indexes) {
       const group = groups[index];
-      for (let name in group)
+      for (const name in group)
         if (group.hasOwnProperty(name)) result[name] = values[group[name]];
     }
   }

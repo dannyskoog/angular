@@ -342,7 +342,7 @@ describe('recursive components', () => {
           ɵɵcontainerRefreshStart(1);
           {
             if (ctx.data.left != null) {
-              let rf0 = ɵɵembeddedViewStart(0, 1, 1);
+              const rf0 = ɵɵembeddedViewStart(0, 1, 1);
               if (rf0 & RenderFlags.Create) {
                 ɵɵelement(0, 'tree-comp');
               }
@@ -357,7 +357,7 @@ describe('recursive components', () => {
           ɵɵcontainerRefreshStart(2);
           {
             if (ctx.data.right != null) {
-              let rf0 = ɵɵembeddedViewStart(0, 1, 1);
+              const rf0 = ɵɵembeddedViewStart(0, 1, 1);
               if (rf0 & RenderFlags.Create) {
                 ɵɵelement(0, 'tree-comp');
               }

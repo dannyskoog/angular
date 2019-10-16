@@ -174,7 +174,7 @@ if (_isNode || typeof Element !== 'undefined') {
   })();
 
   _query = (element: any, selector: string, multi: boolean): any[] => {
-    let results: any[] = [];
+    const results: any[] = [];
     if (multi) {
       results.push(...element.querySelectorAll(selector));
     } else {

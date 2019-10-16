@@ -205,7 +205,7 @@ function resolveFileNamePairs(
       goldenFile: resolveBazelFilePath(argv[mode]),
     }];
   } else {  // argv[mode + 'Dir']
-    let rootDir = argv['rootDir'] || '.';
+    const rootDir = argv['rootDir'] || '.';
     const goldenDir = argv[mode + 'Dir'];
 
     return argv._.map((fileName: string) => {

@@ -598,7 +598,7 @@ export class UpgradeAdapter {
                   })
                   .then(() => this.ng2BootstrapDeferred.resolve(ng1Injector), onError)
                   .then(() => {
-                    let subscription = this.ngZone.onMicrotaskEmpty.subscribe({
+                    const subscription = this.ngZone.onMicrotaskEmpty.subscribe({
                       next: () => {
                         if (rootScope.$$phase) {
                           if (isDevMode()) {

@@ -156,7 +156,7 @@ runInEachFileSystem(() => {
       env.invalidateCachedFile('bar_directive.ts');
       env.driveMain();
 
-      let written = env.getFilesWrittenSinceLastFlush();
+      const written = env.getFilesWrittenSinceLastFlush();
       expect(written).toContain('/bar_directive.js');
       expect(written).toContain('/bar_component.js');
       expect(written).toContain('/bar_module.js');

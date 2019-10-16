@@ -125,8 +125,8 @@ class ViewBuilder implements TemplateAstVisitor, LocalResolver {
 
   private getTypeGuardExpressions(ast: EmbeddedTemplateAst): GuardExpression[] {
     const result = [...this.guards];
-    for (let directive of ast.directives) {
-      for (let input of directive.inputs) {
+    for (const directive of ast.directives) {
+      for (const input of directive.inputs) {
         const guard = directive.directive.guards[input.directiveName];
         if (guard) {
           const useIf = guard === 'UseIf';
@@ -229,9 +229,9 @@ class ViewBuilder implements TemplateAstVisitor, LocalResolver {
   visitElement(ast: ElementAst, context: any): any {
     this.visitElementOrTemplate(ast);
 
-    let inputDefs: o.Expression[] = [];
-    let updateRendererExpressions: Expression[] = [];
-    let outputDefs: o.Expression[] = [];
+    const inputDefs: o.Expression[] = [];
+    const updateRendererExpressions: Expression[] = [];
+    const outputDefs: o.Expression[] = [];
     ast.inputs.forEach((inputAst) => {
       this.updates.push(
           {context: this.component, value: inputAst.value, sourceSpan: inputAst.sourceSpan});

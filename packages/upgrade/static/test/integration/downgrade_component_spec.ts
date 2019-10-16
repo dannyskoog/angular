@@ -367,8 +367,6 @@ withEachNg1Version(() => {
 
     it('should still run normal Angular change-detection regardless of `propagateDigest`',
        fakeAsync(() => {
-         let ng2Component: Ng2Component;
-
          @Component({selector: 'ng2', template: '{{ value }}'})
          class Ng2Component {
            value = 'foo';

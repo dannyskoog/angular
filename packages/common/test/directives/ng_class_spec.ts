@@ -19,7 +19,7 @@ import {ComponentFixture, TestBed, async} from '@angular/core/testing';
 
     function detectChangesAndExpectClassName(classes: string): void {
       fixture !.detectChanges();
-      let nonNormalizedClassName = fixture !.debugElement.children[0].nativeElement.className;
+      const nonNormalizedClassName = fixture !.debugElement.children[0].nativeElement.className;
       expect(normalizeClassNames(nonNormalizedClassName)).toEqual(normalizeClassNames(classes));
     }
 

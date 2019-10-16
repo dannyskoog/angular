@@ -24,7 +24,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(1);
         {
           if (ctx.condition) {
-            let rf1 = ɵɵembeddedViewStart(1, 2, 1);
+            const rf1 = ɵɵembeddedViewStart(1, 2, 1);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'span');
@@ -81,7 +81,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(1);
         {
           if (ctx.condition) {
-            let rf1 = ɵɵembeddedViewStart(1, 2, 0);
+            const rf1 = ɵɵembeddedViewStart(1, 2, 0);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'span');
@@ -92,7 +92,7 @@ describe('JS control flow', () => {
                 ɵɵcontainerRefreshStart(1);
                 {
                   if (ctx.condition2) {
-                    let rf2 = ɵɵembeddedViewStart(2, 1, 0);
+                    const rf2 = ɵɵembeddedViewStart(2, 1, 0);
                     {
                       if (rf2 & RenderFlags.Create) {
                         ɵɵtext(0, 'Hello');
@@ -171,7 +171,7 @@ describe('JS control flow', () => {
       ɵɵcontainerRefreshStart(0);
       {
         if (ctx.condition) {
-          let rf1 = ɵɵembeddedViewStart(1, 2, 0);
+          const rf1 = ɵɵembeddedViewStart(1, 2, 0);
           {
             if (rf1 & RenderFlags.Create) {
               { ɵɵcontainer(0); }
@@ -181,7 +181,7 @@ describe('JS control flow', () => {
               ɵɵcontainerRefreshStart(0);
               {
                 if (ctx.condition2) {
-                  let rf2 = ɵɵembeddedViewStart(2, 1, 0);
+                  const rf2 = ɵɵembeddedViewStart(2, 1, 0);
                   {
                     if (rf2 & RenderFlags.Create) {
                       ɵɵtext(0, 'Hello');
@@ -194,7 +194,7 @@ describe('JS control flow', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 if (ctx.condition3) {
-                  let rf2 = ɵɵembeddedViewStart(2, 1, 0);
+                  const rf2 = ɵɵembeddedViewStart(2, 1, 0);
                   {
                     if (rf2 & RenderFlags.Create) {
                       ɵɵtext(0, 'World');
@@ -285,7 +285,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(2);
         {
           if (ctx.condition1) {
-            let rf0 = ɵɵembeddedViewStart(0, 1, 0);
+            const rf0 = ɵɵembeddedViewStart(0, 1, 0);
             {
               if (rf0 & RenderFlags.Create) {
                 ɵɵcontainer(0);
@@ -294,7 +294,7 @@ describe('JS control flow', () => {
                 ɵɵcontainerRefreshStart(0);
                 {
                   if (ctx.condition2) {
-                    let rf0 = ɵɵembeddedViewStart(0, 1, 0);
+                    const rf0 = ɵɵembeddedViewStart(0, 1, 0);
                     {
                       if (rf0 & RenderFlags.Create) {
                         ɵɵtext(0, 'world');
@@ -337,7 +337,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(1);
         {
           for (let i = 0; i < data.length; i++) {
-            let rf1 = ɵɵembeddedViewStart(1, 2, 1);
+            const rf1 = ɵɵembeddedViewStart(1, 2, 1);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'li');
@@ -394,7 +394,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(1);
         {
           for (let i = 0; i < data[0].length; i++) {
-            let rf1 = ɵɵembeddedViewStart(1, 2, 0);
+            const rf1 = ɵɵembeddedViewStart(1, 2, 0);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'li');
@@ -405,7 +405,7 @@ describe('JS control flow', () => {
                 ɵɵcontainerRefreshStart(1);
                 {
                   data[1].forEach((value: string, ind: number) => {
-                    let rf2 = ɵɵembeddedViewStart(2, 1, 1);
+                    const rf2 = ɵɵembeddedViewStart(2, 1, 1);
                     if (rf2 & RenderFlags.Create) {
                       ɵɵtext(0);
                     }
@@ -468,7 +468,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(2);
         {
           for (let i = 0; i < cafes.length; i++) {
-            let rf1 = ɵɵembeddedViewStart(1, 4, 1);
+            const rf1 = ɵɵembeddedViewStart(1, 4, 1);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'h2');
@@ -483,7 +483,7 @@ describe('JS control flow', () => {
                 ɵɵcontainerRefreshStart(2);
                 {
                   for (let j = 0; j < cafes[i].entrees.length; j++) {
-                    let rf2 = ɵɵembeddedViewStart(2, 1, 1);
+                    const rf2 = ɵɵembeddedViewStart(2, 1, 1);
                     if (rf2 & RenderFlags.Create) {
                       ɵɵtext(0);
                     }
@@ -565,7 +565,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(2);
         {
           for (let i = 0; i < cafes.length; i++) {
-            let rf1 = ɵɵembeddedViewStart(1, 4, 1);
+            const rf1 = ɵɵembeddedViewStart(1, 4, 1);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'h2');
@@ -580,7 +580,7 @@ describe('JS control flow', () => {
                 ɵɵcontainerRefreshStart(2);
                 {
                   for (let j = 0; j < cafes[i].entrees.length; j++) {
-                    let rf1 = ɵɵembeddedViewStart(1, 3, 1);
+                    const rf1 = ɵɵembeddedViewStart(1, 3, 1);
                     {
                       if (rf1 & RenderFlags.Create) {
                         ɵɵelementStart(0, 'h3');
@@ -594,7 +594,7 @@ describe('JS control flow', () => {
                         ɵɵcontainerRefreshStart(2);
                         {
                           for (let k = 0; k < cafes[i].entrees[j].foods.length; k++) {
-                            let rf2 = ɵɵembeddedViewStart(1, 1, 1);
+                            const rf2 = ɵɵembeddedViewStart(1, 1, 1);
                             if (rf2 & RenderFlags.Create) {
                               ɵɵtext(0);
                             }
@@ -648,7 +648,7 @@ describe('JS control flow', () => {
         ɵɵcontainerRefreshStart(1);
         {
           if (ctx.condition) {
-            let rf1 = ɵɵembeddedViewStart(1, 2, 0);
+            const rf1 = ɵɵembeddedViewStart(1, 2, 0);
             {
               if (rf1 & RenderFlags.Create) {
                 ɵɵelementStart(0, 'span');
@@ -658,7 +658,7 @@ describe('JS control flow', () => {
             }
             ɵɵembeddedViewEnd();
           } else {
-            let rf2 = ɵɵembeddedViewStart(2, 2, 0);
+            const rf2 = ɵɵembeddedViewStart(2, 2, 0);
             {
               if (rf2) {
                 ɵɵelementStart(0, 'div');
@@ -688,7 +688,7 @@ describe('JS control flow', () => {
   });
 
   it('should work with sibling if blocks with children', () => {
-    let log: string[] = [];
+    const log: string[] = [];
 
     // Intentionally duplicating the templates in test below so we are
     // testing the behavior on firstTemplatePass for each of these tests
@@ -728,7 +728,7 @@ describe('JS control flow', () => {
             ɵɵcontainerRefreshStart(1);
             {
               if (ctx.condition) {
-                let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+                const rf1 = ɵɵembeddedViewStart(0, 1, 0);
                 if (rf1 & RenderFlags.Create) {
                   ɵɵelement(0, 'comp');
                 }
@@ -739,7 +739,7 @@ describe('JS control flow', () => {
             ɵɵcontainerRefreshStart(2);
             {
               if (ctx.condition2) {
-                let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+                const rf1 = ɵɵembeddedViewStart(0, 1, 0);
                 if (rf1 & RenderFlags.Create) {
                   ɵɵelement(0, 'comp');
                 }
@@ -758,7 +758,7 @@ describe('JS control flow', () => {
   });
 
   it('should work with a sibling if block that starts closed', () => {
-    let log: string[] = [];
+    const log: string[] = [];
 
     // Intentionally duplicating the templates from above so we are
     // testing the behavior on firstTemplatePass for each of these tests
@@ -798,7 +798,7 @@ describe('JS control flow', () => {
             ɵɵcontainerRefreshStart(1);
             {
               if (ctx.condition) {
-                let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+                const rf1 = ɵɵembeddedViewStart(0, 1, 0);
                 if (rf1 & RenderFlags.Create) {
                   ɵɵelement(0, 'comp');
                 }
@@ -809,7 +809,7 @@ describe('JS control flow', () => {
             ɵɵcontainerRefreshStart(2);
             {
               if (ctx.condition2) {
-                let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+                const rf1 = ɵɵembeddedViewStart(0, 1, 0);
                 if (rf1 & RenderFlags.Create) {
                   ɵɵelement(0, 'comp');
                 }
@@ -855,7 +855,7 @@ describe('JS for loop', () => {
         ɵɵcontainerRefreshStart(1);
         {
           for (let i = 0; i < config.data1.length; i++) {
-            let rf2 = ɵɵembeddedViewStart(1, 1, 1);
+            const rf2 = ɵɵembeddedViewStart(1, 1, 1);
             if (rf2 & RenderFlags.Create) {
               ɵɵtext(0);
             }
@@ -866,7 +866,7 @@ describe('JS for loop', () => {
             ɵɵembeddedViewEnd();
           }
           for (let j = 0; j < config.data2.length; j++) {
-            let rf2 = ɵɵembeddedViewStart(1, 1, 1);
+            const rf2 = ɵɵembeddedViewStart(1, 1, 1);
             if (rf2 & RenderFlags.Create) {
               ɵɵtext(0);
             }
@@ -929,14 +929,14 @@ describe('function calls', () => {
       if (rf & RenderFlags.Update) {
         ɵɵcontainerRefreshStart(2);
         {
-          let rf0 = ɵɵembeddedViewStart(0, 2, 1);
+          const rf0 = ɵɵembeddedViewStart(0, 2, 1);
           { spanify(rf0, {message: data[0]}); }
           ɵɵembeddedViewEnd();
         }
         ɵɵcontainerRefreshEnd();
         ɵɵcontainerRefreshStart(3);
         {
-          let rf0 = ɵɵembeddedViewStart(0, 2, 1);
+          const rf0 = ɵɵembeddedViewStart(0, 2, 1);
           { spanify(rf0, {message: data[1]}); }
           ɵɵembeddedViewEnd();
         }

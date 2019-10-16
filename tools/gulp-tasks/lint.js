@@ -49,6 +49,7 @@ module.exports = (gulp) => () => {
       .pipe(tslint({
         configuration: path.resolve(__dirname, '../../tslint.json'),
         formatter: 'prose',
+        fix: true,
       }))
       .pipe(tslint.report({emitError: true}));
 };

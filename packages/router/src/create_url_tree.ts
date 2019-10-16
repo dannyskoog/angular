@@ -40,7 +40,7 @@ function isMatrixParams(command: any): boolean {
 function tree(
     oldSegmentGroup: UrlSegmentGroup, newSegmentGroup: UrlSegmentGroup, urlTree: UrlTree,
     queryParams: Params, fragment: string): UrlTree {
-  let qp: any = {};
+  const qp: any = {};
   if (queryParams) {
     forEach(queryParams, (value: any, name: any) => {
       qp[name] = Array.isArray(value) ? value.map((v: any) => `${v}`) : `${value}`;

@@ -12,7 +12,7 @@
 const u = undefined;
 
 function plural(n: number): number {
-  let f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
+  const f = parseInt(n.toString().replace(/^[^.]*\.?/, ''), 10) || 0;
   if (n % 10 === 1 && !(n % 100 >= 11 && n % 100 <= 19)) return 1;
   if (n % 10 === Math.floor(n % 10) && n % 10 >= 2 && n % 10 <= 9 &&
       !(n % 100 >= 11 && n % 100 <= 19))

@@ -226,7 +226,7 @@ export function splitDepsDsl(deps: ([DepFlags, any] | any)[], sourceName?: strin
 }
 
 export function getParentRenderElement(view: ViewData, renderHost: any, def: NodeDef): any {
-  let renderParent = def.renderParent;
+  const renderParent = def.renderParent;
   if (renderParent) {
     if ((renderParent.flags & NodeFlags.TypeElement) === 0 ||
         (renderParent.flags & NodeFlags.ComponentView) === 0 ||

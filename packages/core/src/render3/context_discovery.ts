@@ -152,7 +152,7 @@ function createLContext(lView: LView, nodeIndex: number, native: RNode): LContex
  * @returns The component's view
  */
 export function getComponentViewByInstance(componentInstance: {}): LView {
-  let lView = readPatchedData(componentInstance);
+  const lView = readPatchedData(componentInstance);
   let view: LView;
 
   if (Array.isArray(lView)) {
@@ -288,7 +288,7 @@ export function getDirectivesAtNodeIndex(
 
 export function getComponentAtNodeIndex(nodeIndex: number, lView: LView): {}|null {
   const tNode = lView[TVIEW].data[nodeIndex] as TNode;
-  let directiveStartIndex = tNode.directiveStart;
+  const directiveStartIndex = tNode.directiveStart;
   return tNode.flags & TNodeFlags.isComponentHost ? lView[directiveStartIndex] : null;
 }
 

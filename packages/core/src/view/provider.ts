@@ -34,7 +34,7 @@ export function directiveDef(
     outputs?: null | {[name: string]: string}): NodeDef {
   const bindings: BindingDef[] = [];
   if (props) {
-    for (let prop in props) {
+    for (const prop in props) {
       const [bindingIndex, nonMinifiedName] = props[prop];
       bindings[bindingIndex] = {
         flags: BindingFlags.TypeProperty,
@@ -47,7 +47,7 @@ export function directiveDef(
   }
   const outputDefs: OutputDef[] = [];
   if (outputs) {
-    for (let propName in outputs) {
+    for (const propName in outputs) {
       outputDefs.push(
           {type: OutputType.DirectiveOutput, propName, target: null, eventName: outputs[propName]});
     }
@@ -373,7 +373,7 @@ export function resolveDep(
           break;
         }
         case ChangeDetectorRefTokenKey: {
-          let cdView = findCompView(searchView, elDef, allowPrivateServices);
+          const cdView = findCompView(searchView, elDef, allowPrivateServices);
           return createChangeDetectorRef(cdView);
         }
         case InjectorRefTokenKey:

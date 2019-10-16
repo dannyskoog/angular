@@ -364,7 +364,7 @@ class ApplyRedirects {
       posParams: {[k: string]: UrlSegment}): UrlSegmentGroup {
     const updatedSegments = this.createSegments(redirectTo, group.segments, segments, posParams);
 
-    let children: {[n: string]: UrlSegmentGroup} = {};
+    const children: {[n: string]: UrlSegmentGroup} = {};
     forEach(group.children, (child: UrlSegmentGroup, name: string) => {
       children[name] = this.createSegmentGroup(redirectTo, child, segments, posParams);
     });

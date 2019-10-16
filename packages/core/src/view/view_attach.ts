@@ -13,7 +13,7 @@ import {RenderNodeAction, declaredViewContainer, renderNode, visitRootRenderNode
 export function attachEmbeddedView(
     parentView: ViewData, elementData: ElementData, viewIndex: number | undefined | null,
     view: ViewData) {
-  let embeddedViews = elementData.viewContainer !._embeddedViews;
+  const embeddedViews = elementData.viewContainer !._embeddedViews;
   if (viewIndex === null || viewIndex === undefined) {
     viewIndex = embeddedViews.length;
   }

@@ -303,6 +303,7 @@ function setElementStyle(
 function setElementProperty(
     view: ViewData, binding: BindingDef, renderNode: any, name: string, value: any) {
   const securityContext = binding.securityContext;
-  let renderValue = securityContext ? view.root.sanitizer.sanitize(securityContext, value) : value;
+  const renderValue =
+      securityContext ? view.root.sanitizer.sanitize(securityContext, value) : value;
   view.renderer.setProperty(renderNode, name, renderValue);
 }

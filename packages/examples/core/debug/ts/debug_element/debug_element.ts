@@ -8,8 +8,8 @@
 
 import {DebugElement} from '@angular/core';
 
-let debugElement: DebugElement = undefined !;
-let predicate: any;
+const debugElement: DebugElement = undefined !;
+const predicate: any = undefined;
 
 // #docregion scope_all
 debugElement.query(predicate);

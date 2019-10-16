@@ -88,7 +88,7 @@ export class NgtscProgram implements api.Program {
     if (host.fileNameToModuleName !== undefined) {
       this.fileToModuleHost = host as FileToModuleHost;
     }
-    let rootFiles = [...rootNames];
+    const rootFiles = [...rootNames];
 
     const generators: ShimGenerator[] = [];
     if (shouldGenerateShims) {

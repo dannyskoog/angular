@@ -77,7 +77,7 @@ describe('utils', () => {
     });
 
     it('should return an array of string literals from a downleveled tagged template', () => {
-      let localizeCall = getLocalizeCall(
+      const localizeCall = getLocalizeCall(
           `$localize(__makeTemplateObject(['a', 'b\\t', 'c'], ['a', 'b\\\\t', 'c']), 1, 2)`);
       const parts = unwrapMessagePartsFromLocalizeCall(localizeCall);
       expect(parts).toEqual(['a', 'b\t', 'c']);
@@ -85,7 +85,7 @@ describe('utils', () => {
     });
 
     it('should return an array of string literals from a lazy load template helper', () => {
-      let localizeCall = getLocalizeCall(`
+      const localizeCall = getLocalizeCall(`
         function _templateObject() {
           var e = _taggedTemplateLiteral(['a', 'b', 'c'], ['a', 'b', 'c']);
           return _templateObject = function() { return e }, e
@@ -97,7 +97,7 @@ describe('utils', () => {
     });
 
     it('should remove a lazy load template helper', () => {
-      let localizeCall = getLocalizeCall(`
+      const localizeCall = getLocalizeCall(`
         function _templateObject() {
           var e = _taggedTemplateLiteral(['a', 'b', 'c'], ['a', 'b', 'c']);
           return _templateObject = function() { return e }, e
@@ -208,7 +208,7 @@ function collectExpressionsPlugin() {
 }
 
 function getLocalizeCall(code: string): NodePath<CallExpression> {
-  let callPaths: NodePath<CallExpression>[] = [];
+  const callPaths: NodePath<CallExpression>[] = [];
   transformSync(code, {plugins: [{visitor: {CallExpression(path) { callPaths.push(path); }}}]});
   const localizeCall = callPaths.find(p => {
     const callee = p.get('callee');

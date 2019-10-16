@@ -267,14 +267,14 @@ export class AnimationTransitionNamespace {
     }
 
     player.onDone(() => {
-      let index = this.players.indexOf(player);
+      const index = this.players.indexOf(player);
       if (index >= 0) {
         this.players.splice(index, 1);
       }
 
       const players = this._engine.playersByElement.get(element);
       if (players) {
-        let index = players.indexOf(player);
+        const index = players.indexOf(player);
         if (index >= 0) {
           players.splice(index, 1);
         }
@@ -598,7 +598,7 @@ export class TransitionAnimationEngine {
   }
 
   registerTrigger(namespaceId: string, name: string, trigger: AnimationTrigger) {
-    let ns = this._namespaceLookup[namespaceId];
+    const ns = this._namespaceLookup[namespaceId];
     if (ns && ns.register(name, trigger)) {
       this.totalAnimations++;
     }
@@ -1209,20 +1209,20 @@ export class TransitionAnimationEngine {
       // until that animation is over (or the parent queried animation)
       if (details && details.hasAnimation) continue;
 
-      let players: TransitionAnimationPlayer[] = [];
+      const players: TransitionAnimationPlayer[] = [];
 
       // if this element is queried or if it contains queried children
       // then we want for the element not to be removed from the page
       // until the queried animations have finished
       if (queriedElements.size) {
-        let queriedPlayerResults = queriedElements.get(element);
+        const queriedPlayerResults = queriedElements.get(element);
         if (queriedPlayerResults && queriedPlayerResults.length) {
           players.push(...queriedPlayerResults);
         }
 
-        let queriedInnerElements = this.driver.query(element, NG_ANIMATING_SELECTOR, true);
+        const queriedInnerElements = this.driver.query(element, NG_ANIMATING_SELECTOR, true);
         for (let j = 0; j < queriedInnerElements.length; j++) {
-          let queriedPlayers = queriedElements.get(queriedInnerElements[j]);
+          const queriedPlayers = queriedElements.get(queriedInnerElements[j]);
           if (queriedPlayers && queriedPlayers.length) {
             players.push(...queriedPlayers);
           }
@@ -1684,7 +1684,7 @@ function removeClass(element: any, className: string) {
   if (element.classList) {
     element.classList.remove(className);
   } else {
-    let classes: {[className: string]: boolean} = element[CLASSES_CACHE_KEY];
+    const classes: {[className: string]: boolean} = element[CLASSES_CACHE_KEY];
     if (classes) {
       delete classes[className];
     }
@@ -1730,7 +1730,7 @@ function replacePostStylesAsPre(
   const postEntry = allPostStyleElements.get(element);
   if (!postEntry) return false;
 
-  let preEntry = allPreStyleElements.get(element);
+  const preEntry = allPreStyleElements.get(element);
   if (preEntry) {
     postEntry.forEach(data => preEntry !.add(data));
   } else {

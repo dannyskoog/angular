@@ -213,7 +213,7 @@ export class StaticSymbolResolver {
     if (!baseResolvedSymbol) {
       return null;
     }
-    let baseMetadata = unwrapResolvedMetadata(baseResolvedSymbol.metadata);
+    const baseMetadata = unwrapResolvedMetadata(baseResolvedSymbol.metadata);
     if (baseMetadata instanceof StaticSymbol) {
       return new ResolvedStaticSymbol(
           staticSymbol, this.getStaticSymbol(baseMetadata.filePath, baseMetadata.name, members));
@@ -449,7 +449,7 @@ export class StaticSymbolResolver {
       }
     }
     const transformedMeta = visitValue(metadata, new ReferenceTransformer(), []);
-    let unwrappedTransformedMeta = unwrapResolvedMetadata(transformedMeta);
+    const unwrappedTransformedMeta = unwrapResolvedMetadata(transformedMeta);
     if (unwrappedTransformedMeta instanceof StaticSymbol) {
       return this.createExport(sourceSymbol, unwrappedTransformedMeta);
     }

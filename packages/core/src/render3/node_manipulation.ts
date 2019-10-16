@@ -785,7 +785,7 @@ export function applyProjection(lView: LView, tProjectionNode: TProjectionNode) 
   const renderer = lView[RENDERER];
   const renderParent = getRenderParent(tProjectionNode, lView);
   const parentTNode = tProjectionNode.parent || lView[T_HOST] !;
-  let beforeNode = getNativeAnchorNode(parentTNode, lView);
+  const beforeNode = getNativeAnchorNode(parentTNode, lView);
   applyProjectionRecursive(
       renderer, WalkTNodeTreeAction.Create, lView, tProjectionNode, renderParent, beforeNode);
 }
@@ -823,7 +823,7 @@ function applyProjectionRecursive(
       applyToElementOrContainer(action, renderer, renderParent, rNode, beforeNode);
     }
   } else {
-    let nodeToProject: TNode|null = nodeToProjectOrRNodes;
+    const nodeToProject: TNode|null = nodeToProjectOrRNodes;
     const projectedComponentLView = componentLView[PARENT] as LView;
     applyNodes(
         renderer, action, nodeToProject, projectedComponentLView, renderParent, beforeNode, true);

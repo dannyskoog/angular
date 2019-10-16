@@ -819,7 +819,7 @@ describe('di', () => {
           it('should allow directives with Host flag to inject view providers from containing component',
              () => {
                class ControlContainer {}
-               let controlContainers: ControlContainer[] = [];
+               const controlContainers: ControlContainer[] = [];
                let injectedControlContainer: ControlContainer|null = null;
 
                @Directive({

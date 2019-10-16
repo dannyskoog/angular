@@ -54,7 +54,7 @@ describe('ViewContainerRef', () => {
 
       it('should add embedded views at the right position in the DOM tree (ng-template next to other ng-template)',
          () => {
-           let directiveInstances: TestDirective[] = [];
+           const directiveInstances: TestDirective[] = [];
 
            class TestDirective {
              static ɵfac =
@@ -192,7 +192,7 @@ describe('ViewContainerRef', () => {
                    ɵɵcontainerRefreshStart(2);
                    {
                      if (cmp.condition) {
-                       let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+                       const rf1 = ɵɵembeddedViewStart(0, 1, 0);
                        {
                          if (rf1 & RenderFlags.Create) {
                            ɵɵtext(0, 'B');
@@ -233,8 +233,6 @@ describe('ViewContainerRef', () => {
     });
 
     describe('createComponent', () => {
-      let templateExecutionCounter = 0;
-
       describe('ComponentRef', () => {
         let dynamicComp !: DynamicComp;
 

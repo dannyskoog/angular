@@ -1020,7 +1020,7 @@ describe('styling', () => {
         const TOTAL_BINDINGS = 34;
 
         let bindingsHTML = '';
-        let bindingsArr: any[] = [];
+        const bindingsArr: any[] = [];
         for (let i = 0; i < TOTAL_BINDINGS; i++) {
           bindingsHTML += `[style.prop${i}]="bindings[${i}]" `;
           bindingsArr.push(null);
@@ -1146,7 +1146,7 @@ describe('styling', () => {
         expect(abcSummary.prop).toEqual('abc');
         expect(abcSummary.value).toBeFalsy();
 
-        let defSummary = classesSummary['def'];
+        const defSummary = classesSummary['def'];
         expect(defSummary.prop).toEqual('def');
         expect(defSummary.value).toBeTruthy();
       });

@@ -1108,7 +1108,7 @@ export class Esm2015ReflectionHost extends TypeScriptReflectionHost implements N
 
           // Is the value of the `type` property an identifier?
           if (decorator.has('type')) {
-            let decoratorType = decorator.get('type') !;
+            const decoratorType = decorator.get('type') !;
             if (isDecoratorIdentifier(decoratorType)) {
               const decoratorIdentifier =
                   ts.isIdentifier(decoratorType) ? decoratorType : decoratorType.name;

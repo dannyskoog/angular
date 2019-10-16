@@ -140,9 +140,9 @@ export class EmittingCompilerHost implements ts.CompilerHost {
     const result = this.addedFiles.get(fileName) || open(fileName, this.options.mockData);
     if (result) return result;
 
-    let basename = path.basename(fileName);
+    const basename = path.basename(fileName);
     if (/^lib.*\.d\.ts$/.test(basename)) {
-      let libPath = ts.getDefaultLibFilePath(settings);
+      const libPath = ts.getDefaultLibFilePath(settings);
       return fs.readFileSync(path.join(path.dirname(libPath), basename), 'utf8');
     }
     return fs.readFileSync(fileName, 'utf8');
@@ -328,12 +328,12 @@ export class MockCompilerHost implements ts.CompilerHost {
     if (this.writtenFiles.has(fileName)) {
       return this.writtenFiles.get(fileName);
     }
-    let basename = path.basename(fileName);
+    const basename = path.basename(fileName);
     if (/^lib.*\.d\.ts$/.test(basename)) {
-      let libPath = ts.getDefaultLibFilePath(settings);
+      const libPath = ts.getDefaultLibFilePath(settings);
       return fs.readFileSync(path.join(path.dirname(libPath), basename), 'utf8');
     }
-    let effectiveName = this.getEffectiveName(fileName);
+    const effectiveName = this.getEffectiveName(fileName);
     if (effectiveName === fileName) {
       return open(fileName, this.data);
     }
@@ -386,7 +386,7 @@ export class MockAotCompilerHost implements AotCompilerHost {
       if (this.metadataVisible) {
         const metadataPath = modulePath.replace(DTS, '.metadata.json');
         if (this.tsHost.fileExists(metadataPath)) {
-          let result = JSON.parse(this.tsHost.readFile(metadataPath));
+          const result = JSON.parse(this.tsHost.readFile(metadataPath));
           return Array.isArray(result) ? result : [result];
         }
       }
@@ -480,7 +480,7 @@ function find(fileName: string, data: MockFileOrDirectory | undefined): MockFile
 }
 
 function open(fileName: string, data: MockFileOrDirectory | undefined): string|undefined {
-  let result = find(fileName, data);
+  const result = find(fileName, data);
   if (typeof result === 'string') {
     return result;
   }
@@ -488,7 +488,7 @@ function open(fileName: string, data: MockFileOrDirectory | undefined): string|u
 }
 
 function directoryExists(dirname: string, data: MockFileOrDirectory | undefined): boolean {
-  let result = find(dirname, data);
+  const result = find(dirname, data);
   return !!result && typeof result !== 'string';
 }
 
@@ -535,9 +535,9 @@ export function arrayToMockMap(arr: MockFileArray): Map<string, string> {
 export function arrayToMockDir(arr: MockFileArray): MockDirectory {
   const rootDir: MockDirectory = {};
   arr.forEach(({fileName, content}) => {
-    let pathParts = fileName.split('/');
+    const pathParts = fileName.split('/');
     // trim trailing slash
-    let startIndex = pathParts[0] ? 0 : 1;
+    const startIndex = pathParts[0] ? 0 : 1;
     // get/create the directory
     let currentDir = rootDir;
     for (let i = startIndex; i < pathParts.length - 1; i++) {
@@ -614,7 +614,7 @@ export function setup(options: {
   compileCommon: false,
   compileFakeCore: false,
 }) {
-  let angularFiles = new Map<string, string>();
+  const angularFiles = new Map<string, string>();
 
   beforeAll(() => {
     const sources = process.env.TEST_SRCDIR;
@@ -816,7 +816,7 @@ function addNgResourceSuffix(fileName: string): string {
 function extractFileNames(directory: MockDirectory): string[] {
   const result: string[] = [];
   const scan = (directory: MockDirectory, prefix: string) => {
-    for (let name of Object.getOwnPropertyNames(directory)) {
+    for (const name of Object.getOwnPropertyNames(directory)) {
       const entry = directory[name];
       const fileName = `${prefix}/${name}`;
       if (typeof entry === 'string') {

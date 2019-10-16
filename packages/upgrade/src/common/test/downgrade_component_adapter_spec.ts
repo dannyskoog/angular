@@ -126,15 +126,15 @@ withEachNg1Version(() => {
       }
 
       function getAdaptor(): DowngradeComponentAdapter {
-        let attrs = undefined as any;
+        const attrs = undefined as any;
         let scope: angular.IScope;  // mock
-        let ngModel = undefined as any;
+        const ngModel = undefined as any;
         let parentInjector: Injector;  // testbed
-        let $injector = undefined as any;
-        let $compile = undefined as any;
-        let $parse = undefined as any;
+        const $injector = undefined as any;
+        const $compile = undefined as any;
+        const $parse = undefined as any;
         let componentFactory: ComponentFactory<any>;  // testbed
-        let wrapCallback = (cb: any) => cb;
+        const wrapCallback = (cb: any) => cb;
 
         content = `
           <h1> new component </h1>
@@ -179,7 +179,7 @@ withEachNg1Version(() => {
 
       it('should add testabilities hook when creating components', () => {
 
-        let registry = TestBed.inject(TestabilityRegistry);
+        const registry = TestBed.inject(TestabilityRegistry);
         adapter.createComponent([]);
         expect(registry.getAllTestabilities().length).toEqual(1);
 

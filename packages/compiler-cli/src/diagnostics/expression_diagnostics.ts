@@ -111,7 +111,7 @@ function getVarDeclarations(
           const value = context.get(variable.value);
           if (value) {
             type = value.type !;
-            let kind = info.query.getTypeKind(type);
+            const kind = info.query.getTypeKind(type);
             if (kind === BuiltinType.Any || kind == BuiltinType.Unbound) {
               // The any type is not very useful here. For special cases, such as ngFor, we can do
               // better.
@@ -320,7 +320,7 @@ class ExpressionDiagnosticsVisitor extends RecursiveTemplateAstVisitor {
 
 function hasTemplateReference(type: CompileTypeMetadata): boolean {
   if (type.diDeps) {
-    for (let diDep of type.diDeps) {
+    for (const diDep of type.diDeps) {
       if (diDep.token && diDep.token.identifier &&
           identifierName(diDep.token !.identifier !) == 'TemplateRef')
         return true;

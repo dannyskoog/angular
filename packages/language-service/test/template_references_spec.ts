@@ -15,7 +15,7 @@ import {TypeScriptServiceHost} from '../src/typescript_host';
 import {MockTypescriptHost} from './test_utils';
 
 describe('references', () => {
-  let documentRegistry = ts.createDocumentRegistry();
+  const documentRegistry = ts.createDocumentRegistry();
   let mockHost: MockTypescriptHost;
   let service: ts.LanguageService;
   let ngHost: TypeScriptServiceHost;

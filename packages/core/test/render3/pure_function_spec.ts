@@ -35,7 +35,7 @@ describe('object literals', () => {
   // NOTE: This test cannot be ported to acceptance tests with TestBed because
   // the syntax is still unsupported.
   it('should support multiple view instances with multiple bindings', () => {
-    let objectComps: ObjectComp[] = [];
+    const objectComps: ObjectComp[] = [];
 
     /**
      * % for(let i = 0; i < 2; i++) {
@@ -51,7 +51,7 @@ describe('object literals', () => {
         ɵɵcontainerRefreshStart(0);
         {
           for (let i = 0; i < 2; i++) {
-            let rf1 = ɵɵembeddedViewStart(0, 1, 4);
+            const rf1 = ɵɵembeddedViewStart(0, 1, 4);
             if (rf1 & RenderFlags.Create) {
               ɵɵelementStart(0, 'object-comp');
               objectComps.push(getDirectiveOnNode(0));

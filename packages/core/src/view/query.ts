@@ -14,8 +14,8 @@ import {declaredViewContainer, filterQueryId, isEmbeddedView} from './util';
 
 export function queryDef(
     flags: NodeFlags, id: number, bindings: {[propName: string]: QueryBindingType}): NodeDef {
-  let bindingDefs: QueryBindingDef[] = [];
-  for (let propName in bindings) {
+  const bindingDefs: QueryBindingDef[] = [];
+  for (const propName in bindings) {
     const bindingType = bindings[propName];
     bindingDefs.push({propName, bindingType});
   }
@@ -56,7 +56,7 @@ export function createQuery(): QueryList<any> {
 export function dirtyParentQueries(view: ViewData) {
   const queryIds = view.def.nodeMatchedQueries;
   while (view.parent && isEmbeddedView(view)) {
-    let tplDef = view.parentNodeDef !;
+    const tplDef = view.parentNodeDef !;
     view = view.parent;
     // content queries
     const end = tplDef.nodeIndex + tplDef.childCount;

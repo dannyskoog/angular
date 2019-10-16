@@ -75,7 +75,7 @@ function readMetadataFile(host: MetadataReaderHost, dtsFilePath: string): Module
         (Array.isArray(metadataOrMetadatas) ? metadataOrMetadatas : [metadataOrMetadatas]) :
         [];
     if (metadatas.length) {
-      let maxMetadata = metadatas.reduce((p, c) => p.version > c.version ? p : c);
+      const maxMetadata = metadatas.reduce((p, c) => p.version > c.version ? p : c);
       if (maxMetadata.version < METADATA_VERSION) {
         metadatas.push(upgradeMetadataWithDtsData(host, maxMetadata, dtsFilePath));
       }
@@ -91,7 +91,7 @@ function upgradeMetadataWithDtsData(
     host: MetadataReaderHost, oldMetadata: ModuleMetadata, dtsFilePath: string): ModuleMetadata {
   // patch v1 to v3 by adding exports and the `extends` clause.
   // patch v3 to v4 by adding `interface` symbols for TypeAlias
-  let newMetadata: ModuleMetadata = {
+  const newMetadata: ModuleMetadata = {
     '__symbolic': 'module',
     'version': METADATA_VERSION,
     'metadata': {...oldMetadata.metadata},
@@ -107,7 +107,7 @@ function upgradeMetadataWithDtsData(
   }
   const dtsMetadata = host.getSourceFileMetadata(dtsFilePath);
   if (dtsMetadata) {
-    for (let prop in dtsMetadata.metadata) {
+    for (const prop in dtsMetadata.metadata) {
       if (!newMetadata.metadata[prop]) {
         newMetadata.metadata[prop] = dtsMetadata.metadata[prop];
       }

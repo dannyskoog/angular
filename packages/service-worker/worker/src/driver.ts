@@ -313,7 +313,7 @@ export class Driver implements Debuggable, UpdateSource {
       return;
     }
     const desc = data.notification as{[key: string]: string | undefined};
-    let options: {[key: string]: string | undefined} = {};
+    const options: {[key: string]: string | undefined} = {};
     NOTIFICATION_OPTION_NAMES.filter(name => desc.hasOwnProperty(name))
         .forEach(name => options[name] = desc[name]);
     await this.scope.registration.showNotification(desc['title'] !, options);

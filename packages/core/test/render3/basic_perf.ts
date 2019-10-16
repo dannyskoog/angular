@@ -47,7 +47,7 @@ describe('iv perf test', () => {
                 ɵɵcontainerRefreshStart(0);
                 {
                   for (let i = 0; i < count; i++) {
-                    let rf0 = ɵɵembeddedViewStart(0, 2, 0);
+                    const rf0 = ɵɵembeddedViewStart(0, 2, 0);
                     {
                       if (rf0 & RenderFlags.Create) {
                         ɵɵelementStart(0, 'div');

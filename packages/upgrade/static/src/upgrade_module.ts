@@ -216,7 +216,7 @@ export class UpgradeModule {
                       // Wrap the $interval service so that setInterval is called outside NgZone,
                       // but the callback is still invoked within it. This is so that $interval
                       // won't block stability, which preserves the behavior from AngularJS.
-                      let wrappedInterval =
+                      const wrappedInterval =
                           (fn: Function, delay: number, count?: number, invokeApply?: boolean,
                            ...pass: any[]) => {
                             return this.ngZone.runOutsideAngular(() => {
@@ -286,7 +286,7 @@ export class UpgradeModule {
       const originalResumeBootstrap: () => void = windowAngular.resumeBootstrap;
       const ngZone = this.ngZone;
       windowAngular.resumeBootstrap = function() {
-        let args = arguments;
+        const args = arguments;
         windowAngular.resumeBootstrap = originalResumeBootstrap;
         return ngZone.run(() => windowAngular.resumeBootstrap.apply(this, args));
       };

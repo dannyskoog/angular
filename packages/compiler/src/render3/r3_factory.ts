@@ -292,7 +292,7 @@ function compileInjectDependency(
       // If this dependency is optional or otherwise has non-default flags, then additional
       // parameters describing how to inject the dependency must be passed to the inject function
       // that's being used.
-      let flagsParam: o.LiteralExpr|null =
+      const flagsParam: o.LiteralExpr|null =
           (flags !== InjectFlags.Default || dep.optional) ? o.literal(flags) : null;
 
       // We have a separate instruction for injecting ChangeDetectorRef into a pipe.
@@ -329,10 +329,10 @@ export function dependenciesFromGlobalMetadata(
 
   // Iterate through the type's DI dependencies and produce `R3DependencyMetadata` for each of them.
   const deps: R3DependencyMetadata[] = [];
-  for (let dependency of type.diDeps) {
+  for (const dependency of type.diDeps) {
     if (dependency.token) {
       const tokenRef = tokenReference(dependency.token);
-      let resolved: R3ResolvedDependencyType = dependency.isAttribute ?
+      const resolved: R3ResolvedDependencyType = dependency.isAttribute ?
           R3ResolvedDependencyType.Attribute :
           R3ResolvedDependencyType.Token;
 

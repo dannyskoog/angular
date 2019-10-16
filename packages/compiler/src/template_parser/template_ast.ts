@@ -353,8 +353,8 @@ export class RecursiveTemplateAstVisitor extends NullTemplateVisitor implements 
   protected visitChildren<T extends TemplateAst>(
       context: any,
       cb: (visit: (<V extends TemplateAst>(children: V[]|undefined) => void)) => void) {
-    let results: any[][] = [];
-    let t = this;
+    const results: any[][] = [];
+    const t = this;
     function visit<T extends TemplateAst>(children: T[] | undefined) {
       if (children && children.length) results.push(templateVisitAll(t, children, context));
     }

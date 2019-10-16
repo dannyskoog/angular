@@ -245,7 +245,7 @@ describe('NewUrl', function() {
 
   it('search() should copy object', function() {
     setupUrl();
-    let obj = {one: 1, two: true, three: null};
+    const obj = {one: 1, two: true, three: null};
     $location.search(obj);
     expect(obj).toEqual({one: 1, two: true, three: null});
     obj.one = 100;  // changed value
@@ -566,7 +566,7 @@ describe('New URL Parsing', () => {
     it('should set $$state and return itself', function() {
       expect(($location as any).$$state).toEqual(null);
 
-      let returned = $location.state({a: 2});
+      const returned = $location.state({a: 2});
       expect(($location as any).$$state).toEqual({a: 2});
       expect(returned).toBe($location);
     });

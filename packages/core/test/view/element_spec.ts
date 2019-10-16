@@ -195,7 +195,7 @@ const removeEventListener = '__zone_symbol__removeEventListener' as 'removeEvent
           rootNodes[0].click();
 
           expect(handleEventSpy).toHaveBeenCalled();
-          let handleEventArgs = handleEventSpy.calls.mostRecent().args;
+          const handleEventArgs = handleEventSpy.calls.mostRecent().args;
           expect(handleEventArgs[0]).toBe(view);
           expect(handleEventArgs[1]).toBe('click');
           expect(handleEventArgs[2]).toBeTruthy();

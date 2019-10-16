@@ -128,7 +128,7 @@ export function trimTrailingNulls(parameters: o.Expression[]): o.Expression[] {
 export function getQueryPredicate(
     query: R3QueryMetadata, constantPool: ConstantPool): o.Expression {
   if (Array.isArray(query.predicate)) {
-    let predicate: o.Expression[] = [];
+    const predicate: o.Expression[] = [];
     query.predicate.forEach((selector: string): void => {
       // Each item in predicates array may contain strings with comma-separated refs
       // (for ex. 'ref, ref1, ..., refN'), thus we extract individual refs and store them

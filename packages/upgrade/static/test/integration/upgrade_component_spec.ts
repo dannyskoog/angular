@@ -2204,7 +2204,7 @@ withEachNg1Version(() => {
          }));
 
       it('should support single-slot transclusion with fallback content', async(() => {
-           let ng1ControllerInstances: any[] = [];
+           const ng1ControllerInstances: any[] = [];
            let ng2ComponentInstance: Ng2Component;
 
            // Define `ng1Component`
@@ -2327,7 +2327,7 @@ withEachNg1Version(() => {
          }));
 
       it('should support default slot (with fallback content)', async(() => {
-           let ng1ControllerInstances: any[] = [];
+           const ng1ControllerInstances: any[] = [];
            let ng2ComponentInstance: Ng2Component;
 
            // Define `ng1Component`
@@ -2405,7 +2405,7 @@ withEachNg1Version(() => {
          }));
 
       it('should support optional transclusion slots (with fallback content)', async(() => {
-           let ng1ControllerInstances: any[] = [];
+           const ng1ControllerInstances: any[] = [];
            let ng2ComponentInstance: Ng2Component;
 
            // Define `ng1Component`

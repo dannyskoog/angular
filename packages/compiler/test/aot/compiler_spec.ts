@@ -16,7 +16,7 @@ import * as ts from 'typescript';
 import {EmittingCompilerHost, MockAotCompilerHost, MockCompilerHost, MockDirectory, MockMetadataBundlerHost, arrayToMockDir, compile, expectNoDiagnostics, isInBazel, settings, setup, toMockFileArray} from './test_util';
 
 describe('compiler (unbundled Angular)', () => {
-  let angularFiles = setup();
+  const angularFiles = setup();
 
   describe('Quickstart', () => {
     it('should compile', () => {

@@ -57,7 +57,7 @@ export class $locationShim {
       private urlCodec: UrlCodec, private locationStrategy: LocationStrategy) {
     const initialUrl = this.browserUrl();
 
-    let parsedUrl = this.urlCodec.parse(initialUrl);
+    const parsedUrl = this.urlCodec.parse(initialUrl);
 
     if (typeof parsedUrl === 'string') {
       throw 'Invalid URL';
@@ -125,8 +125,8 @@ export class $locationShim {
     });
 
     this.location.onUrlChange((newUrl, newState) => {
-      let oldUrl = this.absUrl();
-      let oldState = this.$$state;
+      const oldUrl = this.absUrl();
+      const oldState = this.$$state;
       this.$$parse(newUrl);
       newUrl = this.absUrl();
       this.$$state = newState;
@@ -163,7 +163,7 @@ export class $locationShim {
         const oldUrl = this.browserUrl();
         const newUrl = this.absUrl();
         const oldState = this.browserState();
-        let currentReplace = this.$$replace;
+        const currentReplace = this.$$replace;
 
         const urlOrStateChanged =
             !this.urlCodec.areEqual(oldUrl, newUrl) || oldState !== this.$$state;
@@ -232,7 +232,7 @@ export class $locationShim {
 
     // setter
     if (url) {
-      let sameState = this.lastHistoryState === state;
+      const sameState = this.lastHistoryState === state;
 
       // Normalize the inputted URL
       url = this.urlCodec.parse(url).href;
@@ -298,7 +298,7 @@ export class $locationShim {
   private getServerBase() {
     const {protocol, hostname, port} = this.platformLocation;
     const baseHref = this.locationStrategy.getBaseHref();
-    let url = `${protocol}//${hostname}${port ? ':' + port : ''}${baseHref || '/'}`;
+    const url = `${protocol}//${hostname}${port ? ':' + port : ''}${baseHref || '/'}`;
     return url.endsWith('/') ? url : url + '/';
   }
 
@@ -307,15 +307,15 @@ export class $locationShim {
       throw new Error(`Bad Path - URL cannot start with double slashes: ${url}`);
     }
 
-    let prefixed = (url.charAt(0) !== '/');
+    const prefixed = (url.charAt(0) !== '/');
     if (prefixed) {
       url = '/' + url;
     }
-    let match = this.urlCodec.parse(url, this.getServerBase());
+    const match = this.urlCodec.parse(url, this.getServerBase());
     if (typeof match === 'string') {
       throw new Error(`Bad URL - Cannot parse URL: ${url}`);
     }
-    let path =
+    const path =
         prefixed && match.pathname.charAt(0) === '/' ? match.pathname.substring(1) : match.pathname;
     this.$$path = this.urlCodec.decodePath(path);
     this.$$search = this.urlCodec.decodeSearch(match.search);
@@ -396,7 +396,7 @@ export class $locationShim {
       return true;
     }
     let rewrittenUrl;
-    let appUrl = this.stripBaseUrl(this.getServerBase(), url);
+    const appUrl = this.stripBaseUrl(this.getServerBase(), url);
     if (typeof appUrl !== 'undefined') {
       rewrittenUrl = this.getServerBase() + appUrl;
     } else if (this.getServerBase() === url + '/') {

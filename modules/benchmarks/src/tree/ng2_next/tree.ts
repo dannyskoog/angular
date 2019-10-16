@@ -20,7 +20,7 @@ export class TreeComponent {
   get bgColor() { return this.data.depth % 2 ? trustedEmptyColor : trustedGreyColor; }
 }
 
-let viewFlags = ViewFlags.None;
+const viewFlags = ViewFlags.None;
 
 function TreeComponent_Host(): ViewDefinition {
   return viewDef(viewFlags, [

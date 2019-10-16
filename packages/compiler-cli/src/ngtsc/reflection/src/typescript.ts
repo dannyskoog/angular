@@ -50,7 +50,7 @@ export class TypeScriptReflectionHost implements ReflectionHost {
       // It may or may not be possible to write an expression that refers to the value side of the
       // type named for the parameter.
 
-      let originalTypeNode = node.type || null;
+      const originalTypeNode = node.type || null;
       let typeNode = originalTypeNode;
 
       // Check if we are dealing with a simple nullable union type e.g. `foo: Foo|null`
@@ -58,7 +58,7 @@ export class TypeScriptReflectionHost implements ReflectionHost {
       // We also don't need to support `foo: Foo|undefined` because Angular's DI injects `null` for
       // optional tokes that don't have providers.
       if (typeNode && ts.isUnionTypeNode(typeNode)) {
-        let childTypeNodes = typeNode.types.filter(
+        const childTypeNodes = typeNode.types.filter(
             childTypeNode => childTypeNode.kind !== ts.SyntaxKind.NullKeyword);
 
         if (childTypeNodes.length === 1) {
@@ -145,7 +145,7 @@ export class TypeScriptReflectionHost implements ReflectionHost {
 
   getDeclarationOfIdentifier(id: ts.Identifier): Declaration|null {
     // Resolve the identifier to a Symbol, and return the declaration of that.
-    let symbol: ts.Symbol|undefined = this.checker.getSymbolAtLocation(id);
+    const symbol: ts.Symbol|undefined = this.checker.getSymbolAtLocation(id);
     if (symbol === undefined) {
       return null;
     }

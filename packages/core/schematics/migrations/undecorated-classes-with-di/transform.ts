@@ -121,7 +121,7 @@ export class UndecoratedClassesTransform {
     const orderedBaseClasses = findBaseClassDeclarations(node, this.typeChecker);
     const undecoratedBaseClasses: ts.ClassDeclaration[] = [];
 
-    for (let {node: baseClass, identifier} of orderedBaseClasses) {
+    for (const {node: baseClass, identifier} of orderedBaseClasses) {
       const baseClassFile = baseClass.getSourceFile();
 
       if (hasExplicitConstructor(baseClass)) {
@@ -242,7 +242,7 @@ export class UndecoratedClassesTransform {
     const orderedBaseClasses = findBaseClassDeclarations(node, this.typeChecker);
     let newDecoratorText: string|null = null;
 
-    for (let {node: baseClass, identifier} of orderedBaseClasses) {
+    for (const {node: baseClass, identifier} of orderedBaseClasses) {
       // Before looking for decorators within the metadata or summary files, we
       // try to determine the directive decorator through the source file AST.
       if (baseClass.decorators) {

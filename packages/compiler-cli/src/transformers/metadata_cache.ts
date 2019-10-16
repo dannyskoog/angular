@@ -29,7 +29,7 @@ export class MetadataCache implements MetadataProvider {
   constructor(
       private collector: MetadataCollector, private readonly strict: boolean,
       private transformers: MetadataTransformer[]) {
-    for (let transformer of transformers) {
+    for (const transformer of transformers) {
       if (transformer.connect) {
         transformer.connect(this);
       }
@@ -46,7 +46,7 @@ export class MetadataCache implements MetadataProvider {
     const declarationFile = sourceFile.isDeclarationFile;
     const moduleFile = ts.isExternalModule(sourceFile);
     if (!declarationFile && moduleFile) {
-      for (let transform of this.transformers) {
+      for (const transform of this.transformers) {
         const transformSubstitute = transform.start(sourceFile);
         if (transformSubstitute) {
           if (substitute) {

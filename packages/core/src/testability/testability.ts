@@ -133,7 +133,7 @@ export class Testability implements PublicTestability {
       // Schedules the call backs in a new frame so that it is always async.
       scheduleMicroTask(() => {
         while (this._callbacks.length !== 0) {
-          let cb = this._callbacks.pop() !;
+          const cb = this._callbacks.pop() !;
           clearTimeout(cb.timeoutId);
           cb.doneCb(this._didWork);
         }
@@ -141,7 +141,7 @@ export class Testability implements PublicTestability {
       });
     } else {
       // Still not stable, send updates.
-      let pending = this.getPendingTasks();
+      const pending = this.getPendingTasks();
       this._callbacks = this._callbacks.filter((cb) => {
         if (cb.updateCb && cb.updateCb(pending)) {
           clearTimeout(cb.timeoutId);

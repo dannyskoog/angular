@@ -340,7 +340,7 @@ class CompiledTemplate {
   compiled(viewClass: Function, rendererType: any) {
     this._viewClass = viewClass;
     (<ProxyClass>this.compMeta.componentViewType).setDelegate(viewClass);
-    for (let prop in rendererType) {
+    for (const prop in rendererType) {
       (<any>this.compMeta.rendererType)[prop] = rendererType[prop];
     }
     this.isCompiled = true;

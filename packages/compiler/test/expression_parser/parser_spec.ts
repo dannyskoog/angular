@@ -295,7 +295,7 @@ describe('parser', () => {
     });
 
     it('should allow space and colon as separators', () => {
-      let bindings = parseTemplateBindings('a', 'b');
+      const bindings = parseTemplateBindings('a', 'b');
       expect(keys(bindings)).toEqual(['a']);
       expect(exprSources(bindings)).toEqual(['b']);
     });

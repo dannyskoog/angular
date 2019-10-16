@@ -277,7 +277,7 @@ function parseKeyValue(keyValue: string): {[k: string]: unknown} {
 function toKeyValue(obj: {[k: string]: unknown}) {
   const parts: unknown[] = [];
   for (const key in obj) {
-    let value = obj[key];
+    const value = obj[key];
     if (Array.isArray(value)) {
       value.forEach((arrayValue) => {
         parts.push(

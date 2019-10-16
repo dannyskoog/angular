@@ -483,7 +483,7 @@ describe('ViewContainerRef', () => {
       fixture.nativeElement.childNodes[2].nodeValue = '**A**';
       expect(getElementHtml(fixture.nativeElement)).toEqual('<p vcref=""></p>**A**BC');
 
-      let viewRef = vcRefDir.vcref.get(0);
+      const viewRef = vcRefDir.vcref.get(0);
       vcRefDir.vcref.move(viewRef !, 2);
       fixture.detectChanges();
       expect(getElementHtml(fixture.nativeElement)).toEqual('<p vcref=""></p>BC**A**');

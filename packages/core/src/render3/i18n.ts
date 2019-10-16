@@ -404,7 +404,7 @@ function i18nStartFirstPass(
   const templateTranslation = getTranslationForTemplate(message, subTemplateIndex);
   const msgParts = replaceNgsp(templateTranslation).split(PH_REGEXP);
   for (let i = 0; i < msgParts.length; i++) {
-    let value = msgParts[i];
+    const value = msgParts[i];
     if (i & 1) {
       // Odd indexes are placeholders (elements and sub-templates)
       if (value.charAt(0) === '/') {

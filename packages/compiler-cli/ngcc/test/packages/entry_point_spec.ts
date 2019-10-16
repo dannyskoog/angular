@@ -178,7 +178,7 @@ runInEachFileSystem(() => {
       expect(entryPoint).toBe(null);
     });
 
-    for (let prop of SUPPORTED_FORMAT_PROPERTIES) {
+    for (const prop of SUPPORTED_FORMAT_PROPERTIES) {
       // Ignore the UMD format
       if (prop === 'main') continue;
       // Let's give 'module' a specific path, otherwise compute it based on the property.

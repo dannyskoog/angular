@@ -41,7 +41,7 @@ describe('renderer factory lifecycle', () => {
 
   /** Creates a patched renderer factory that pushes entries to the test log */
   function createPatchedRendererFactory(document: any) {
-    let rendererFactory = getRendererFactory2(document);
+    const rendererFactory = getRendererFactory2(document);
     const createRender = rendererFactory.createRenderer;
 
     rendererFactory.createRenderer = (hostElement: any, type: RendererType2 | null) => {
@@ -211,7 +211,7 @@ describe('custom renderer', () => {
    * Creates a patched renderer factory that creates elements with a shape different than DOM node
    */
   function createPatchedRendererFactory(document: any) {
-    let rendererFactory = getRendererFactory2(document);
+    const rendererFactory = getRendererFactory2(document);
     const origCreateRenderer = rendererFactory.createRenderer;
     rendererFactory.createRenderer = function(element: any, type: RendererType2|null) {
       const renderer = origCreateRenderer.call(this, element, type);

@@ -202,7 +202,7 @@ export class AnimationAstBuilderVisitor implements AnimationDslVisitor {
     context.currentAnimateTimings = timingAst;
 
     let styleAst: StyleAst|KeyframesAst;
-    let styleMetadata: AnimationMetadata = metadata.styles ? metadata.styles : style({});
+    const styleMetadata: AnimationMetadata = metadata.styles ? metadata.styles : style({});
     if (styleMetadata.type == AnimationMetadataType.Keyframes) {
       styleAst = this.visitKeyframes(styleMetadata as AnimationKeyframesSequenceMetadata, context);
     } else {
@@ -267,7 +267,7 @@ export class AnimationAstBuilderVisitor implements AnimationDslVisitor {
           delete styleMap['easing'];
         }
         if (!containsDynamicStyles) {
-          for (let prop in styleMap) {
+          for (const prop in styleMap) {
             const value = styleMap[prop];
             if (value.toString().indexOf(SUBSTITUTION_EXPR_START) >= 0) {
               containsDynamicStyles = true;
@@ -289,7 +289,7 @@ export class AnimationAstBuilderVisitor implements AnimationDslVisitor {
 
   private _validateStyleAst(ast: StyleAst, context: AnimationAstBuilderContext): void {
     const timings = context.currentAnimateTimings;
-    let endTime = context.currentTime;
+    const endTime = context.currentTime;
     let startTime = context.currentTime;
     if (timings && startTime > 0) {
       startTime -= timings.duration + timings.delay;
@@ -351,7 +351,7 @@ export class AnimationAstBuilderVisitor implements AnimationDslVisitor {
 
     const keyframes: StyleAst[] = metadata.steps.map(styles => {
       const style = this._makeStyleAst(styles, context);
-      let offsetVal: number|null =
+      const offsetVal: number|null =
           style.offset != null ? style.offset : consumeOffset(style.styles);
       let offset: number = 0;
       if (offsetVal != null) {

@@ -36,7 +36,7 @@ export function makeBundleProgram(
     options: ts.CompilerOptions, host: ts.CompilerHost,
     additionalFiles: AbsoluteFsPath[] = []): BundleProgram {
   const r3SymbolsPath = isCore ? findR3SymbolsPath(fs, dirname(path), r3FileName) : null;
-  let rootPaths =
+  const rootPaths =
       r3SymbolsPath ? [path, r3SymbolsPath, ...additionalFiles] : [path, ...additionalFiles];
 
   const originalGetExpandoInitializer = patchTsGetExpandoInitializer();

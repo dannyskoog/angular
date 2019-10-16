@@ -113,7 +113,7 @@ export function ɵɵtemplate(
 export function ɵɵcontainerRefreshStart(index: number): void {
   const lView = getLView();
   const tView = lView[TVIEW];
-  let previousOrParentTNode = load(tView.data, index) as TNode;
+  const previousOrParentTNode = load(tView.data, index) as TNode;
   ngDevMode && assertNodeType(previousOrParentTNode, TNodeType.Container);
   setPreviousOrParentTNode(previousOrParentTNode, true);
 

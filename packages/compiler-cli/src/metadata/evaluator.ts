@@ -231,8 +231,8 @@ export class Evaluator {
           return this.isFoldableWorker(elementAccessExpression.expression, folding) &&
               this.isFoldableWorker(elementAccessExpression.argumentExpression, folding);
         case ts.SyntaxKind.Identifier:
-          let identifier = <ts.Identifier>node;
-          let reference = this.symbols.resolve(identifier.text);
+          const identifier = <ts.Identifier>node;
+          const reference = this.symbols.resolve(identifier.text);
           if (reference !== undefined && isPrimitive(reference)) {
             return true;
           }
@@ -283,8 +283,8 @@ export class Evaluator {
 
     switch (node.kind) {
       case ts.SyntaxKind.ObjectLiteralExpression:
-        let obj: {[name: string]: any} = {};
-        let quoted: string[] = [];
+        const obj: {[name: string]: any} = {};
+        const quoted: string[] = [];
         ts.forEachChild(node, child => {
           switch (child.kind) {
             case ts.SyntaxKind.ShorthandPropertyAssignment:
@@ -318,7 +318,7 @@ export class Evaluator {
         }
         return recordEntry(obj, node);
       case ts.SyntaxKind.ArrayLiteralExpression:
-        let arr: MetadataValue[] = [];
+        const arr: MetadataValue[] = [];
         ts.forEachChild(node, child => {
           const value = this.evaluateNode(child, /* preferReference */ true);
 
@@ -343,7 +343,7 @@ export class Evaluator {
         if (error) return error;
         return recordEntry(arr, node);
       case spreadElementSyntaxKind:
-        let spreadExpression = this.evaluateNode((node as any).expression);
+        const spreadExpression = this.evaluateNode((node as any).expression);
         return recordEntry({__symbolic: 'spread', expression: spreadExpression}, node);
       case ts.SyntaxKind.CallExpression:
         const callExpression = <ts.CallExpression>node;
@@ -373,7 +373,7 @@ export class Evaluator {
         if (isFoldableError(expression)) {
           return recordEntry(expression, node);
         }
-        let result: MetadataSymbolicCallExpression = {__symbolic: 'call', expression: expression};
+        const result: MetadataSymbolicCallExpression = {__symbolic: 'call', expression: expression};
         if (args && args.length) {
           result.arguments = args;
         }

@@ -304,10 +304,10 @@ function applyProviderOverridesToNgModule(def: NgModuleDefinition): NgModuleDefi
       }
     }
     if (providerOverridesWithScope.size > 0) {
-      let moduleSet = new Set<any>(def.modules);
+      const moduleSet = new Set<any>(def.modules);
       providerOverridesWithScope.forEach((override, token) => {
         if (moduleSet.has(getInjectableDef(token) !.providedIn)) {
-          let provider = {
+          const provider = {
             token: token,
             flags:
                 override.flags | (hasDeprecatedOverrides ? NodeFlags.LazyProvider : NodeFlags.None),
@@ -448,7 +448,7 @@ function debugCheckAndUpdateNode(
         view.renderer.setValue(el, `bindings=${JSON.stringify(bindingValues, null, 2)}`);
       } else {
         // a regular element.
-        for (let attr in bindingValues) {
+        for (const attr in bindingValues) {
           const value = bindingValues[attr];
           if (value != null) {
             view.renderer.setAttribute(el, attr, value);
@@ -578,7 +578,7 @@ class DebugContext_ implements DebugContext {
     // to make the generated code as small as possible.
     const renderNodeIndex = getRenderNodeIndex(logViewDef, logNodeIndex);
     let currRenderNodeIndex = -1;
-    let nodeLogger: NodeLogger = () => {
+    const nodeLogger: NodeLogger = () => {
       currRenderNodeIndex++;
       if (currRenderNodeIndex === renderNodeIndex) {
         return console.error.bind(console, ...values);
@@ -616,7 +616,7 @@ function findHostElement(view: ViewData): ElementData|null {
 }
 
 function collectReferences(view: ViewData, nodeDef: NodeDef, references: {[key: string]: any}) {
-  for (let refName in nodeDef.references) {
+  for (const refName in nodeDef.references) {
     references[refName] = getQueryValue(view, nodeDef, nodeDef.references[refName]);
   }
 }

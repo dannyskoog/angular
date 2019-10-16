@@ -360,7 +360,7 @@ export function getOrCreateInjectable<T>(
       let previousTView: TView|null = null;
       let injectorIndex = getInjectorIndex(tNode, lView);
       let parentLocation: RelativeInjectorLocation = NO_PARENT_INJECTOR;
-      let hostTElementNode: TNode|null =
+      const hostTElementNode: TNode|null =
           flags & InjectFlags.Host ? findComponentView(lView)[T_HOST] : null;
 
       // If we should skip this injector, or if there is no injector on this node, start by

@@ -12,7 +12,7 @@
 const u = undefined;
 
 function plural(n: number): number {
-  let i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
+  const i = Math.floor(Math.abs(n)), v = n.toString().replace(/^[^.]*\.?/, '').length;
   if (v === 0 && i % 10 === 1 && !(i % 100 === 11)) return 1;
   if (v === 0 && i % 10 === Math.floor(i % 10) && i % 10 >= 2 && i % 10 <= 4 &&
       !(i % 100 >= 12 && i % 100 <= 14))

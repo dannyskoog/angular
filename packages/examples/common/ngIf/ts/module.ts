@@ -93,9 +93,9 @@ export class NgIfAs {
   lastIndex = 0;
 
   nextUser() {
-    let first = this.first[this.firstIndex++];
+    const first = this.first[this.firstIndex++];
     if (this.firstIndex >= this.first.length) this.firstIndex = 0;
-    let last = this.last[this.lastIndex++];
+    const last = this.last[this.lastIndex++];
     if (this.lastIndex >= this.last.length) this.lastIndex = 0;
     this.userObservable.next({first, last});
   }

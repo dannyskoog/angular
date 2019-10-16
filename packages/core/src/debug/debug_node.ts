@@ -539,7 +539,7 @@ function _queryNodeChildrenR3(
         (componentHost.projection as(TNode | null)[])[tNode.projection as number];
 
     if (Array.isArray(head)) {
-      for (let nativeNode of head) {
+      for (const nativeNode of head) {
         _addQueryMatchR3(nativeNode, predicate, matches, elementsOnly, rootNativeNode);
       }
     } else if (head) {
@@ -654,7 +654,7 @@ function _queryNativeNodeDescendants(
 function collectPropertyBindings(
     tNode: TNode, lView: LView, tData: TData): {[key: string]: string} {
   const properties: {[key: string]: string} = {};
-  let bindingIndexes = tNode.propertyBindings;
+  const bindingIndexes = tNode.propertyBindings;
 
   if (bindingIndexes !== null) {
     for (let i = 0; i < bindingIndexes.length; i++) {

@@ -391,7 +391,7 @@ export class ComponentDecoratorHandler implements
     // Check whether this component was registered with an NgModule. If so, it should be compiled
     // under that module's compilation scope.
     const scope = this.scopeReader.getScopeForComponent(node);
-    let metadata = analysis.meta;
+    const metadata = analysis.meta;
     if (scope !== null) {
       // Replace the empty components and directives from the analyze() step with a fully expanded
       // scope. This is possible now because during resolve() the whole compilation unit has been

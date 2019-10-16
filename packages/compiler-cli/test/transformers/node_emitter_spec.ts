@@ -562,9 +562,9 @@ const enum Format { Raw, Flat }
 
 function normalizeResult(result: string, format: Format): string {
   // Remove TypeScript prefixes
-  let res = result.replace('"use strict";', ' ')
-                .replace('exports.__esModule = true;', ' ')
-                .replace('Object.defineProperty(exports, "__esModule", { value: true });', ' ');
+  const res = result.replace('"use strict";', ' ')
+                  .replace('exports.__esModule = true;', ' ')
+                  .replace('Object.defineProperty(exports, "__esModule", { value: true });', ' ');
 
   // Remove new lines
   // Squish adjacent spaces

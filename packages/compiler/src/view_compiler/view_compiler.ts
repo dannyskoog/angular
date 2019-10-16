@@ -425,7 +425,7 @@ class ViewBuilder implements TemplateAstVisitor, LocalResolver {
       }
     });
 
-    let queryMatchExprs: o.Expression[] = [];
+    const queryMatchExprs: o.Expression[] = [];
     ast.queryMatches.forEach((match) => {
       let valueType: QueryValueType = undefined !;
       if (tokenReference(match.value) ===
@@ -633,8 +633,8 @@ class ViewBuilder implements TemplateAstVisitor, LocalResolver {
     providerExpr: o.Expression,
     depsExpr: o.Expression
   } {
-    let flags = NodeFlags.None;
-    let queryMatchExprs: o.Expression[] = [];
+    const flags = NodeFlags.None;
+    const queryMatchExprs: o.Expression[] = [];
 
     queryMatches.forEach((match) => {
       if (tokenReference(match.value) === tokenReference(providerAst.token)) {

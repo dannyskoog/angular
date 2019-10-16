@@ -86,7 +86,7 @@ export class CssKeyframesDriver implements AnimationDriver {
 
     if (allowPreviousPlayerStylesMerge(duration, delay)) {
       previousCssKeyframePlayers.forEach(player => {
-        let styles = player.currentSnapshot;
+        const styles = player.currentSnapshot;
         Object.keys(styles).forEach(prop => previousStyles[prop] = styles[prop]);
       });
     }
@@ -126,7 +126,7 @@ export class CssKeyframesDriver implements AnimationDriver {
 
 function flattenKeyframesIntoStyles(
     keyframes: null | {[key: string]: any} | {[key: string]: any}[]): {[key: string]: any} {
-  let flatKeyframes: {[key: string]: any} = {};
+  const flatKeyframes: {[key: string]: any} = {};
   if (keyframes) {
     const kfs = Array.isArray(keyframes) ? keyframes : [keyframes];
     kfs.forEach(kf => {

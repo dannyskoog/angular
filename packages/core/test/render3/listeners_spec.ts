@@ -29,7 +29,7 @@ describe('event listeners', () => {
 
     static ɵfac =
         () => {
-          let comp = new MyComp();
+          const comp = new MyComp();
           comps.push(comp);
           return comp;
         }
@@ -62,7 +62,7 @@ describe('event listeners', () => {
 
     static ɵfac =
         () => {
-          let comp = new MyCompWithGlobalListeners();
+          const comp = new MyCompWithGlobalListeners();
           comps.push(comp);
           return comp;
         }
@@ -293,7 +293,7 @@ describe('event listeners', () => {
       }
     }
 
-    let comp = new MyComp();
+    const comp = new MyComp();
     renderToHtml(Template, comp, 1);
     const button = containerEl.querySelector('button') !;
 
@@ -522,7 +522,7 @@ describe('event listeners', () => {
   });
 
   it('should support host listeners on components', () => {
-    let events: string[] = [];
+    const events: string[] = [];
     class MyComp {
       /* @HostListener('click') */
       onClick() { events.push('click!'); }
@@ -572,7 +572,7 @@ describe('event listeners', () => {
   });
 
   it('should support host listeners on directives', () => {
-    let events: string[] = [];
+    const events: string[] = [];
 
     class HostListenerDir {
       /* @HostListener('click') */
@@ -679,7 +679,7 @@ describe('event listeners', () => {
         ɵɵcontainerRefreshStart(0);
         {
           if (ctx.showing) {
-            let rf1 = ɵɵembeddedViewStart(0, 2, 0);
+            const rf1 = ɵɵembeddedViewStart(0, 2, 0);
             if (rf1 & RenderFlags.Create) {
               ɵɵtext(0, 'Hello');
               ɵɵcontainer(1);
@@ -688,7 +688,7 @@ describe('event listeners', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 if (ctx.button) {
-                  let rf1 = ɵɵembeddedViewStart(0, 2, 0);
+                  const rf1 = ɵɵembeddedViewStart(0, 2, 0);
                   if (rf1 & RenderFlags.Create) {
                     ɵɵelementStart(0, 'button');
                     {
@@ -743,7 +743,7 @@ describe('event listeners', () => {
         ɵɵcontainerRefreshStart(0);
         {
           if (ctx.showing) {
-            let rf1 = ɵɵembeddedViewStart(0, 3, 0);
+            const rf1 = ɵɵembeddedViewStart(0, 3, 0);
             if (rf1 & RenderFlags.Create) {
               ɵɵtext(0, 'Hello');
               ɵɵelement(1, 'comp');
@@ -784,7 +784,7 @@ describe('event listeners', () => {
           ɵɵcontainerRefreshStart(0);
           {
             if (ctx.showing) {
-              let rf1 = ɵɵembeddedViewStart(0, 1, 0);
+              const rf1 = ɵɵembeddedViewStart(0, 1, 0);
               if (rf1 & RenderFlags.Create) {
                 ɵɵelement(0, 'comp');
               }
@@ -830,7 +830,7 @@ describe('event listeners', () => {
         ɵɵcontainerRefreshStart(0);
         {
           if (ctx.condition) {
-            let rf1 = ɵɵembeddedViewStart(0, 3, 0);
+            const rf1 = ɵɵembeddedViewStart(0, 3, 0);
             if (rf1 & RenderFlags.Create) {
               ɵɵtext(0, 'Hello');
               ɵɵcontainer(1);
@@ -840,7 +840,7 @@ describe('event listeners', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 if (ctx.sub1) {
-                  let rf1 = ɵɵembeddedViewStart(0, 2, 0);
+                  const rf1 = ɵɵembeddedViewStart(0, 2, 0);
                   if (rf1 & RenderFlags.Create) {
                     ɵɵelementStart(0, 'button');
                     {
@@ -856,7 +856,7 @@ describe('event listeners', () => {
               ɵɵcontainerRefreshStart(2);
               {
                 if (ctx.sub2) {
-                  let rf1 = ɵɵembeddedViewStart(0, 2, 0);
+                  const rf1 = ɵɵembeddedViewStart(0, 2, 0);
                   if (rf1 & RenderFlags.Create) {
                     ɵɵelementStart(0, 'button');
                     {

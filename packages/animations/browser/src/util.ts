@@ -78,7 +78,7 @@ function parseTimeExpression(
 
   if (!allowNegativeValues) {
     let containsErrors = false;
-    let startIndex = errors.length;
+    const startIndex = errors.length;
     if (duration < 0) {
       errors.push(`Duration values below 0 are not allowed for this animation step.`);
       containsErrors = true;
@@ -117,7 +117,7 @@ export function copyStyles(
     // we make use of a for-in loop so that the
     // prototypically inherited properties are
     // revealed from the backFill map
-    for (let prop in styles) {
+    for (const prop in styles) {
       destination[prop] = styles[prop];
     }
   } else {
@@ -212,7 +212,7 @@ export function validateStyleParams(
 const PARAM_REGEX =
     new RegExp(`${SUBSTITUTION_EXPR_START}\\s*(.+?)\\s*${SUBSTITUTION_EXPR_END}`, 'g');
 export function extractStyleParams(value: string | number): string[] {
-  let params: string[] = [];
+  const params: string[] = [];
   if (typeof value === 'string') {
     let match: any;
     while (match = PARAM_REGEX.exec(value)) {
@@ -284,8 +284,8 @@ export function balancePreviousStylesIntoKeyframes(
     element: any, keyframes: {[key: string]: any}[], previousStyles: {[key: string]: any}) {
   const previousStyleProps = Object.keys(previousStyles);
   if (previousStyleProps.length && keyframes.length) {
-    let startingKeyframe = keyframes[0];
-    let missingStyleProps: string[] = [];
+    const startingKeyframe = keyframes[0];
+    const missingStyleProps: string[] = [];
     previousStyleProps.forEach(prop => {
       if (!startingKeyframe.hasOwnProperty(prop)) {
         missingStyleProps.push(prop);
@@ -296,7 +296,7 @@ export function balancePreviousStylesIntoKeyframes(
     if (missingStyleProps.length) {
       // tslint:disable-next-line
       for (var i = 1; i < keyframes.length; i++) {
-        let kf = keyframes[i];
+        const kf = keyframes[i];
         missingStyleProps.forEach(function(prop) { kf[prop] = computeStyle(element, prop); });
       }
     }

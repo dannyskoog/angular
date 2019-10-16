@@ -916,7 +916,7 @@ describe('providers', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 for (let i = 0; i < 3; i++) {
-                  let rf1 = ɵɵembeddedViewStart(1, 1, 0);
+                  const rf1 = ɵɵembeddedViewStart(1, 1, 0);
                   {
                     if (rf1 & RenderFlags.Create) {
                       ɵɵelement(0, 'repeated');
@@ -1005,7 +1005,7 @@ describe('providers', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 for (let i = 0; i < 3; i++) {
-                  let rf1 = ɵɵembeddedViewStart(1, 1, 0);
+                  const rf1 = ɵɵembeddedViewStart(1, 1, 0);
                   {
                     if (rf1 & RenderFlags.Create) {
                       ɵɵelement(0, 'repeated');
@@ -1382,7 +1382,7 @@ describe('providers', () => {
               ɵɵcontainerRefreshStart(1);
               {
                 if (ctx.condition) {
-                  let rf1 = ɵɵembeddedViewStart(1, 2, 1);
+                  const rf1 = ɵɵembeddedViewStart(1, 2, 1);
                   {
                     if (rf1 & RenderFlags.Create) {
                       ɵɵelement(0, 'my-comp');

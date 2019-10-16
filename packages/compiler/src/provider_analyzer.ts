@@ -75,7 +75,7 @@ export class ProviderElementContext {
       this._addQueryReadsTo(templateRefId, templateRefId, this._queriedTokens);
     }
     refs.forEach((refAst) => {
-      let defaultQueryValue = refAst.value ||
+      const defaultQueryValue = refAst.value ||
           createTokenForExternalReference(this.viewContext.reflector, Identifiers.ElementRef);
       this._addQueryReadsTo({value: refAst.name}, defaultQueryValue, this._queriedTokens);
     });

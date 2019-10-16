@@ -67,7 +67,7 @@ function wrapOnChanges() {
       } else {
         // New changes are copied to the previous store, so that we don't lose history for inputs
         // which were not changed this time
-        for (let key in current) {
+        for (const key in current) {
           previous[key] = current[key];
         }
       }

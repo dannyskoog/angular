@@ -179,7 +179,7 @@ import {TestBed} from '../../testing';
       cmp.myAnimationExp = 'goSteps';
       fixture.detectChanges();
 
-      let kfElm = findStyleObjectWithKeyframes();
+      const kfElm = findStyleObjectWithKeyframes();
       const [r1, r2] = kfElm.sheet.cssRules[0].cssRules;
       assertEasing(r1, 'ease-out');
       assertEasing(r2, '');

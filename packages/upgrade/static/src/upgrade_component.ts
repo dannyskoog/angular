@@ -256,7 +256,7 @@ export class UpgradeComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
             bindings.propertyToOutputMap[propName] = propName;
             break;
           default:
-            let json = JSON.stringify(context);
+            const json = JSON.stringify(context);
             throw new Error(
                 `Unexpected mapping '${bindingType}' in '${json}' in '${this.name}' directive.`);
         }

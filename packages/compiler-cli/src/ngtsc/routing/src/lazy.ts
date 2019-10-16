@@ -128,7 +128,7 @@ function scanForLazyRoutes(routes: ResolvedValue[]): string[] {
   const loadChildrenIdentifiers: string[] = [];
 
   function recursivelyScanRoutes(routes: ResolvedValue[]): void {
-    for (let route of routes) {
+    for (const route of routes) {
       if (!(route instanceof Map)) {
         continue;
       }

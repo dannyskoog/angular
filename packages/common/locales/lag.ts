@@ -12,7 +12,7 @@
 const u = undefined;
 
 function plural(n: number): number {
-  let i = Math.floor(Math.abs(n));
+  const i = Math.floor(Math.abs(n));
   if (n === 0) return 0;
   if ((i === 0 || i === 1) && !(n === 0)) return 1;
   return 5;

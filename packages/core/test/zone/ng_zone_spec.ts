@@ -184,8 +184,8 @@ function runNgZoneNoLog(fn: () => any) {
 
     it('should run with this context and arguments', () => {
       let runs = false;
-      let applyThisArray: any[] = [];
-      let applyArgsArray: any[] = [];
+      const applyThisArray: any[] = [];
+      const applyArgsArray: any[] = [];
       const testContext = {};
       const testArgs = ['args'];
       ngZone.run(function(this: any, arg: any) {

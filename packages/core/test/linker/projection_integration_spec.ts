@@ -615,7 +615,7 @@ describe('projection', () => {
        main.detectChanges();
        expect(main.nativeElement).toHaveText('()');
 
-       let viewportElement =
+       const viewportElement =
            main.debugElement.queryAllNodes(By.directive(ManualViewportDirective))[0];
        viewportElement.injector.get(ManualViewportDirective).show();
        expect(main.nativeElement).toHaveText('(A)');
@@ -646,7 +646,8 @@ describe('projection', () => {
     main.detectChanges();
     expect(main.nativeElement).toHaveText('B()');
 
-    let viewportElement = main.debugElement.queryAllNodes(By.directive(ManualViewportDirective))[0];
+    const viewportElement =
+        main.debugElement.queryAllNodes(By.directive(ManualViewportDirective))[0];
     viewportElement.injector.get(ManualViewportDirective).show();
     expect(main.nativeElement).toHaveText('B(A)');
   });

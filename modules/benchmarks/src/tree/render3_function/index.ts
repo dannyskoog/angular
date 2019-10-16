@@ -54,7 +54,7 @@ export function TreeTpl(rf: ɵRenderFlags, ctx: TreeNode) {
     ɵɵcontainerRefreshStart(3);
     {
       if (ctx.left != null) {
-        let rf0 = ɵɵembeddedViewStart(0, 5, 1);
+        const rf0 = ɵɵembeddedViewStart(0, 5, 1);
         { TreeTpl(rf0, ctx.left); }
         ɵɵembeddedViewEnd();
       }
@@ -63,7 +63,7 @@ export function TreeTpl(rf: ɵRenderFlags, ctx: TreeNode) {
     ɵɵcontainerRefreshStart(4);
     {
       if (ctx.right != null) {
-        let rf0 = ɵɵembeddedViewStart(0, 5, 1);
+        const rf0 = ɵɵembeddedViewStart(0, 5, 1);
         { TreeTpl(rf0, ctx.right); }
         ɵɵembeddedViewEnd();
       }

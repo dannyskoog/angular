@@ -468,7 +468,7 @@ function createDirectiveSelector(selector: string | null): o.Expression {
 function convertAttributesToExpressions(attributes: {[name: string]: o.Expression}):
     o.Expression[] {
   const values: o.Expression[] = [];
-  for (let key of Object.getOwnPropertyNames(attributes)) {
+  for (const key of Object.getOwnPropertyNames(attributes)) {
     const value = attributes[key];
     values.push(o.literal(key), value);
   }
@@ -794,7 +794,7 @@ function getBindingNameAndInstruction(binding: ParsedProperty):
 
 function createHostListeners(eventBindings: ParsedEvent[], name?: string): o.Statement[] {
   return eventBindings.map(binding => {
-    let bindingName = binding.name && sanitizeIdentifier(binding.name);
+    const bindingName = binding.name && sanitizeIdentifier(binding.name);
     const bindingFnName = binding.type === ParsedEventType.Animation ?
         prepareSyntheticListenerFunctionName(bindingName, binding.targetOrPhase) :
         bindingName;

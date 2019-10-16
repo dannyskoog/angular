@@ -16,7 +16,7 @@ import {TemplateFixture, document, renderToHtml} from './render_util';
 
 describe('renderer factory lifecycle', () => {
   let logs: string[] = [];
-  let rendererFactory = getRendererFactory2(document);
+  const rendererFactory = getRendererFactory2(document);
   const createRender = rendererFactory.createRenderer;
   rendererFactory.createRenderer = (hostElement: any, type: RendererType2 | null) => {
     logs.push('create');
@@ -123,7 +123,7 @@ describe('Renderer2 destruction hooks', () => {
       ɵɵcontainerRefreshStart(1);
       {
         if (condition) {
-          let rf1 = ɵɵembeddedViewStart(1, 3, 0);
+          const rf1 = ɵɵembeddedViewStart(1, 3, 0);
           {
             if (rf1 & RenderFlags.Create) {
               ɵɵelement(0, 'span');
@@ -177,7 +177,7 @@ describe('Renderer2 destruction hooks', () => {
       ɵɵcontainerRefreshStart(1);
       {
         if (condition) {
-          let rf1 = ɵɵembeddedViewStart(1, 3, 0);
+          const rf1 = ɵɵembeddedViewStart(1, 3, 0);
           {
             if (rf1 & RenderFlags.Create) {
               ɵɵelement(0, 'simple');

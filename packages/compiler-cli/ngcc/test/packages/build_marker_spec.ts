@@ -133,7 +133,7 @@ runInEachFileSystem(() => {
         const fs = getFileSystem();
         const pkgUpdater = new DirectPackageJsonUpdater(fs);
         const writeFileSpy = spyOn(fs, 'writeFile');
-        let pkg = JSON.parse(fs.readFile(COMMON_PACKAGE_PATH));
+        const pkg = JSON.parse(fs.readFile(COMMON_PACKAGE_PATH));
 
         markAsProcessed(
             pkgUpdater, pkg, COMMON_PACKAGE_PATH, ['fesm2015', 'fesm5', 'esm2015', 'esm5']);

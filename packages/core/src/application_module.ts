@@ -89,7 +89,7 @@ export const APPLICATION_MODULE_PROVIDERS: StaticProvider[] = [
  * @param ngZone NgZone to use for scheduling.
  */
 export function zoneSchedulerFactory(ngZone: NgZone): (fn: () => void) => void {
-  let queue: (() => void)[] = [];
+  const queue: (() => void)[] = [];
   ngZone.onStable.subscribe(() => {
     while (queue.length) {
       queue.pop() !();

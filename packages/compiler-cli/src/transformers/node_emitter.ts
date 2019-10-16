@@ -301,7 +301,7 @@ export class NodeEmitterVisitor implements StatementVisitor, ExpressionVisitor {
   }
 
   private getModifiers(stmt: Statement) {
-    let modifiers: ts.Modifier[] = [];
+    const modifiers: ts.Modifier[] = [];
     if (stmt.hasModifier(StmtModifier.Exported)) {
       modifiers.push(ts.createToken(ts.SyntaxKind.ExportKeyword));
     }

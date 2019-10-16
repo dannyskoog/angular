@@ -105,7 +105,7 @@ import {HostListener} from '../../src/metadata/directives';
         cmp.exp0 = 'go';
         fixture.detectChanges();
 
-        let players = getLog();
+        const players = getLog();
         expect(players.length).toEqual(3);  // a,b,c
         resetLog();
 
@@ -909,7 +909,7 @@ import {HostListener} from '../../src/metadata/directives';
            expect(children.length).toEqual(5);
 
            for (let i = 0; i < children.length; i++) {
-             let child = children[i];
+             const child = children[i];
              expect(child.classList.contains(ENTER_CLASSNAME)).toBe(false);
              expect(child.classList.contains(LEAVE_CLASSNAME)).toBe(false);
            }
@@ -1071,14 +1071,14 @@ import {HostListener} from '../../src/metadata/directives';
         expect(players.length).toEqual(5);
 
         for (let i = 0; i < 5; i++) {
-          let player = players[i] !;
+          const player = players[i] !;
           expect(player.keyframes).toEqual([
             {opacity: '0', offset: 0},
             {opacity: '1', offset: 1},
           ]);
 
-          let elm = player.element;
-          let text = i % 2 == 0 ? `even ${i}` : `odd ${i}`;
+          const elm = player.element;
+          const text = i % 2 == 0 ? `even ${i}` : `odd ${i}`;
           expect(elm.innerText.trim()).toEqual(text);
         }
 
@@ -1091,14 +1091,14 @@ import {HostListener} from '../../src/metadata/directives';
         expect(players.length).toEqual(5);
 
         for (let i = 0; i < 5; i++) {
-          let player = players[i] !;
+          const player = players[i] !;
           expect(player.keyframes).toEqual([
             {opacity: '1', offset: 0},
             {opacity: '0', offset: 1},
           ]);
 
-          let elm = player.element;
-          let text = i % 2 == 0 ? `even ${i}` : `odd ${i}`;
+          const elm = player.element;
+          const text = i % 2 == 0 ? `even ${i}` : `odd ${i}`;
           expect(elm.innerText.trim()).toEqual(text);
         }
       });
@@ -2371,7 +2371,7 @@ import {HostListener} from '../../src/metadata/directives';
            cmp.exp = false;
            fixture.detectChanges();
 
-           let players = getLog();
+           const players = getLog();
            expect(players.length).toEqual(1);
            const [player] = players;
 

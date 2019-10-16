@@ -22,7 +22,7 @@ export class SimpleDomEventsPlugin extends EventManagerPlugin {
   supports(eventName: string): boolean { return true; }
 
   addEventListener(element: HTMLElement, eventName: string, handler: Function): Function {
-    let callback: EventListener = handler as EventListener;
+    const callback: EventListener = handler as EventListener;
     element.addEventListener(eventName, callback, false);
     return () => this.removeEventListener(element, eventName, callback);
   }

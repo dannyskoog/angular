@@ -90,7 +90,7 @@ export function createBenchmark(benchmarkName: string): Benchmark {
       time = time * 1000;
       unitOffset++;
     }
-    let unit: string = UNITS[unitOffset];
+    const unit: string = UNITS[unitOffset];
     (fn || console.log)(`Benchmark: ${benchmarkName}\n${profiles.map((profile: Profile) => {
       const time = (profile.bestTime * Math.pow(1000, unitOffset)).toFixed(3);
       const percent = (100 - profile.bestTime / fastest.bestTime * 100).toFixed(0);

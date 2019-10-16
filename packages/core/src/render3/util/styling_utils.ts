@@ -333,7 +333,7 @@ export function stylingMapToString(map: StylingMapArray, isClassBased: boolean):
  * Converts the provided styling map array into a key value map.
  */
 export function stylingMapToStringMap(map: StylingMapArray | null): {[key: string]: any} {
-  let stringMap: {[key: string]: any} = {};
+  const stringMap: {[key: string]: any} = {};
   if (map) {
     for (let i = StylingMapArrayIndex.ValuesStartPosition; i < map.length;
          i += StylingMapArrayIndex.TupleSize) {

@@ -342,7 +342,7 @@ export class IvyCompilation {
 
     const ivyClass = this.ivyClasses.get(original) !;
 
-    let res: CompileResult[] = [];
+    const res: CompileResult[] = [];
 
     for (const match of ivyClass.matchedHandlers) {
       if (match.analyzed === null || match.analyzed.analysis === undefined) {

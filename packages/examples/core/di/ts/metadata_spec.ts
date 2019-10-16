@@ -78,7 +78,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
           constructor(@Self() public dependency: Dependency) {}
         }
 
-        let inj = Injector.create({
+        const inj = Injector.create({
           providers: [
             {provide: Dependency, deps: []},
             {provide: NeedsDependency, deps: [[new Self(), Dependency]]}

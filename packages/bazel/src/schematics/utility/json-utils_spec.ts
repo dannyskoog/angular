@@ -87,7 +87,7 @@ describe('JsonUtils', () => {
       const content = JSON.stringify({foo: 'bar'});
       tree.create('tmp', content);
       const ast = parseJsonAst(content) as JsonAstObject;
-      let recorder = tree.beginUpdate('tmp');
+      const recorder = tree.beginUpdate('tmp');
       expect(() => removeKeyValueInAstObject(recorder, content, ast, 'hello')).not.toThrow();
       tree.commitUpdate(recorder);
       const value = tree.readContent('tmp');

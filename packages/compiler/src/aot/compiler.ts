@@ -281,7 +281,7 @@ export class AotCompiler {
 
   private _externalIdentifierReferences(references: o.ExternalReference[]): StaticSymbol[] {
     const result: StaticSymbol[] = [];
-    for (let reference of references) {
+    for (const reference of references) {
       const token = createTokenForExternalReference(this.reflector, reference);
       if (token.identifier) {
         result.push(token.identifier.reference);
@@ -597,13 +597,13 @@ export class AotCompiler {
             .viewClassVar;
     const compFactoryVar = componentFactoryName(compMeta.type.reference);
     const inputsExprs: o.LiteralMapEntry[] = [];
-    for (let propName in compMeta.inputs) {
+    for (const propName in compMeta.inputs) {
       const templateName = compMeta.inputs[propName];
       // Don't quote so that the key gets minified...
       inputsExprs.push(new o.LiteralMapEntry(propName, o.literal(templateName), false));
     }
     const outputsExprs: o.LiteralMapEntry[] = [];
-    for (let propName in compMeta.outputs) {
+    for (const propName in compMeta.outputs) {
       const templateName = compMeta.outputs[propName];
       // Don't quote so that the key gets minified...
       outputsExprs.push(new o.LiteralMapEntry(propName, o.literal(templateName), false));

@@ -151,13 +151,13 @@ if (require.main === module) {
   const acceptingNewGold = (args[0] === '--accept');
 
   if (acceptingNewGold) {
-    for (let p of packagesToTest) {
+    for (const p of packagesToTest) {
       acceptNewPackageGold(p);
     }
   }
 } else {
   describe('Comparing test packages to golds', () => {
-    for (let p of packagesToTest) {
+    for (const p of packagesToTest) {
       runPackageGoldTest(p);
     }
   });

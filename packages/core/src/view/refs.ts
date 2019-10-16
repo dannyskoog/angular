@@ -62,7 +62,7 @@ class ComponentFactory_ extends ComponentFactory<any> {
   get inputs() {
     const inputsArr: {propName: string, templateName: string}[] = [];
     const inputs = this._inputs !;
-    for (let propName in inputs) {
+    for (const propName in inputs) {
       const templateName = inputs[propName];
       inputsArr.push({propName, templateName});
     }
@@ -71,7 +71,7 @@ class ComponentFactory_ extends ComponentFactory<any> {
 
   get outputs() {
     const outputsArr: {propName: string, templateName: string}[] = [];
-    for (let propName in this._outputs) {
+    for (const propName in this._outputs) {
       const templateName = this._outputs[propName];
       outputsArr.push({propName, templateName});
     }

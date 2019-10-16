@@ -1208,7 +1208,7 @@ onlyInIvy('Ivy i18n logic').describe('runtime i18n', () => {
   });
 
   it('should work with directives and host bindings', () => {
-    let directiveInstances: ClsDir[] = [];
+    const directiveInstances: ClsDir[] = [];
 
     @Directive({selector: '[test]'})
     class ClsDir {

@@ -9,7 +9,7 @@
 import {MockDirectory, compile, expectNoDiagnostics, setup} from './test_util';
 
 describe('regressions', () => {
-  let angularFiles = setup();
+  const angularFiles = setup();
 
   it('should compile components with empty templates', () => {
     const appDir = {

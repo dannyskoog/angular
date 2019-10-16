@@ -761,7 +761,7 @@ function expandedMessage(error: any): string {
       }
       break;
     case 'Function call not supported':
-      let prefix =
+      const prefix =
           error.context && error.context.name ? `Calling function '${error.context.name}', f` : 'F';
       return prefix +
           'unction calls are not supported. Consider replacing the function or lambda with a reference to an exported function';

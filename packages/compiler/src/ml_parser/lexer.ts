@@ -470,7 +470,7 @@ class _Tokenizer {
     let tagName: string;
     let prefix: string;
     let openTagToken: Token|undefined;
-    let tokensBeforeTagOpen = this.tokens.length;
+    const tokensBeforeTagOpen = this.tokens.length;
     const innerStart = this._cursor.clone();
     try {
       if (!chars.isAsciiLetter(this._cursor.peek())) {

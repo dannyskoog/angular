@@ -375,8 +375,8 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
     if (isRoot && isResolved && !isEmitted && !isSingleI18nIcu(meta)) {
       context.isEmitted = true;
       const placeholders = context.getSerializedPlaceholders();
-      let icuMapping: {[name: string]: o.Expression} = {};
-      let params: {[name: string]: o.Expression} =
+      const icuMapping: {[name: string]: o.Expression} = {};
+      const params: {[name: string]: o.Expression} =
           placeholders.size ? placeholdersToParams(placeholders) : {};
       if (icus.size) {
         icus.forEach((refs: o.Expression[], key: string) => {

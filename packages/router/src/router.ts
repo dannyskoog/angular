@@ -806,7 +806,7 @@ export class Router {
     // run into ngZone
     if (!this.locationSubscription) {
       this.locationSubscription = <any>this.location.subscribe((change: any) => {
-        let rawUrlTree = this.parseUrl(change['url']);
+        const rawUrlTree = this.parseUrl(change['url']);
         const source: NavigationTrigger = change['type'] === 'popstate' ? 'popstate' : 'hashchange';
         // Navigations coming from Angular router have a navigationId state property. When this
         // exists, restore the state.
